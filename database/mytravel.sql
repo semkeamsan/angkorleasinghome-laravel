@@ -12,14 +12,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Dumping database structure for mytravel
-DROP DATABASE IF EXISTS `mytravel`;
-CREATE DATABASE IF NOT EXISTS `mytravel` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `mytravel`;
-
 -- Dumping structure for table mytravel.bc_airline
-DROP TABLE IF EXISTS `bc_airline`;
 CREATE TABLE IF NOT EXISTS `bc_airline` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -58,7 +51,6 @@ INSERT INTO `bc_airline` (`id`, `name`, `image_id`, `create_user`, `update_user`
 /*!40000 ALTER TABLE `bc_airline` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_airport
-DROP TABLE IF EXISTS `bc_airport`;
 CREATE TABLE IF NOT EXISTS `bc_airport` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -104,7 +96,6 @@ INSERT INTO `bc_airport` (`id`, `name`, `code`, `address`, `location_id`, `descr
 /*!40000 ALTER TABLE `bc_airport` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_attrs
-DROP TABLE IF EXISTS `bc_attrs`;
 CREATE TABLE IF NOT EXISTS `bc_attrs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -141,7 +132,6 @@ INSERT INTO `bc_attrs` (`id`, `name`, `slug`, `service`, `create_user`, `update_
 /*!40000 ALTER TABLE `bc_attrs` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_attrs_translations
-DROP TABLE IF EXISTS `bc_attrs_translations`;
 CREATE TABLE IF NOT EXISTS `bc_attrs_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -160,7 +150,6 @@ CREATE TABLE IF NOT EXISTS `bc_attrs_translations` (
 /*!40000 ALTER TABLE `bc_attrs_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_bookings
-DROP TABLE IF EXISTS `bc_bookings`;
 CREATE TABLE IF NOT EXISTS `bc_bookings` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -212,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `bc_bookings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_bookings: ~0 rows (approximately)
+-- Dumping data for table mytravel.bc_bookings: ~2 rows (approximately)
 /*!40000 ALTER TABLE `bc_bookings` DISABLE KEYS */;
 INSERT INTO `bc_bookings` (`id`, `code`, `vendor_id`, `customer_id`, `payment_id`, `gateway`, `object_id`, `object_model`, `start_date`, `end_date`, `total`, `total_guests`, `currency`, `status`, `deposit`, `deposit_type`, `commission`, `commission_type`, `email`, `first_name`, `last_name`, `phone`, `address`, `address2`, `city`, `state`, `zip_code`, `country`, `customer_notes`, `create_user`, `update_user`, `deleted_at`, `created_at`, `updated_at`, `buyer_fees`, `total_before_fees`, `paid_vendor`, `object_child_id`, `number`, `paid`, `pay_now`, `wallet_credit_used`, `wallet_total_used`, `wallet_transaction_id`, `is_refund_wallet`, `vendor_service_fee_amount`, `vendor_service_fee`) VALUES
 	(1, '9034c94a84e40a8112c2c6a718d782ad', 1, 3, NULL, 'offline_payment', 26, 'hotel', '2021-12-01 00:00:00', '2021-12-08 00:00:00', 7650.00, 2, NULL, 'processing', NULL, NULL, 765.00, '{"amount":"10","type":"percent"}', 'customer1@dev.com', 'Customer', '01', '112 666 888', NULL, NULL, NULL, NULL, NULL, 'KH', NULL, 3, 3, NULL, '2021-12-08 05:00:03', '2021-12-08 05:00:49', '', 7650.00, NULL, NULL, NULL, NULL, 7650.00, 0, 0, NULL, NULL, 0.00, '""'),
@@ -220,7 +209,6 @@ INSERT INTO `bc_bookings` (`id`, `code`, `vendor_id`, `customer_id`, `payment_id
 /*!40000 ALTER TABLE `bc_bookings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_booking_meta
-DROP TABLE IF EXISTS `bc_booking_meta`;
 CREATE TABLE IF NOT EXISTS `bc_booking_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `booking_id` int DEFAULT NULL,
@@ -233,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `bc_booking_meta` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_booking_meta: ~0 rows (approximately)
+-- Dumping data for table mytravel.bc_booking_meta: ~18 rows (approximately)
 /*!40000 ALTER TABLE `bc_booking_meta` DISABLE KEYS */;
 INSERT INTO `bc_booking_meta` (`id`, `booking_id`, `name`, `val`, `create_user`, `update_user`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'duration', NULL, NULL, NULL, NULL, NULL),
@@ -257,7 +245,6 @@ INSERT INTO `bc_booking_meta` (`id`, `booking_id`, `name`, `val`, `create_user`,
 /*!40000 ALTER TABLE `bc_booking_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_booking_payments
-DROP TABLE IF EXISTS `bc_booking_payments`;
 CREATE TABLE IF NOT EXISTS `bc_booking_payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `booking_id` int DEFAULT NULL,
@@ -287,7 +274,6 @@ CREATE TABLE IF NOT EXISTS `bc_booking_payments` (
 /*!40000 ALTER TABLE `bc_booking_payments` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_booking_time_slots
-DROP TABLE IF EXISTS `bc_booking_time_slots`;
 CREATE TABLE IF NOT EXISTS `bc_booking_time_slots` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `booking_id` int DEFAULT NULL,
@@ -309,7 +295,6 @@ CREATE TABLE IF NOT EXISTS `bc_booking_time_slots` (
 /*!40000 ALTER TABLE `bc_booking_time_slots` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_cars
-DROP TABLE IF EXISTS `bc_cars`;
 CREATE TABLE IF NOT EXISTS `bc_cars` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -374,7 +359,6 @@ INSERT INTO `bc_cars` (`id`, `title`, `slug`, `content`, `image_id`, `banner_ima
 /*!40000 ALTER TABLE `bc_cars` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_car_dates
-DROP TABLE IF EXISTS `bc_car_dates`;
 CREATE TABLE IF NOT EXISTS `bc_car_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -398,7 +382,6 @@ CREATE TABLE IF NOT EXISTS `bc_car_dates` (
 /*!40000 ALTER TABLE `bc_car_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_car_term
-DROP TABLE IF EXISTS `bc_car_term`;
 CREATE TABLE IF NOT EXISTS `bc_car_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -562,7 +545,6 @@ INSERT INTO `bc_car_term` (`id`, `term_id`, `target_id`, `create_user`, `update_
 /*!40000 ALTER TABLE `bc_car_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_car_translations
-DROP TABLE IF EXISTS `bc_car_translations`;
 CREATE TABLE IF NOT EXISTS `bc_car_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -585,7 +567,6 @@ CREATE TABLE IF NOT EXISTS `bc_car_translations` (
 /*!40000 ALTER TABLE `bc_car_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_contact
-DROP TABLE IF EXISTS `bc_contact`;
 CREATE TABLE IF NOT EXISTS `bc_contact` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -605,7 +586,6 @@ CREATE TABLE IF NOT EXISTS `bc_contact` (
 /*!40000 ALTER TABLE `bc_contact` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_enquiries
-DROP TABLE IF EXISTS `bc_enquiries`;
 CREATE TABLE IF NOT EXISTS `bc_enquiries` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -629,7 +609,6 @@ CREATE TABLE IF NOT EXISTS `bc_enquiries` (
 /*!40000 ALTER TABLE `bc_enquiries` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_events
-DROP TABLE IF EXISTS `bc_events`;
 CREATE TABLE IF NOT EXISTS `bc_events` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -690,7 +669,6 @@ INSERT INTO `bc_events` (`id`, `title`, `slug`, `content`, `image_id`, `banner_i
 /*!40000 ALTER TABLE `bc_events` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_event_dates
-DROP TABLE IF EXISTS `bc_event_dates`;
 CREATE TABLE IF NOT EXISTS `bc_event_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -714,7 +692,6 @@ CREATE TABLE IF NOT EXISTS `bc_event_dates` (
 /*!40000 ALTER TABLE `bc_event_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_event_term
-DROP TABLE IF EXISTS `bc_event_term`;
 CREATE TABLE IF NOT EXISTS `bc_event_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -806,7 +783,6 @@ INSERT INTO `bc_event_term` (`id`, `term_id`, `target_id`, `create_user`, `updat
 /*!40000 ALTER TABLE `bc_event_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_event_translations
-DROP TABLE IF EXISTS `bc_event_translations`;
 CREATE TABLE IF NOT EXISTS `bc_event_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -830,7 +806,6 @@ CREATE TABLE IF NOT EXISTS `bc_event_translations` (
 /*!40000 ALTER TABLE `bc_event_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_flight
-DROP TABLE IF EXISTS `bc_flight`;
 CREATE TABLE IF NOT EXISTS `bc_flight` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -884,7 +859,6 @@ INSERT INTO `bc_flight` (`id`, `title`, `code`, `review_score`, `departure_time`
 /*!40000 ALTER TABLE `bc_flight` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_flight_seat
-DROP TABLE IF EXISTS `bc_flight_seat`;
 CREATE TABLE IF NOT EXISTS `bc_flight_seat` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `price` decimal(12,2) DEFAULT NULL,
@@ -972,7 +946,6 @@ INSERT INTO `bc_flight_seat` (`id`, `price`, `max_passengers`, `flight_id`, `sea
 /*!40000 ALTER TABLE `bc_flight_seat` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_flight_term
-DROP TABLE IF EXISTS `bc_flight_term`;
 CREATE TABLE IF NOT EXISTS `bc_flight_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -1100,7 +1073,6 @@ INSERT INTO `bc_flight_term` (`id`, `term_id`, `target_id`, `create_user`, `upda
 /*!40000 ALTER TABLE `bc_flight_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotels
-DROP TABLE IF EXISTS `bc_hotels`;
 CREATE TABLE IF NOT EXISTS `bc_hotels` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1177,7 +1149,6 @@ INSERT INTO `bc_hotels` (`id`, `title`, `slug`, `content`, `image_id`, `banner_i
 /*!40000 ALTER TABLE `bc_hotels` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_rooms
-DROP TABLE IF EXISTS `bc_hotel_rooms`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_rooms` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1321,7 +1292,6 @@ INSERT INTO `bc_hotel_rooms` (`id`, `title`, `content`, `image_id`, `gallery`, `
 /*!40000 ALTER TABLE `bc_hotel_rooms` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_bookings
-DROP TABLE IF EXISTS `bc_hotel_room_bookings`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_bookings` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `room_id` bigint DEFAULT NULL,
@@ -1338,7 +1308,7 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_room_bookings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_hotel_room_bookings: ~0 rows (approximately)
+-- Dumping data for table mytravel.bc_hotel_room_bookings: ~2 rows (approximately)
 /*!40000 ALTER TABLE `bc_hotel_room_bookings` DISABLE KEYS */;
 INSERT INTO `bc_hotel_room_bookings` (`id`, `room_id`, `parent_id`, `booking_id`, `start_date`, `end_date`, `number`, `price`, `create_user`, `update_user`, `created_at`, `updated_at`) VALUES
 	(1, 101, 26, 1, '2021-12-10 00:00:00', '2021-12-31 00:00:00', 1, 7350.00, 3, NULL, '2021-12-08 05:00:03', '2021-12-08 05:00:03'),
@@ -1346,7 +1316,6 @@ INSERT INTO `bc_hotel_room_bookings` (`id`, `room_id`, `parent_id`, `booking_id`
 /*!40000 ALTER TABLE `bc_hotel_room_bookings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_dates
-DROP TABLE IF EXISTS `bc_hotel_room_dates`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -1371,7 +1340,6 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_room_dates` (
 /*!40000 ALTER TABLE `bc_hotel_room_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_term
-DROP TABLE IF EXISTS `bc_hotel_room_term`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -1846,7 +1814,6 @@ INSERT INTO `bc_hotel_room_term` (`id`, `term_id`, `target_id`, `create_user`, `
 /*!40000 ALTER TABLE `bc_hotel_room_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_translations
-DROP TABLE IF EXISTS `bc_hotel_room_translations`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -1868,7 +1835,6 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_room_translations` (
 /*!40000 ALTER TABLE `bc_hotel_room_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_term
-DROP TABLE IF EXISTS `bc_hotel_term`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -1880,7 +1846,7 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_term` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_hotel_term: ~312 rows (approximately)
+-- Dumping data for table mytravel.bc_hotel_term: ~316 rows (approximately)
 /*!40000 ALTER TABLE `bc_hotel_term` DISABLE KEYS */;
 INSERT INTO `bc_hotel_term` (`id`, `term_id`, `target_id`, `create_user`, `update_user`, `created_at`, `updated_at`) VALUES
 	(1, 47, 1, NULL, NULL, '2021-12-03 15:02:03', '2021-12-03 15:02:03'),
@@ -2202,7 +2168,6 @@ INSERT INTO `bc_hotel_term` (`id`, `term_id`, `target_id`, `create_user`, `updat
 /*!40000 ALTER TABLE `bc_hotel_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_translations
-DROP TABLE IF EXISTS `bc_hotel_translations`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -2227,7 +2192,6 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_translations` (
 /*!40000 ALTER TABLE `bc_hotel_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_locations
-DROP TABLE IF EXISTS `bc_locations`;
 CREATE TABLE IF NOT EXISTS `bc_locations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2271,7 +2235,6 @@ INSERT INTO `bc_locations` (`id`, `name`, `sub_title`, `content`, `slug`, `image
 /*!40000 ALTER TABLE `bc_locations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_location_translations
-DROP TABLE IF EXISTS `bc_location_translations`;
 CREATE TABLE IF NOT EXISTS `bc_location_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -2293,7 +2256,6 @@ CREATE TABLE IF NOT EXISTS `bc_location_translations` (
 /*!40000 ALTER TABLE `bc_location_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_payouts
-DROP TABLE IF EXISTS `bc_payouts`;
 CREATE TABLE IF NOT EXISTS `bc_payouts` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `vendor_id` bigint DEFAULT NULL,
@@ -2317,7 +2279,6 @@ CREATE TABLE IF NOT EXISTS `bc_payouts` (
 /*!40000 ALTER TABLE `bc_payouts` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_review
-DROP TABLE IF EXISTS `bc_review`;
 CREATE TABLE IF NOT EXISTS `bc_review` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -2603,7 +2564,6 @@ INSERT INTO `bc_review` (`id`, `object_id`, `object_model`, `title`, `content`, 
 /*!40000 ALTER TABLE `bc_review` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_review_meta
-DROP TABLE IF EXISTS `bc_review_meta`;
 CREATE TABLE IF NOT EXISTS `bc_review_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `review_id` int DEFAULT NULL,
@@ -3919,7 +3879,6 @@ INSERT INTO `bc_review_meta` (`id`, `review_id`, `object_id`, `object_model`, `n
 /*!40000 ALTER TABLE `bc_review_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_seat_type
-DROP TABLE IF EXISTS `bc_seat_type`;
 CREATE TABLE IF NOT EXISTS `bc_seat_type` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3944,7 +3903,6 @@ INSERT INTO `bc_seat_type` (`id`, `code`, `name`, `create_user`, `update_user`, 
 /*!40000 ALTER TABLE `bc_seat_type` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_seo
-DROP TABLE IF EXISTS `bc_seo`;
 CREATE TABLE IF NOT EXISTS `bc_seo` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -3963,7 +3921,7 @@ CREATE TABLE IF NOT EXISTS `bc_seo` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_seo: ~7 rows (approximately)
+-- Dumping data for table mytravel.bc_seo: ~8 rows (approximately)
 /*!40000 ALTER TABLE `bc_seo` DISABLE KEYS */;
 INSERT INTO `bc_seo` (`id`, `object_id`, `object_model`, `seo_index`, `seo_title`, `seo_desc`, `seo_image`, `seo_share`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 10, 'page', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-03 15:13:56', '2021-12-03 15:13:56'),
@@ -3977,7 +3935,6 @@ INSERT INTO `bc_seo` (`id`, `object_id`, `object_model`, `seo_index`, `seo_title
 /*!40000 ALTER TABLE `bc_seo` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_services
-DROP TABLE IF EXISTS `bc_services`;
 CREATE TABLE IF NOT EXISTS `bc_services` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4019,7 +3976,6 @@ INSERT INTO `bc_services` (`id`, `title`, `slug`, `category_id`, `location_id`, 
 /*!40000 ALTER TABLE `bc_services` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_service_translations
-DROP TABLE IF EXISTS `bc_service_translations`;
 CREATE TABLE IF NOT EXISTS `bc_service_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4040,7 +3996,6 @@ CREATE TABLE IF NOT EXISTS `bc_service_translations` (
 /*!40000 ALTER TABLE `bc_service_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_spaces
-DROP TABLE IF EXISTS `bc_spaces`;
 CREATE TABLE IF NOT EXISTS `bc_spaces` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4104,7 +4059,6 @@ INSERT INTO `bc_spaces` (`id`, `title`, `slug`, `content`, `image_id`, `banner_i
 /*!40000 ALTER TABLE `bc_spaces` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_space_dates
-DROP TABLE IF EXISTS `bc_space_dates`;
 CREATE TABLE IF NOT EXISTS `bc_space_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -4128,7 +4082,6 @@ CREATE TABLE IF NOT EXISTS `bc_space_dates` (
 /*!40000 ALTER TABLE `bc_space_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_space_term
-DROP TABLE IF EXISTS `bc_space_term`;
 CREATE TABLE IF NOT EXISTS `bc_space_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -4328,7 +4281,6 @@ INSERT INTO `bc_space_term` (`id`, `term_id`, `target_id`, `create_user`, `updat
 /*!40000 ALTER TABLE `bc_space_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_space_translations
-DROP TABLE IF EXISTS `bc_space_translations`;
 CREATE TABLE IF NOT EXISTS `bc_space_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -4352,7 +4304,6 @@ CREATE TABLE IF NOT EXISTS `bc_space_translations` (
 /*!40000 ALTER TABLE `bc_space_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_terms
-DROP TABLE IF EXISTS `bc_terms`;
 CREATE TABLE IF NOT EXISTS `bc_terms` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4371,7 +4322,7 @@ CREATE TABLE IF NOT EXISTS `bc_terms` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_terms: ~94 rows (approximately)
+-- Dumping data for table mytravel.bc_terms: ~97 rows (approximately)
 /*!40000 ALTER TABLE `bc_terms` DISABLE KEYS */;
 INSERT INTO `bc_terms` (`id`, `name`, `content`, `attr_id`, `slug`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`, `deleted_at`, `image_id`, `icon`) VALUES
 	(1, 'Cultural', NULL, 1, 'cultural', NULL, NULL, NULL, NULL, '2021-12-03 15:01:57', '2021-12-03 15:01:57', NULL, NULL, NULL),
@@ -4474,7 +4425,6 @@ INSERT INTO `bc_terms` (`id`, `name`, `content`, `attr_id`, `slug`, `create_user
 /*!40000 ALTER TABLE `bc_terms` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_terms_translations
-DROP TABLE IF EXISTS `bc_terms_translations`;
 CREATE TABLE IF NOT EXISTS `bc_terms_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4494,7 +4444,6 @@ CREATE TABLE IF NOT EXISTS `bc_terms_translations` (
 /*!40000 ALTER TABLE `bc_terms_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tours
-DROP TABLE IF EXISTS `bc_tours`;
 CREATE TABLE IF NOT EXISTS `bc_tours` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4567,7 +4516,6 @@ INSERT INTO `bc_tours` (`id`, `title`, `slug`, `content`, `image_id`, `banner_im
 /*!40000 ALTER TABLE `bc_tours` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_category
-DROP TABLE IF EXISTS `bc_tour_category`;
 CREATE TABLE IF NOT EXISTS `bc_tour_category` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4598,7 +4546,6 @@ INSERT INTO `bc_tour_category` (`id`, `name`, `content`, `slug`, `status`, `_lft
 /*!40000 ALTER TABLE `bc_tour_category` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_category_translations
-DROP TABLE IF EXISTS `bc_tour_category_translations`;
 CREATE TABLE IF NOT EXISTS `bc_tour_category_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4618,7 +4565,6 @@ CREATE TABLE IF NOT EXISTS `bc_tour_category_translations` (
 /*!40000 ALTER TABLE `bc_tour_category_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_dates
-DROP TABLE IF EXISTS `bc_tour_dates`;
 CREATE TABLE IF NOT EXISTS `bc_tour_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -4643,7 +4589,6 @@ CREATE TABLE IF NOT EXISTS `bc_tour_dates` (
 /*!40000 ALTER TABLE `bc_tour_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_meta
-DROP TABLE IF EXISTS `bc_tour_meta`;
 CREATE TABLE IF NOT EXISTS `bc_tour_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `tour_id` int DEFAULT NULL,
@@ -4683,7 +4628,6 @@ INSERT INTO `bc_tour_meta` (`id`, `tour_id`, `enable_person_types`, `person_type
 /*!40000 ALTER TABLE `bc_tour_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_term
-DROP TABLE IF EXISTS `bc_tour_term`;
 CREATE TABLE IF NOT EXISTS `bc_tour_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -4850,7 +4794,6 @@ INSERT INTO `bc_tour_term` (`id`, `term_id`, `tour_id`, `create_user`, `update_u
 /*!40000 ALTER TABLE `bc_tour_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_translations
-DROP TABLE IF EXISTS `bc_tour_translations`;
 CREATE TABLE IF NOT EXISTS `bc_tour_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4879,7 +4822,6 @@ CREATE TABLE IF NOT EXISTS `bc_tour_translations` (
 /*!40000 ALTER TABLE `bc_tour_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.benefits
-DROP TABLE IF EXISTS `benefits`;
 CREATE TABLE IF NOT EXISTS `benefits` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -4892,14 +4834,13 @@ CREATE TABLE IF NOT EXISTS `benefits` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.benefits: ~0 rows (approximately)
+-- Dumping data for table mytravel.benefits: ~1 rows (approximately)
 /*!40000 ALTER TABLE `benefits` DISABLE KEYS */;
 INSERT INTO `benefits` (`id`, `title`, `subtitle`, `detail`, `actions`, `images`, `created_at`, `updated_at`) VALUES
 	(1, 'Benefits', 'Our Offers', 'An energy efficient building reduces maintenance and utility costs, but, in many cases improves durability, kessens noise, increases comfort and created a healthy and safe indoor environment.', '{"link": "/page/home-hotel", "text": "Book A Visit"}', '[{"image": "/uploads/0000/1/2021/12/06/photo-2021-10-30-09-00-44-2.jpg", "title": "Title", "subtitle": "Subtitle"}, {"image": "/uploads/0000/1/2021/12/06/photo-2021-10-30-08-58-30-2.jpg", "title": "Title", "subtitle": "Subtitle"}, {"image": "/uploads/0000/1/2021/12/06/photo-2021-10-11-10-19-35.jpg", "title": "Title", "subtitle": "Subtitle"}]', NULL, '2021-12-07 08:06:32');
 /*!40000 ALTER TABLE `benefits` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.booking_passengers
-DROP TABLE IF EXISTS `booking_passengers`;
 CREATE TABLE IF NOT EXISTS `booking_passengers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `flight_id` bigint unsigned DEFAULT NULL,
@@ -4932,7 +4873,6 @@ CREATE TABLE IF NOT EXISTS `booking_passengers` (
 /*!40000 ALTER TABLE `booking_passengers` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.ch_favorites
-DROP TABLE IF EXISTS `ch_favorites`;
 CREATE TABLE IF NOT EXISTS `ch_favorites` (
   `id` bigint NOT NULL,
   `user_id` bigint NOT NULL,
@@ -4947,7 +4887,6 @@ CREATE TABLE IF NOT EXISTS `ch_favorites` (
 /*!40000 ALTER TABLE `ch_favorites` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.ch_messages
-DROP TABLE IF EXISTS `ch_messages`;
 CREATE TABLE IF NOT EXISTS `ch_messages` (
   `id` bigint NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -4966,7 +4905,6 @@ CREATE TABLE IF NOT EXISTS `ch_messages` (
 /*!40000 ALTER TABLE `ch_messages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_inbox
-DROP TABLE IF EXISTS `core_inbox`;
 CREATE TABLE IF NOT EXISTS `core_inbox` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_user` bigint DEFAULT NULL,
@@ -4986,7 +4924,6 @@ CREATE TABLE IF NOT EXISTS `core_inbox` (
 /*!40000 ALTER TABLE `core_inbox` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_inbox_messages
-DROP TABLE IF EXISTS `core_inbox_messages`;
 CREATE TABLE IF NOT EXISTS `core_inbox_messages` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `inbox_id` bigint DEFAULT NULL,
@@ -5007,7 +4944,6 @@ CREATE TABLE IF NOT EXISTS `core_inbox_messages` (
 /*!40000 ALTER TABLE `core_inbox_messages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_languages
-DROP TABLE IF EXISTS `core_languages`;
 CREATE TABLE IF NOT EXISTS `core_languages` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5032,7 +4968,6 @@ INSERT INTO `core_languages` (`id`, `locale`, `name`, `flag`, `status`, `create_
 /*!40000 ALTER TABLE `core_languages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_menus
-DROP TABLE IF EXISTS `core_menus`;
 CREATE TABLE IF NOT EXISTS `core_menus` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5046,7 +4981,7 @@ CREATE TABLE IF NOT EXISTS `core_menus` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_menus: ~0 rows (approximately)
+-- Dumping data for table mytravel.core_menus: ~2 rows (approximately)
 /*!40000 ALTER TABLE `core_menus` DISABLE KEYS */;
 INSERT INTO `core_menus` (`id`, `name`, `items`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 'Main Menu', '[{"name":"Home","url":"\\/","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Home Page","url":"\\/","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home v2","url":"\\/page\\/home-v2","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Hotel","url":"\\/page\\/home-hotel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Tour","url":"\\/page\\/home-tour","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Space","url":"\\/page\\/home-space","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Event","url":"\\/page\\/home-event","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Car","url":"\\/page\\/home-car","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Hotel","url":"\\/hotel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Hotel List","url":"\\/hotel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Hotel Map","url":"\\/hotel?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Hotel Detail","url":"\\/hotel\\/parian-holiday-villas","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Tours","url":"\\/tour","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Tour List","url":"\\/tour","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Tour Map","url":"\\/tour?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Tour Detail","url":"\\/tour\\/paris-vacation-travel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Space","url":"\\/space","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Space List","url":"\\/space","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Space Map","url":"\\/space?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Space Detail","url":"\\/space\\/stay-greenwich-village","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Car","url":"\\/car","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Car List","url":"\\/car","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Car Map","url":"\\/car?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Car Detail","url":"\\/car\\/vinfast-lux-a20-plus","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Event","url":"\\/event","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Event List","url":"\\/event","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Event Map","url":"\\/event?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Event Detail","url":"\\/event\\/aspen-glade-weddings-events","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Flight","url":"\\/flight","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Flight List","url":"\\/flight","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Become a vendor","url":"\\/page\\/become-a-vendor","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Pages","url":"#","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"News List","url":"\\/news","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"News Detail","url":"\\/news\\/morning-in-the-northern-sea","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Location Detail","url":"\\/location\\/london","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Contact","url":"\\/contact","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]', 1, 1, NULL, NULL, '2021-12-03 15:01:54', '2021-12-06 09:24:39'),
@@ -5054,7 +4989,6 @@ INSERT INTO `core_menus` (`id`, `name`, `items`, `create_user`, `update_user`, `
 /*!40000 ALTER TABLE `core_menus` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_menu_translations
-DROP TABLE IF EXISTS `core_menu_translations`;
 CREATE TABLE IF NOT EXISTS `core_menu_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5076,7 +5010,6 @@ INSERT INTO `core_menu_translations` (`id`, `origin_id`, `locale`, `items`, `cre
 /*!40000 ALTER TABLE `core_menu_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_model_has_permissions
-DROP TABLE IF EXISTS `core_model_has_permissions`;
 CREATE TABLE IF NOT EXISTS `core_model_has_permissions` (
   `permission_id` int unsigned NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5091,7 +5024,6 @@ CREATE TABLE IF NOT EXISTS `core_model_has_permissions` (
 /*!40000 ALTER TABLE `core_model_has_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_model_has_roles
-DROP TABLE IF EXISTS `core_model_has_roles`;
 CREATE TABLE IF NOT EXISTS `core_model_has_roles` (
   `role_id` int unsigned NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5110,7 +5042,6 @@ INSERT INTO `core_model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 /*!40000 ALTER TABLE `core_model_has_roles` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news
-DROP TABLE IF EXISTS `core_news`;
 CREATE TABLE IF NOT EXISTS `core_news` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5143,7 +5074,6 @@ INSERT INTO `core_news` (`id`, `title`, `content`, `slug`, `status`, `cat_id`, `
 /*!40000 ALTER TABLE `core_news` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_category
-DROP TABLE IF EXISTS `core_news_category`;
 CREATE TABLE IF NOT EXISTS `core_news_category` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5176,7 +5106,6 @@ INSERT INTO `core_news_category` (`id`, `name`, `content`, `slug`, `status`, `_l
 /*!40000 ALTER TABLE `core_news_category` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_category_translations
-DROP TABLE IF EXISTS `core_news_category_translations`;
 CREATE TABLE IF NOT EXISTS `core_news_category_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5196,7 +5125,6 @@ CREATE TABLE IF NOT EXISTS `core_news_category_translations` (
 /*!40000 ALTER TABLE `core_news_category_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_tag
-DROP TABLE IF EXISTS `core_news_tag`;
 CREATE TABLE IF NOT EXISTS `core_news_tag` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `news_id` int DEFAULT NULL,
@@ -5214,7 +5142,6 @@ CREATE TABLE IF NOT EXISTS `core_news_tag` (
 /*!40000 ALTER TABLE `core_news_tag` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_translations
-DROP TABLE IF EXISTS `core_news_translations`;
 CREATE TABLE IF NOT EXISTS `core_news_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5234,7 +5161,6 @@ CREATE TABLE IF NOT EXISTS `core_news_translations` (
 /*!40000 ALTER TABLE `core_news_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_notifications
-DROP TABLE IF EXISTS `core_notifications`;
 CREATE TABLE IF NOT EXISTS `core_notifications` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_user` bigint DEFAULT NULL,
@@ -5257,7 +5183,6 @@ CREATE TABLE IF NOT EXISTS `core_notifications` (
 /*!40000 ALTER TABLE `core_notifications` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_pages
-DROP TABLE IF EXISTS `core_pages`;
 CREATE TABLE IF NOT EXISTS `core_pages` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -5281,7 +5206,7 @@ CREATE TABLE IF NOT EXISTS `core_pages` (
   KEY `core_pages_slug_index` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_pages: ~9 rows (approximately)
+-- Dumping data for table mytravel.core_pages: ~10 rows (approximately)
 /*!40000 ALTER TABLE `core_pages` DISABLE KEYS */;
 INSERT INTO `core_pages` (`id`, `slug`, `title`, `content`, `short_desc`, `status`, `publish_date`, `image_id`, `template_id`, `create_user`, `update_user`, `deleted_at`, `origin_id`, `lang`, `created_at`, `updated_at`, `header_style`, `custom_logo`) VALUES
 	(1, 'home-page', 'Home Page', NULL, NULL, 'publish', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, '2021-12-03 15:01:54', NULL, NULL, NULL),
@@ -5297,7 +5222,6 @@ INSERT INTO `core_pages` (`id`, `slug`, `title`, `content`, `short_desc`, `statu
 /*!40000 ALTER TABLE `core_pages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_page_translations
-DROP TABLE IF EXISTS `core_page_translations`;
 CREATE TABLE IF NOT EXISTS `core_page_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5319,7 +5243,6 @@ CREATE TABLE IF NOT EXISTS `core_page_translations` (
 /*!40000 ALTER TABLE `core_page_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_permissions
-DROP TABLE IF EXISTS `core_permissions`;
 CREATE TABLE IF NOT EXISTS `core_permissions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5329,7 +5252,7 @@ CREATE TABLE IF NOT EXISTS `core_permissions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_permissions: ~88 rows (approximately)
+-- Dumping data for table mytravel.core_permissions: ~94 rows (approximately)
 /*!40000 ALTER TABLE `core_permissions` DISABLE KEYS */;
 INSERT INTO `core_permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'report_view', 'web', '2021-12-03 15:01:49', '2021-12-03 15:01:49'),
@@ -5429,7 +5352,6 @@ INSERT INTO `core_permissions` (`id`, `name`, `guard_name`, `created_at`, `updat
 /*!40000 ALTER TABLE `core_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_roles
-DROP TABLE IF EXISTS `core_roles`;
 CREATE TABLE IF NOT EXISTS `core_roles` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5450,7 +5372,6 @@ INSERT INTO `core_roles` (`id`, `name`, `guard_name`, `origin_id`, `lang`, `crea
 /*!40000 ALTER TABLE `core_roles` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_role_has_permissions
-DROP TABLE IF EXISTS `core_role_has_permissions`;
 CREATE TABLE IF NOT EXISTS `core_role_has_permissions` (
   `permission_id` int unsigned NOT NULL,
   `role_id` int unsigned NOT NULL,
@@ -5460,7 +5381,7 @@ CREATE TABLE IF NOT EXISTS `core_role_has_permissions` (
   CONSTRAINT `core_role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `core_roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_role_has_permissions: ~110 rows (approximately)
+-- Dumping data for table mytravel.core_role_has_permissions: ~118 rows (approximately)
 /*!40000 ALTER TABLE `core_role_has_permissions` DISABLE KEYS */;
 INSERT INTO `core_role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(9, 1),
@@ -5584,7 +5505,6 @@ INSERT INTO `core_role_has_permissions` (`permission_id`, `role_id`) VALUES
 /*!40000 ALTER TABLE `core_role_has_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_settings
-DROP TABLE IF EXISTS `core_settings`;
 CREATE TABLE IF NOT EXISTS `core_settings` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5599,7 +5519,7 @@ CREATE TABLE IF NOT EXISTS `core_settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_settings: ~185 rows (approximately)
+-- Dumping data for table mytravel.core_settings: ~189 rows (approximately)
 /*!40000 ALTER TABLE `core_settings` DISABLE KEYS */;
 INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_user`, `update_user`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 'update_to_110', NULL, '1', NULL, NULL, NULL, NULL, '2021-12-08 08:07:55', '2021-12-08 08:07:55'),
@@ -5663,7 +5583,7 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 	(59, 'home_page_id', 'general', '1', NULL, 1, 1, NULL, NULL, '2021-12-08 02:27:18'),
 	(60, 'page_contact_title', 'general', 'Contact Us', NULL, NULL, NULL, NULL, NULL, NULL),
 	(61, 'page_contact_lists', 'general', '[{"title":"London","address":"82 Bernie Greens Apt. 210, <br>  Hendon Way, London, UK","phone":"+53 213 5941 295","email":"contact@angkorleasing.com","link_map":"#"},{"title":"Viet Nam","address":"Thanh pho Ha Noi, <br> Viet Nam","phone":"+0985 5941 295 213","email":"contact@angkorleasing.com","link_map":"#"},{"title":"New York","address":"21 Valentin Rapids Apt. 335 New <br> Jersey, New York, USA","phone":"+47 213 5941 295","email":"contact@angkorleasing.com","link_map":"#"}]', NULL, 1, 1, NULL, NULL, '2021-12-08 02:29:14'),
-	(62, 'page_contact_iframe_google_map', 'general', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835253576489!2d144.95372995111143!3d-37.817327679652266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sin!4v1581584770980!5m2!1sen!2sin" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>', NULL, 1, 1, NULL, NULL, '2021-12-08 02:27:18'),
+	(62, 'page_contact_iframe_google_map', 'general', '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15526.109518311976!2d103.86681549999999!3d13.379637700000009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1skm!2skh!4v1638957834379!5m2!1skm!2skh" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>', NULL, 1, 1, NULL, NULL, '2021-12-08 10:05:25'),
 	(63, 'page_contact_image', 'general', '9', NULL, NULL, NULL, NULL, NULL, NULL),
 	(64, 'currency_main', 'payment', 'usd', NULL, NULL, NULL, NULL, NULL, NULL),
 	(65, 'currency_format', 'payment', 'left', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -5743,7 +5663,7 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 	(139, 'site_first_day_of_the_weekin_calendar', 'general', '1', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(140, 'site_enable_multi_lang', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(141, 'enable_rtl', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
-	(142, 'page_contact_link_google_map', 'general', 'https://maps.google.com/maps?ll=-37.81721,144.955928&z=16&t=m&hl=en&gl=IN&mapclient=embed&cid=13153204942596594449', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:30:27'),
+	(142, 'page_contact_link_google_map', 'general', 'https://goo.gl/maps/XqAXAYpViaUKnfrw8', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 10:05:25'),
 	(143, 'mission_title', 'mission', 'Our Mission', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
 	(144, 'mission_subtitle', 'mission', 'INNOVATION', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
 	(145, 'mission_detail', 'mission', 'A Company that can grow with "Thank you" and "smile" by delivering "Thank you" and "smile" by sending something from us', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
@@ -5794,7 +5714,6 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 /*!40000 ALTER TABLE `core_settings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_subscribers
-DROP TABLE IF EXISTS `core_subscribers`;
 CREATE TABLE IF NOT EXISTS `core_subscribers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5808,7 +5727,7 @@ CREATE TABLE IF NOT EXISTS `core_subscribers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_subscribers: ~2 rows (approximately)
+-- Dumping data for table mytravel.core_subscribers: ~3 rows (approximately)
 /*!40000 ALTER TABLE `core_subscribers` DISABLE KEYS */;
 INSERT INTO `core_subscribers` (`id`, `email`, `first_name`, `last_name`, `create_user`, `update_user`, `deleted_at`, `created_at`, `updated_at`) VALUES
 	(1, 'keamsan.sem@gmail.com', NULL, NULL, 1, NULL, NULL, '2021-12-06 09:12:06', '2021-12-06 09:12:06'),
@@ -5817,7 +5736,6 @@ INSERT INTO `core_subscribers` (`id`, `email`, `first_name`, `last_name`, `creat
 /*!40000 ALTER TABLE `core_subscribers` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_tags
-DROP TABLE IF EXISTS `core_tags`;
 CREATE TABLE IF NOT EXISTS `core_tags` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5845,7 +5763,6 @@ INSERT INTO `core_tags` (`id`, `name`, `slug`, `content`, `create_user`, `update
 /*!40000 ALTER TABLE `core_tags` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_tag_translations
-DROP TABLE IF EXISTS `core_tag_translations`;
 CREATE TABLE IF NOT EXISTS `core_tag_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5865,7 +5782,6 @@ CREATE TABLE IF NOT EXISTS `core_tag_translations` (
 /*!40000 ALTER TABLE `core_tag_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_templates
-DROP TABLE IF EXISTS `core_templates`;
 CREATE TABLE IF NOT EXISTS `core_templates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5894,7 +5810,6 @@ INSERT INTO `core_templates` (`id`, `title`, `content`, `type_id`, `create_user`
 /*!40000 ALTER TABLE `core_templates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_template_translations
-DROP TABLE IF EXISTS `core_template_translations`;
 CREATE TABLE IF NOT EXISTS `core_template_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5914,7 +5829,6 @@ CREATE TABLE IF NOT EXISTS `core_template_translations` (
 /*!40000 ALTER TABLE `core_template_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_translations
-DROP TABLE IF EXISTS `core_translations`;
 CREATE TABLE IF NOT EXISTS `core_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5934,7 +5848,6 @@ CREATE TABLE IF NOT EXISTS `core_translations` (
 /*!40000 ALTER TABLE `core_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_vendor_plans
-DROP TABLE IF EXISTS `core_vendor_plans`;
 CREATE TABLE IF NOT EXISTS `core_vendor_plans` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5954,7 +5867,6 @@ CREATE TABLE IF NOT EXISTS `core_vendor_plans` (
 /*!40000 ALTER TABLE `core_vendor_plans` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_vendor_plan_meta
-DROP TABLE IF EXISTS `core_vendor_plan_meta`;
 CREATE TABLE IF NOT EXISTS `core_vendor_plan_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `vendor_plan_id` int NOT NULL,
@@ -5976,7 +5888,6 @@ CREATE TABLE IF NOT EXISTS `core_vendor_plan_meta` (
 /*!40000 ALTER TABLE `core_vendor_plan_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.location_category
-DROP TABLE IF EXISTS `location_category`;
 CREATE TABLE IF NOT EXISTS `location_category` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6007,7 +5918,6 @@ INSERT INTO `location_category` (`id`, `name`, `icon_class`, `content`, `slug`, 
 /*!40000 ALTER TABLE `location_category` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.location_category_translations
-DROP TABLE IF EXISTS `location_category_translations`;
 CREATE TABLE IF NOT EXISTS `location_category_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -6027,7 +5937,6 @@ CREATE TABLE IF NOT EXISTS `location_category_translations` (
 /*!40000 ALTER TABLE `location_category_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.media_files
-DROP TABLE IF EXISTS `media_files`;
 CREATE TABLE IF NOT EXISTS `media_files` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `file_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6047,7 +5956,7 @@ CREATE TABLE IF NOT EXISTS `media_files` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=251 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.media_files: ~232 rows (approximately)
+-- Dumping data for table mytravel.media_files: ~245 rows (approximately)
 /*!40000 ALTER TABLE `media_files` DISABLE KEYS */;
 INSERT INTO `media_files` (`id`, `file_name`, `file_path`, `file_size`, `file_type`, `file_extension`, `create_user`, `update_user`, `deleted_at`, `app_id`, `app_user_id`, `file_width`, `file_height`, `created_at`, `updated_at`) VALUES
 	(1, 'avatar', 'demo/general/avatar.jpg', NULL, 'image/jpeg', 'jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -6298,7 +6207,6 @@ INSERT INTO `media_files` (`id`, `file_name`, `file_path`, `file_size`, `file_ty
 /*!40000 ALTER TABLE `media_files` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.migrations
-DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6382,7 +6290,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.notifications
-DROP TABLE IF EXISTS `notifications`;
 CREATE TABLE IF NOT EXISTS `notifications` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6396,7 +6303,7 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.notifications: ~6 rows (approximately)
+-- Dumping data for table mytravel.notifications: ~13 rows (approximately)
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
 	('1548420a-c6a2-4abd-bebb-3742a9143786', 'App\\Notifications\\PrivateChannelServices', 'App\\User', 3, '{"id":"1548420a-c6a2-4abd-bebb-3742a9143786","for_admin":0,"notification":{"event":"SetPaidAmountEvent","to":"customer","id":2,"name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/user\\/booking-history","type":"hotel","message":"System Admin has updated the PAID amount on Hotel Stanford"}}', NULL, '2021-12-08 05:27:51', '2021-12-08 05:27:51'),
@@ -6415,7 +6322,6 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.password_resets
-DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6428,7 +6334,6 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_forums
-DROP TABLE IF EXISTS `social_forums`;
 CREATE TABLE IF NOT EXISTS `social_forums` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6449,7 +6354,6 @@ CREATE TABLE IF NOT EXISTS `social_forums` (
 /*!40000 ALTER TABLE `social_forums` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_groups
-DROP TABLE IF EXISTS `social_groups`;
 CREATE TABLE IF NOT EXISTS `social_groups` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6475,7 +6379,6 @@ CREATE TABLE IF NOT EXISTS `social_groups` (
 /*!40000 ALTER TABLE `social_groups` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_group_user
-DROP TABLE IF EXISTS `social_group_user`;
 CREATE TABLE IF NOT EXISTS `social_group_user` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint DEFAULT NULL,
@@ -6493,7 +6396,6 @@ CREATE TABLE IF NOT EXISTS `social_group_user` (
 /*!40000 ALTER TABLE `social_group_user` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_posts
-DROP TABLE IF EXISTS `social_posts`;
 CREATE TABLE IF NOT EXISTS `social_posts` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `content` text COLLATE utf8mb4_unicode_ci,
@@ -6521,7 +6423,6 @@ CREATE TABLE IF NOT EXISTS `social_posts` (
 /*!40000 ALTER TABLE `social_posts` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_post_comments
-DROP TABLE IF EXISTS `social_post_comments`;
 CREATE TABLE IF NOT EXISTS `social_post_comments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint DEFAULT NULL,
@@ -6543,7 +6444,6 @@ CREATE TABLE IF NOT EXISTS `social_post_comments` (
 /*!40000 ALTER TABLE `social_post_comments` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_user_follow
-DROP TABLE IF EXISTS `social_user_follow`;
 CREATE TABLE IF NOT EXISTS `social_user_follow` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_user` bigint DEFAULT NULL,
@@ -6560,7 +6460,6 @@ CREATE TABLE IF NOT EXISTS `social_user_follow` (
 /*!40000 ALTER TABLE `social_user_follow` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6614,7 +6513,6 @@ INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_ve
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_meta
-DROP TABLE IF EXISTS `user_meta`;
 CREATE TABLE IF NOT EXISTS `user_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
@@ -6633,7 +6531,6 @@ CREATE TABLE IF NOT EXISTS `user_meta` (
 /*!40000 ALTER TABLE `user_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_transactions
-DROP TABLE IF EXISTS `user_transactions`;
 CREATE TABLE IF NOT EXISTS `user_transactions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `payable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6666,7 +6563,6 @@ CREATE TABLE IF NOT EXISTS `user_transactions` (
 /*!40000 ALTER TABLE `user_transactions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_transfers
-DROP TABLE IF EXISTS `user_transfers`;
 CREATE TABLE IF NOT EXISTS `user_transfers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6699,7 +6595,6 @@ CREATE TABLE IF NOT EXISTS `user_transfers` (
 /*!40000 ALTER TABLE `user_transfers` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_upgrade_request
-DROP TABLE IF EXISTS `user_upgrade_request`;
 CREATE TABLE IF NOT EXISTS `user_upgrade_request` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
@@ -6720,7 +6615,6 @@ CREATE TABLE IF NOT EXISTS `user_upgrade_request` (
 /*!40000 ALTER TABLE `user_upgrade_request` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_wallets
-DROP TABLE IF EXISTS `user_wallets`;
 CREATE TABLE IF NOT EXISTS `user_wallets` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `holder_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6741,7 +6635,7 @@ CREATE TABLE IF NOT EXISTS `user_wallets` (
   KEY `user_wallets_slug_index` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.user_wallets: ~0 rows (approximately)
+-- Dumping data for table mytravel.user_wallets: ~3 rows (approximately)
 /*!40000 ALTER TABLE `user_wallets` DISABLE KEYS */;
 INSERT INTO `user_wallets` (`id`, `holder_type`, `holder_id`, `name`, `slug`, `description`, `meta`, `balance`, `decimal_places`, `created_at`, `updated_at`, `create_user`, `update_user`) VALUES
 	(1, 'App\\User', 1, 'Default Wallet', 'default', NULL, '[]', 0, 2, '2021-12-03 15:07:05', '2021-12-03 15:07:05', NULL, NULL),
@@ -6750,7 +6644,6 @@ INSERT INTO `user_wallets` (`id`, `holder_type`, `holder_id`, `name`, `slug`, `d
 /*!40000 ALTER TABLE `user_wallets` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_wishlist
-DROP TABLE IF EXISTS `user_wishlist`;
 CREATE TABLE IF NOT EXISTS `user_wishlist` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -6768,7 +6661,6 @@ CREATE TABLE IF NOT EXISTS `user_wishlist` (
 /*!40000 ALTER TABLE `user_wishlist` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.vendors_plan_payments
-DROP TABLE IF EXISTS `vendors_plan_payments`;
 CREATE TABLE IF NOT EXISTS `vendors_plan_payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `vendor_id` int NOT NULL,

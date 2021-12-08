@@ -243,7 +243,7 @@
                     <div class="col-sm-12 col-xl-4 py-3">
                         <div class="py-xl-15 float-xl-right text-center">
                             <p class="mb-8">
-                                <a id="see-on-map" class="btn btn-danger mb-3 arrow-link" target="_blank" href="">{{ __('SEE ON MAP') }}</a>
+                                <a id="see-on-map" class="btn btn-danger mb-3 arrow-link" target="_blank" href="{{  setting_item("page_contact_link_google_map") }}">{{ __('SEE ON MAP') }}</a>
                             </p>
                             <p class="border-bottom font-size-18" style="width: fit-content;">{{ setting_item("location_contact") }}</p>
                             <p class="border-bottom font-size-18" style="width: fit-content;"> {{ setting_item("phone_contact") }}</p>
@@ -412,7 +412,7 @@
             });
 
         });
-        //$(`#map`).append($(`#front-map`));
+    //$(`#map`).append($(`#front-map`));
 
     });
 
