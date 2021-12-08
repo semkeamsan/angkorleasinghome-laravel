@@ -286,7 +286,7 @@
                 @endif
             </div>
             <div class="row">
-                <div class="col-xl-6 offset-3">
+                <div class="col-xl-6 offset-xl-3">
                     <div class="mb-4 mb-xl-2">
                         <h4 class="h6 font-weight-bold mb-2 text-center mb-xl-3">{{ __('Sign up for our mailing list to get latest updates and offers.') }}</h4>
                         <p class="m-0 text-gray-1 d-none">{{ __('Sign up for our mailing list to get latest updates and offers.') }}</p>
