@@ -1,0 +1,219 @@
+.arrow {
+    width: 120px;
+}
+
+.arrow .line {
+    margin-top: 6px;
+    margin-right: 10px;
+    width: 80px;
+    background: var(--danger);
+    height: 5px;
+    float: left;
+}
+
+.arrow .line-sm {
+    height: 2px;
+}
+
+.arrow-link {
+    position: relative;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.arrow-link:after,
+.arrow-link:before {
+    content: "";
+    display: block;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+
+.arrow-link:before {
+    top: 50%;
+    right: 1em;
+    width: 1em;
+    height: 1em;
+    transform-origin: 50% 50%;
+    transform: translate(0, -0.5em) rotate(45deg);
+    box-shadow: inset -0.2em 0.2em 0 0 white;
+    border-radius: 0 0.15em 0 0;
+}
+
+.arrow-link:after {
+    top: 50%;
+    right: 1em;
+    width: 2.3em;
+    height: 0.2em;
+    transform: translate(0, -0.1em);
+    background-color: white;
+}
+
+.arrow-link-danger:after{
+    background-color: var(--danger);
+}
+.arrow-link-danger:before{
+    box-shadow: inset -0.2em 0.2em 0 0 var(--danger);
+}
+
+.btn.arrow-link {
+    width: fit-content;
+    height: 40px;
+    padding: 0.5rem 1rem;
+    padding-right: 60px;
+}
+.arrow-link-sm:before{
+    transform: translate(-.2rem, -0.5em) rotate(45deg) scale(0.5);
+}
+.arrow-link-sm:after{
+    transform: translate(0, -0.1em) scale(0.5);
+}
+.bravo_footer {
+    position: relative;
+    background: var(--danger);
+    color: #fff;
+}
+
+.bravo_footer:before,
+#our-vision:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-image: url('/images/angkor-wat.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
+#our-vision:before{
+    opacity: 1;
+    background-image: url('/images/Group169.png');
+}
+:root {
+    --color-golden: #777232;
+}
+
+.boxshape {
+    position: absolute;
+    transform: rotate(45deg);
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border: 2px solid var(--color-golden);
+    border-radius: 10px;
+    padding: 0px 10px;
+    z-index: 10;
+
+}
+
+.boxshape>.text {
+    position: relative;
+    transform: rotate(-45deg);
+    top: 16px;
+    display: inline-block;
+    color: var(--color-golden);
+
+}
+
+.boxshape.left {
+    left: -30px;
+}
+
+.boxshape.right {
+    right: -30px;
+}
+
+.r-circle {
+    top: 5px;
+    padding: 10px 20px;
+    background: #fff;
+}
+
+.r-circle:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 40px;
+    left: 4px;
+    top: 3px;
+    height: 20px;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border: 2px solid var(--danger);
+    border-bottom: 0;
+}
+.r-circle-right:before{
+    left: auto;
+    right: -6px;
+    top: 14px;
+    transform: rotate(90deg);
+}
+.r-circle-left:before{
+    left: -5px;
+    right: auto;
+    top: 14px;
+    transform: rotate(-90deg);
+}
+.r-circle-bottom:before{
+    left: 5px;
+    right: auto;
+    top: auto;
+    bottom: 4px;
+    transform: rotate(180deg);
+}
+#our-vision {
+    position: relative;
+}
+
+.bravo_footer .list-group-item {
+    background: transparent;
+    color: #fff;
+}
+
+.js-header-fix-moment #contact-phone {
+    display: initial !important;
+}
+
+.arrowdown:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 72px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+}
+.bg-gray {
+    background-color: #f3f3f0!important;
+}
+.owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 5px 7px;
+    background: #D6D6D6;
+    display: block;
+    -webkit-backface-visibility: visible;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+}
+
+.owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: #869791;
+}
+.owl-carousel .caption {
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#our-vision .btn-icon__inner {
+    font-size: 1.5rem;
+}
