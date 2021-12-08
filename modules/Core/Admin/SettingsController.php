@@ -50,8 +50,7 @@ class SettingsController extends AdminController
 
     public function store(Request $request, $group)
     {
-
-
+        $request->merge(['term_enable_travel' => request('term_enable_travel',0)]);
         if(empty($this->groups)){
             $this->setGroups();
         }
@@ -119,6 +118,7 @@ class SettingsController extends AdminController
                     'term_title',
                     'term_subtitle',
                     'term_properties',
+                    'term_enable_travel',
                 ];
                 $filter_demo_mode = [
                     'home_page_id',

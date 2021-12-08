@@ -846,12 +846,18 @@
                         <div class="terms-scrollable">
                             @foreach($property_types as $term)
                                 <label class="term-item">
-                                    <input @if(!empty(setting_item('term_properties')) and collect(json_decode(setting_item('term_properties')))->contains($term->id)) checked @endif type="checkbox" name="terms[]" value="{{$term->id}}">
+                                    <input @if(!empty(setting_item('term_properties')) and collect(json_decode(setting_item('term_properties')))->contains($term->id)) checked @endif type="checkbox" name="term_properties[]" value="{{$term->id}}">
                                     <span class="term-name">{{$term->name}}</span>
                                 </label>
                             @endforeach
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="term-item">
+                        <input {{ setting_item('term_enable_travel') == 0 ?: 'checked' }} type="checkbox" name="term_enable_travel" value="1">
+                        <span class="term-name">{{__('Enable Travel')}}</span>
+                    </label>
                 </div>
             </div>
         </div>

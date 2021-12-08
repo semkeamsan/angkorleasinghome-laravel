@@ -45,9 +45,11 @@ class PageController extends Controller
             'translation' => $translation,
             'seo_meta'  => $page->getSeoMetaWithTranslation(app()->getLocale(),$translation),
             'body_class'  => "page",
-            'terms' => Terms::withCount('hotel')->whereIn('id',json_decode(setting_item('term_properties')))->orderBy('id')->get(),
-            'travel' => Terms::withCount('tour')->where('id',1)->whereHas('tour')->first(),
+            'terms' => Terms::withCount('hotel')->whereIn('id',json_decode(setting_item('term_properties'))??[] )->orderBy('id')->get(),
         ];
+        if (setting_item('term_enable_travel')) {
+            $data['travel'] =Terms::withCount('tour')->where('id',1)->whereHas('tour')->first();
+        }
         if(!empty($page->header_style) and $page->header_style == "transparent"){
             $data['header_transparent'] = true;
         }

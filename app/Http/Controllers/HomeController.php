@@ -30,7 +30,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $home_page_id = setting_item('home_page_id');
         if($home_page_id && $page = Page::where("id",$home_page_id)->where("status","publish")->first())
         {
@@ -44,9 +43,12 @@ class HomeController extends Controller
                 "seo_meta"=> $seo_meta,
                 'is_home' => true,
                 'translation'=>$translation,
-                'terms' => Terms::withCount('hotel')->whereIn('id',json_decode(setting_item('term_properties')))->orderBy('id')->get(),
-                'travel' => Terms::withCount('tour')->where('id',1)->whereHas('tour')->first(),
+                'terms' => Terms::withCount('hotel')->whereIn('id',json_decode(setting_item('term_properties'))??[] )->orderBy('id')->get(),
             ];
+            if (setting_item('term_enable_travel')) {
+                $data['travel'] =Terms::withCount('tour')->where('id',1)->whereHas('tour')->first();
+            }
+
             return view('Page::frontend.detail',$data);
         }
 

@@ -1,5 +1,4 @@
 @if (request()->is('/') || request()->route('slug') == 'home-page')
-
 {{-- Room Lease Expert --}}
 <div id="front-terms" class="d-none">
     <div class="container space-bottom-1">
@@ -36,20 +35,21 @@
 
 
             @endforeach
-
-            <div class="col-md-6 col-xl-4 col-sm-4 mb-xl-3 mb-md-4">
-                <a href="/page/home-tour" class="text-white font-weight-bold font-size-21 mb-3 text-lh-1 d-block">
-                    <div class="min-height-350 bg-img-hero rounded-border border-0 position-relative" style="background-image: url(/uploads/0000/1/2021/12/06/ta-prohm-temple-angkor-travel-guide-winetraveler.jpg);">
-                        <div class="bottom-0 position-absolute text-center py-5 w-100" style="background: #0a0a0a6b;">
-                            <div>
-                                <h1 class="m-0"> Travel</h1>
-
-                                <p class="text-white"><small>{{ $travel? $travel->tour_count : 0  }} Properties</small></p>
+            @if (setting_item('term_enable_travel'))
+                <div class="{{ $terms->count() ?'col-xl-6' : 'col-xl-12' }} mb-xl-3 mb-md-4">
+                    <a href="/page/home-tour" class="text-white font-weight-bold font-size-21 mb-3 text-lh-1 d-block">
+                        <div class="min-height-350 bg-img-hero rounded-border border-0 position-relative" style="background-image: url(/uploads/0000/1/2021/12/06/ta-prohm-temple-angkor-travel-guide-winetraveler.jpg);">
+                            <div class="bottom-0 position-absolute text-center py-5 w-100" style="background: #0a0a0a6b;">
+                                <div>
+                                    <h1 class="m-0"> Travel</h1>
+                                    <p class="text-white"><small>{{ $travel? $travel->tour_count : 0  }} Properties</small></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            @endif
+
         </div>
     </div>
 </div>
