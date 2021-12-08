@@ -1855,7 +1855,7 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_term` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_hotel_term: ~312 rows (approximately)
+-- Dumping data for table mytravel.bc_hotel_term: ~316 rows (approximately)
 /*!40000 ALTER TABLE `bc_hotel_term` DISABLE KEYS */;
 INSERT INTO `bc_hotel_term` (`id`, `term_id`, `target_id`, `create_user`, `update_user`, `created_at`, `updated_at`) VALUES
 	(1, 47, 1, NULL, NULL, '2021-12-03 15:02:03', '2021-12-03 15:02:03'),
@@ -4345,7 +4345,7 @@ CREATE TABLE IF NOT EXISTS `bc_terms` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_terms: ~94 rows (approximately)
+-- Dumping data for table mytravel.bc_terms: ~97 rows (approximately)
 /*!40000 ALTER TABLE `bc_terms` DISABLE KEYS */;
 INSERT INTO `bc_terms` (`id`, `name`, `content`, `attr_id`, `slug`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`, `deleted_at`, `image_id`, `icon`) VALUES
 	(1, 'Cultural', NULL, 1, 'cultural', NULL, NULL, NULL, NULL, '2021-12-03 15:01:57', '2021-12-03 15:01:57', NULL, NULL, NULL),
@@ -4866,7 +4866,7 @@ CREATE TABLE IF NOT EXISTS `benefits` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.benefits: ~0 rows (approximately)
+-- Dumping data for table mytravel.benefits: ~1 rows (approximately)
 /*!40000 ALTER TABLE `benefits` DISABLE KEYS */;
 INSERT INTO `benefits` (`id`, `title`, `subtitle`, `detail`, `actions`, `images`, `created_at`, `updated_at`) VALUES
 	(1, 'Benefits', 'Our Offers', 'An energy efficient building reduces maintenance and utility costs, but, in many cases improves durability, kessens noise, increases comfort and created a healthy and safe indoor environment.', '{"link": "/page/home-hotel", "text": "Book A Visit"}', '[{"image": "/uploads/0000/1/2021/12/06/photo-2021-10-30-09-00-44-2.jpg", "title": "Title", "subtitle": "Subtitle"}, {"image": "/uploads/0000/1/2021/12/06/photo-2021-10-30-08-58-30-2.jpg", "title": "Title", "subtitle": "Subtitle"}, {"image": "/uploads/0000/1/2021/12/06/photo-2021-10-11-10-19-35.jpg", "title": "Title", "subtitle": "Subtitle"}]', NULL, '2021-12-07 08:06:32');
@@ -5020,7 +5020,7 @@ CREATE TABLE IF NOT EXISTS `core_menus` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_menus: ~0 rows (approximately)
+-- Dumping data for table mytravel.core_menus: ~2 rows (approximately)
 /*!40000 ALTER TABLE `core_menus` DISABLE KEYS */;
 INSERT INTO `core_menus` (`id`, `name`, `items`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 'Main Menu', '[{"name":"Home","url":"\\/","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Home Page","url":"\\/","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home v2","url":"\\/page\\/home-v2","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Hotel","url":"\\/page\\/home-hotel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Tour","url":"\\/page\\/home-tour","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Space","url":"\\/page\\/home-space","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Event","url":"\\/page\\/home-event","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Home Car","url":"\\/page\\/home-car","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Hotel","url":"\\/hotel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Hotel List","url":"\\/hotel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Hotel Map","url":"\\/hotel?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Hotel Detail","url":"\\/hotel\\/parian-holiday-villas","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Tours","url":"\\/tour","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Tour List","url":"\\/tour","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Tour Map","url":"\\/tour?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Tour Detail","url":"\\/tour\\/paris-vacation-travel","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Space","url":"\\/space","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Space List","url":"\\/space","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Space Map","url":"\\/space?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Space Detail","url":"\\/space\\/stay-greenwich-village","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Car","url":"\\/car","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Car List","url":"\\/car","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Car Map","url":"\\/car?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Car Detail","url":"\\/car\\/vinfast-lux-a20-plus","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Event","url":"\\/event","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Event List","url":"\\/event","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Event Map","url":"\\/event?_layout=map","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Event Detail","url":"\\/event\\/aspen-glade-weddings-events","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Flight","url":"\\/flight","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"Flight List","url":"\\/flight","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Become a vendor","url":"\\/page\\/become-a-vendor","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Pages","url":"#","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[{"name":"News List","url":"\\/news","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"News Detail","url":"\\/news\\/morning-in-the-northern-sea","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]},{"name":"Location Detail","url":"\\/location\\/london","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]},{"name":"Contact","url":"\\/contact","item_model":"custom","model_name":"Custom","is_removed":true,"_open":false,"children":[]}]', 1, 1, NULL, NULL, '2021-12-03 15:01:54', '2021-12-06 09:24:39'),
@@ -5255,7 +5255,7 @@ CREATE TABLE IF NOT EXISTS `core_pages` (
   KEY `core_pages_slug_index` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_pages: ~9 rows (approximately)
+-- Dumping data for table mytravel.core_pages: ~10 rows (approximately)
 /*!40000 ALTER TABLE `core_pages` DISABLE KEYS */;
 INSERT INTO `core_pages` (`id`, `slug`, `title`, `content`, `short_desc`, `status`, `publish_date`, `image_id`, `template_id`, `create_user`, `update_user`, `deleted_at`, `origin_id`, `lang`, `created_at`, `updated_at`, `header_style`, `custom_logo`) VALUES
 	(1, 'home-page', 'Home Page', NULL, NULL, 'publish', NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, '2021-12-03 15:01:54', NULL, NULL, NULL),
@@ -5303,7 +5303,7 @@ CREATE TABLE IF NOT EXISTS `core_permissions` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_permissions: ~88 rows (approximately)
+-- Dumping data for table mytravel.core_permissions: ~94 rows (approximately)
 /*!40000 ALTER TABLE `core_permissions` DISABLE KEYS */;
 INSERT INTO `core_permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
 	(1, 'report_view', 'web', '2021-12-03 15:01:49', '2021-12-03 15:01:49'),
@@ -5434,7 +5434,7 @@ CREATE TABLE IF NOT EXISTS `core_role_has_permissions` (
   CONSTRAINT `core_role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `core_roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_role_has_permissions: ~110 rows (approximately)
+-- Dumping data for table mytravel.core_role_has_permissions: ~118 rows (approximately)
 /*!40000 ALTER TABLE `core_role_has_permissions` DISABLE KEYS */;
 INSERT INTO `core_role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(9, 1),
@@ -5573,7 +5573,7 @@ CREATE TABLE IF NOT EXISTS `core_settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_settings: ~185 rows (approximately)
+-- Dumping data for table mytravel.core_settings: ~187 rows (approximately)
 /*!40000 ALTER TABLE `core_settings` DISABLE KEYS */;
 INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_user`, `update_user`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 'update_to_110', NULL, '1', NULL, NULL, NULL, NULL, '2021-12-08 08:07:55', '2021-12-08 08:07:55'),
@@ -5718,12 +5718,12 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 	(140, 'site_enable_multi_lang', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(141, 'enable_rtl', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(142, 'page_contact_link_google_map', 'general', 'https://maps.google.com/maps?ll=-37.81721,144.955928&z=16&t=m&hl=en&gl=IN&mapclient=embed&cid=13153204942596594449', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:30:27'),
-	(143, 'mission_title', 'mission', 'Our Mission', NULL, 1, NULL, NULL, NULL, '2021-12-08 02:48:41'),
-	(144, 'mission_subtitle', 'mission', 'INNOVATION', NULL, 1, NULL, NULL, NULL, '2021-12-08 02:48:41'),
-	(145, 'mission_detail', 'mission', 'A Company that can grow with "Thank you" and "smile" by delivering "Thank you" and "smile" by sending something from us', NULL, 1, NULL, NULL, NULL, '2021-12-08 02:48:41'),
-	(146, 'mission_link_title', 'mission', 'Read More', NULL, 1, NULL, NULL, NULL, '2021-12-08 02:48:41'),
-	(147, 'mission_link', 'mission', '/page/home-hotel', NULL, 1, NULL, NULL, NULL, '2021-12-08 02:48:41'),
-	(148, 'mission_image', 'mission', '189', NULL, 1, NULL, NULL, NULL, '2021-12-08 02:48:41'),
+	(143, 'mission_title', 'mission', 'Our Mission', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
+	(144, 'mission_subtitle', 'mission', 'INNOVATION', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
+	(145, 'mission_detail', 'mission', 'A Company that can grow with "Thank you" and "smile" by delivering "Thank you" and "smile" by sending something from us', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
+	(146, 'mission_link_title', 'mission', 'Read More', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
+	(147, 'mission_link', 'mission', '/page/home-hotel', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
+	(148, 'mission_image', 'mission', '189', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
 	(149, 'hotel_disable', 'hotel', '', NULL, 1, NULL, NULL, '2021-12-08 02:52:41', '2021-12-08 02:52:41'),
 	(150, 'hotel_page_search_title', 'hotel', '', NULL, 1, NULL, NULL, '2021-12-08 02:52:41', '2021-12-08 02:52:41'),
 	(151, 'hotel_page_search_banner', 'hotel', '', NULL, 1, NULL, NULL, '2021-12-08 02:52:41', '2021-12-08 02:52:41'),
@@ -5762,7 +5762,8 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 	(184, 'news_page_list_seo_image', 'news', '', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29'),
 	(185, 'news_page_list_seo_share', 'news', '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29'),
 	(186, 'term_title', 'term', 'Room Lease Expert', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29'),
-	(187, 'term_subtitle', 'term', 'Our Lorem Text', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29');
+	(187, 'term_subtitle', 'term', 'Our Lorem Text', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29'),
+	(188, 'term_properties', 'term', '["36","37","95","97"]', NULL, 1, NULL, NULL, '2021-12-08 04:41:23', '2021-12-08 04:41:23');
 /*!40000 ALTER TABLE `core_settings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_subscribers
@@ -5780,7 +5781,7 @@ CREATE TABLE IF NOT EXISTS `core_subscribers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_subscribers: ~2 rows (approximately)
+-- Dumping data for table mytravel.core_subscribers: ~3 rows (approximately)
 /*!40000 ALTER TABLE `core_subscribers` DISABLE KEYS */;
 INSERT INTO `core_subscribers` (`id`, `email`, `first_name`, `last_name`, `create_user`, `update_user`, `deleted_at`, `created_at`, `updated_at`) VALUES
 	(1, 'keamsan.sem@gmail.com', NULL, NULL, 1, NULL, NULL, '2021-12-06 09:12:06', '2021-12-06 09:12:06'),
@@ -6019,7 +6020,7 @@ CREATE TABLE IF NOT EXISTS `media_files` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.media_files: ~232 rows (approximately)
+-- Dumping data for table mytravel.media_files: ~243 rows (approximately)
 /*!40000 ALTER TABLE `media_files` DISABLE KEYS */;
 INSERT INTO `media_files` (`id`, `file_name`, `file_path`, `file_size`, `file_type`, `file_extension`, `create_user`, `update_user`, `deleted_at`, `app_id`, `app_user_id`, `file_width`, `file_height`, `created_at`, `updated_at`) VALUES
 	(1, 'avatar', 'demo/general/avatar.jpg', NULL, 'image/jpeg', 'jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -6366,7 +6367,7 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.notifications: ~6 rows (approximately)
+-- Dumping data for table mytravel.notifications: ~7 rows (approximately)
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
 	('1ffaf28c-1dd9-4ddb-80e2-62d1c89b8d08', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"1ffaf28c-1dd9-4ddb-80e2-62d1c89b8d08","for_admin":1,"notification":{"id":27,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=27","type":"hotel","message":"Castello Casole Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-06 07:34:38', '2021-12-06 07:34:38'),
@@ -6574,7 +6575,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `address`, `address2`, `phone`, `birthday`, `city`, `state`, `country`, `zip_code`, `last_login_at`, `avatar_id`, `bio`, `status`, `create_user`, `update_user`, `vendor_commission_amount`, `vendor_commission_type`, `deleted_at`, `remember_token`, `created_at`, `updated_at`, `payment_gateway`, `total_guests`, `locale`, `business_name`, `avatar`, `messenger_color`, `dark_mode`, `active_status`, `verify_submit_status`, `is_verified`, `user_name`) VALUES
 	(1, 'System Admin', 'System', 'Admin', 'admin@dev.com', '2021-12-03 15:01:53', '$2y$10$HQ7U0fuISqKk0OwUQXYt/OQkxHkUt820YdNkMIpHT.VqzSUuy04NS', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, 'SWwPLF7SoV6r5urQeo1jXYsPAb4rXWTXYib3j9Ily1iOc3eyR5Z5oimEBv4W', '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL),
 	(2, '', 'Vendor', '01', 'vendor1@dev.com', '2021-12-03 15:01:53', '$2y$10$NqxPr.P5VL7hssjmYt9QAeDvM5pejbGbriApy2kwVxkMeEyQtcyKG', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL),
-	(3, '', 'Customer', '01', 'customer1@dev.com', '2021-12-03 15:01:53', '$2y$10$Q8AmH8P1Re0I8cfZ.O4tM.A918515RJeFflU77651Bi42pAu73oOi', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, NULL, '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL);
+	(3, 'Customer 01', 'Customer', '01', 'customer1@dev.com', '2021-12-03 15:01:53', '$2y$10$Q8AmH8P1Re0I8cfZ.O4tM.A918515RJeFflU77651Bi42pAu73oOi', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, 'Cmtfut6XP18l97vXybtRQXFCdC7ti4ngQDv7nMRk1DZi48oio5Ei9Fj7hV2z', '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_meta
@@ -6705,10 +6706,11 @@ CREATE TABLE IF NOT EXISTS `user_wallets` (
   KEY `user_wallets_slug_index` (`slug`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.user_wallets: ~0 rows (approximately)
+-- Dumping data for table mytravel.user_wallets: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user_wallets` DISABLE KEYS */;
 INSERT INTO `user_wallets` (`id`, `holder_type`, `holder_id`, `name`, `slug`, `description`, `meta`, `balance`, `decimal_places`, `created_at`, `updated_at`, `create_user`, `update_user`) VALUES
-	(1, 'App\\User', 1, 'Default Wallet', 'default', NULL, '[]', 0, 2, '2021-12-03 15:07:05', '2021-12-03 15:07:05', NULL, NULL);
+	(1, 'App\\User', 1, 'Default Wallet', 'default', NULL, '[]', 0, 2, '2021-12-03 15:07:05', '2021-12-03 15:07:05', NULL, NULL),
+	(2, 'App\\User', 3, 'Default Wallet', 'default', NULL, '[]', 0, 2, '2021-12-08 03:59:37', '2021-12-08 03:59:37', NULL, NULL);
 /*!40000 ALTER TABLE `user_wallets` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_wishlist

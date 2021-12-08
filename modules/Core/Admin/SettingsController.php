@@ -2,12 +2,13 @@
 namespace Modules\Core\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Modules\AdminController;
 use Modules\Core\Models\Settings;
+use Illuminate\Support\Facades\App;
+use Modules\Core\Models\Attributes;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 
 class SettingsController extends AdminController
 {
@@ -40,13 +41,16 @@ class SettingsController extends AdminController
             ],
             'page_title'    => $this->groups[$group]['name'] ?? $this->groups[$group]['title'] ?? $group,
             'group'         => $this->groups[$group],
-            'enable_multi_lang'=>true
+            'enable_multi_lang'=>true,
+            'property_types'     => Attributes::find(5)->terms,
         ];
+
         return view('Core::admin.settings.index', $data);
     }
 
     public function store(Request $request, $group)
     {
+
 
         if(empty($this->groups)){
             $this->setGroups();
@@ -114,6 +118,7 @@ class SettingsController extends AdminController
                     'mission_image',
                     'term_title',
                     'term_subtitle',
+                    'term_properties',
                 ];
                 $filter_demo_mode = [
                     'home_page_id',

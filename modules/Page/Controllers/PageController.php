@@ -45,7 +45,7 @@ class PageController extends Controller
             'translation' => $translation,
             'seo_meta'  => $page->getSeoMetaWithTranslation(app()->getLocale(),$translation),
             'body_class'  => "page",
-            'terms' => Terms::withCount('hotel')->whereIn('id',[37,36,95,97])->orderBy('id')->get(),
+            'terms' => Terms::withCount('hotel')->whereIn('id',json_decode(setting_item('term_properties')))->orderBy('id')->get(),
             'travel' => Terms::withCount('tour')->where('id',1)->whereHas('tour')->first(),
         ];
         if(!empty($page->header_style) and $page->header_style == "transparent"){

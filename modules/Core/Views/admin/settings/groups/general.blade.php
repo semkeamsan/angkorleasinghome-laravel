@@ -840,6 +840,19 @@
                         <input type="text" class="form-control" name="term_subtitle" value="{{setting_item_with_lang('term_subtitle',request()->query('lang'))}}">
                     </div>
                 </div>
+                <div class="panel">
+                    <div class="panel-title"><strong>{{ __('Property Type')}}</strong></div>
+                    <div class="panel-body">
+                        <div class="terms-scrollable">
+                            @foreach($property_types as $term)
+                                <label class="term-item">
+                                    <input @if(!empty(setting_item('term_properties')) and collect(json_decode(setting_item('term_properties')))->contains($term->id)) checked @endif type="checkbox" name="terms[]" value="{{$term->id}}">
+                                    <span class="term-name">{{$term->name}}</span>
+                                </label>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
