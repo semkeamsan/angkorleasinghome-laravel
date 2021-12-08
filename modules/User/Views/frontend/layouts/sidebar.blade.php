@@ -169,6 +169,7 @@ if (!empty($menus))
     <div class="sidebar-menu">
         <ul class="main-menu">
             @foreach($menus as $menuItem)
+
                 <li class="{{$menuItem['class']}}">
                     <a href="{{ url($menuItem['url']) }}">
                         @if(!empty($menuItem['icon']))
@@ -183,6 +184,7 @@ if (!empty($menus))
                     @if(!empty($menuItem['children']))
                         <ul class="children">
                             @foreach($menuItem['children'] as $menuItem2)
+
                                 <li class="{{$menuItem2['class']}}"><a href="{{ url($menuItem2['url']) }}">
                                         @if(!empty($menuItem2['icon']))
                                             <i class="{{$menuItem2['icon']}}"></i>
