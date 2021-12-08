@@ -200,7 +200,6 @@
     margin: 5px 7px;
     background: #D6D6D6;
     display: block;
-    -webkit-backface-visibility: visible;
     transition: opacity .2s ease;
     border-radius: 30px;
 }
