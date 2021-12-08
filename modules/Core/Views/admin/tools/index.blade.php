@@ -72,7 +72,7 @@
                                         </span>
                                             <span class="setting-item-info">
                                             <span class="setting-item-title">{{__("Updater")}}</span>
-                                            <span class="setting-item-desc">{{__("Updater My Travel")}}</span>
+                                            <span class="setting-item-desc">{{__("Updater Angkor Leasing")}}</span>
                                         </span>
                                         </a>
                                     </div>
@@ -88,7 +88,7 @@
                                         </span>
                                             <span class="setting-item-info">
                                             <span class="setting-item-title">{{__("Plugins")}}</span>
-                                            <span class="setting-item-desc">{{__("Plugins for My Travel")}}</span>
+                                            <span class="setting-item-desc">{{__("Plugins for Angkor Leasing")}}</span>
                                         </span>
                                         </a>
                                     </div>

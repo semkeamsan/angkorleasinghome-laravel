@@ -3,7 +3,7 @@
 		'default' => env('SMS_DRIVER', ''),
 		'nexmo'=>[
 			'url'=>'https://rest.nexmo.com/sms/json',
-			'from'=>env('SMS_NEXMO_FROM','My Travel'),
+			'from'=>env('SMS_NEXMO_FROM','Angkor Leasing'),
 			'key'=>env('SMS_NEXMO_KEY',''),
 			'secret'=>env('SMS_NEXMO_SECRET',''),
 		],

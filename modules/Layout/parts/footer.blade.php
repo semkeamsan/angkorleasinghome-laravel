@@ -310,7 +310,7 @@
     <div class="border-top border-bottom border-color-8 space-1 d-none">
         <div class="container">
             <div class="sub-footer d-flex align-items-center justify-content-between">
-                <a class="d-inline-flex align-items-center" href="{{ url('/') }}" aria-label="MyTravel">
+                <a class="d-inline-flex align-items-center" href="{{ url('/') }}" aria-label="AngkorLeasing">
                     {!! get_image_tag(setting_item_with_lang('logo_id_2')) !!}
                     <span class="brand brand-dark">{{ setting_item_with_lang('logo_text') }}</span>
                 </a>
