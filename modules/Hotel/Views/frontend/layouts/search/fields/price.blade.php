@@ -5,7 +5,7 @@
     <div class="p-2 border-width-2 border-color-1 mb-4 form-content">
         <div class="pb-1 mb-1 d-flex text-lh-1">
             <span>$</span>
-            <span id="rangeSliderMinResult">100</span>
+            <span id="rangeSliderMinResult">300</span>
             <span class="mx-0dot5"> — </span>
             <span>$</span>
             <span id="rangeSliderMaxResult">800</span>
