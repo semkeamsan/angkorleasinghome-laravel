@@ -110,11 +110,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 copy-right" >
-                        {{date('Y')}} &copy; {{__('Angkor Leasing by')}} <a href="{{__('https://www.mytravel.bookingcore.org')}}" target="_blank">{{__('AngkorLeasing Team')}}</a>
+                        {{date('Y')}} &copy; {{__('Angkor Leasing Home by')}} <a href="{{__(' https://eocambo.com/') }}" target="_blank">{{__('eOcambo Technology')}}</a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 d-none">
                         <div class="text-md-right footer-links d-none d-sm-block">
-                            <a href="{{__('https://www.facebook.com/bookingcore')}}" target="_blank">{{__('About Us')}}</a>
+                            <a href="{{__('https://eocambo.com/')}}" target="_blank">{{__('About Us')}}</a>
                         </div>
                     </div>
                 </div>

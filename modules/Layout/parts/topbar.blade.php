@@ -19,7 +19,7 @@ $countUnread = $checkNotify->where('read_at', null)->count();
                {!! setting_item_with_lang("topbar_left_text") !!}
            </div>
            <div class="ml-auto d-flex align-items-center">
-               <div class="d-flex align-items-center text-white px-3">
+               <div class="d-flex align-items-center px-3">
                    <i class="flaticon-phone-call mr-2 ml-1 font-size-18"></i>
                    <span class="d-inline-block font-size-14 mr-1">{{ setting_item("phone_contact") }}</span>
                </div>
@@ -95,7 +95,7 @@ $countUnread = $checkNotify->where('read_at', null)->count();
                            <span class="d-inline-block font-size-14 mr-1">{{ __("Sign in or Register") }}</span>
                        </a>
                    @else
-                       <div class="d-flex align-items-center text-white py-3 dropdown">
+                       <div class="d-flex align-items-center py-3 dropdown">
                            <i class="flaticon-user mr-2 ml-1 font-size-18"></i>
                            <span class="d-inline-block font-size-14 mr-1 dropdown-nav-link" data-toggle="dropdown">
                             {{__("Hi, :name",['name'=>Auth::user()->getDisplayName()])}}

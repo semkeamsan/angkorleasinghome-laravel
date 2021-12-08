@@ -36,7 +36,7 @@
 
             @endforeach
             @if (setting_item('term_enable_travel'))
-                <div class="{{ $terms->count() ?'col-xl-6' : 'col-xl-12' }} mb-xl-3 mb-md-4">
+                <div class="{{ $terms->count() ?'col-xl-4' : 'col-xl-12' }} mb-xl-3 mb-md-4">
                     <a href="/page/home-tour" class="text-white font-weight-bold font-size-21 mb-3 text-lh-1 d-block">
                         <div class="min-height-350 bg-img-hero rounded-border border-0 position-relative" style="background-image: url(/uploads/0000/1/2021/12/06/ta-prohm-temple-angkor-travel-guide-winetraveler.jpg);">
                             <div class="bottom-0 position-absolute text-center py-5 w-100" style="background: #0a0a0a6b;">
@@ -395,7 +395,7 @@
         }
 
         $(".front-price").each(function() {
-            console.log($(this).data())
+
             $(this).ionRangeSlider({
                 hide_min_max: true
                 , hide_from_to: true
@@ -412,15 +412,6 @@
             });
 
         });
-
-        $(`#see-on-map`).click(function(e) {
-            e.preventDefault();
-            console.log($(this).parents('#front-map').find(`iframe`));
-            $(this).parents('#front-map').find(`iframe`).click();
-
-        });
-
-
         //$(`#map`).append($(`#front-map`));
 
     });

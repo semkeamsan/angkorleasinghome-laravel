@@ -48,7 +48,7 @@ class HomeController extends Controller
             if (setting_item('term_enable_travel')) {
                 $data['travel'] =Terms::withCount('tour')->where('id',1)->whereHas('tour')->first();
             }
-
+            
             return view('Page::frontend.detail',$data);
         }
 

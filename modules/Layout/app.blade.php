@@ -15,7 +15,7 @@
         @endphp
         @if(!empty($file))
             <link rel="icon" type="{{$file['file_type']}}" href="{{asset('uploads/'.$file['file_path'])}}" />
-        @else:
+        @else
             <link rel="icon" type="image/png" href="{{url('images/favicon.png')}}" />
         @endif
     @endif

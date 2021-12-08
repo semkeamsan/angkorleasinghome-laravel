@@ -213,7 +213,27 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: #0a0a0a6b;
 }
 #our-vision .btn-icon__inner {
     font-size: 1.5rem;
+}
+
+.bravo-logo img{
+    width: 100px;
+}
+.bravo_header,.bravo_topbar {
+    background: var(--white);
+}
+.bravo_header ul li a,
+ .bravo_topbar .topbar_left_text a,
+ .dropdown-nav-link
+{
+    color: var(--black) !important;
+}
+.border-color-white {
+    border-color: #ebf0f7 !important;
+}
+a:hover {
+    color: #5191fa!important;
 }

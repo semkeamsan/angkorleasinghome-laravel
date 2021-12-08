@@ -76,6 +76,7 @@ class Page extends BaseModel
     public function getProcessedContent()
     {
         $template = $this->template;
+
         if(!empty($template)){
             $translation = $template->translateOrOrigin(app()->getLocale());
             return $translation->getProcessedContent();

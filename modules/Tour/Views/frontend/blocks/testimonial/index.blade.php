@@ -1,3 +1,4 @@
+
 @if($list_item)
 <div class="bravo-testimonial bg-gray testimonial-block testimonial-v1 border-bottom border-color-8">
     <div class="container space-1">

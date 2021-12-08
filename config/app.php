@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'My Travel'),
+    'name' => env('APP_NAME', 'Angkor Leasing Home'),
 
     /*
     |--------------------------------------------------------------------------
@@ -270,7 +270,7 @@ return [
         ],
     ],
 
-    'version'=>"1.1.1",
+    'version'=> null,
 
     'updater_url'=>"#"
 
