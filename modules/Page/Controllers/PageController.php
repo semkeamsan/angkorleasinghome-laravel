@@ -1,11 +1,12 @@
 <?php
 namespace Modules\Page\Controllers;
 
+use Modules\AdminController;
+use Modules\Page\Models\Page;
+use Modules\Core\Models\Terms;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Modules\AdminController;
-use Modules\Page\Models\Page;
 use Modules\Page\Models\PageTranslation;
 
 class PageController extends Controller
@@ -34,7 +35,6 @@ class PageController extends Controller
          * @var PageTranslation $translation
          */
         $slug = request()->route('slug');
-
         $page = Page::where('slug', $slug)->first();
         if (empty($page) || !$page->is_published) {
             abort(404);
@@ -45,6 +45,8 @@ class PageController extends Controller
             'translation' => $translation,
             'seo_meta'  => $page->getSeoMetaWithTranslation(app()->getLocale(),$translation),
             'body_class'  => "page",
+            'terms' => Terms::withCount('hotel')->whereIn('id',[37,36,95,97])->orderBy('id')->get(),
+            'travel' => Terms::withCount('tour')->where('id',1)->whereHas('tour')->first(),
         ];
         if(!empty($page->header_style) and $page->header_style == "transparent"){
             $data['header_transparent'] = true;

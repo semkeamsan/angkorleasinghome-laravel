@@ -30,11 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
-
         $home_page_id = setting_item('home_page_id');
-
         if($home_page_id && $page = Page::where("id",$home_page_id)->where("status","publish")->first())
         {
             $this->setActiveMenu($page);
@@ -50,9 +46,9 @@ class HomeController extends Controller
                 'terms' => Terms::withCount('hotel')->whereIn('id',[37,36,95,97])->orderBy('id')->get(),
                 'travel' => Terms::withCount('tour')->where('id',1)->whereHas('tour')->first(),
             ];
-
             return view('Page::frontend.detail',$data);
         }
+
         $model_News = News::where("status", "publish");
         $data = [
             'rows'=>$model_News->paginate(5),

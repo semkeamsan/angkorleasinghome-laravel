@@ -1,4 +1,4 @@
-@if (request()->is('/'))`
+@if (request()->is('/') || request()->route('slug') == 'home-page')
 
 {{-- Room Lease Expert --}}
 <div id="front-terms" class="d-none">
