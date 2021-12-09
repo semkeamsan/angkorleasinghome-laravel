@@ -111,6 +111,7 @@ class TemplateController extends AdminController
 
     public function store(Request $request)
     {
+        
         if(is_demo_mode()){
             return $this->sendError("DEMO MODE: Can not edit template");
         }

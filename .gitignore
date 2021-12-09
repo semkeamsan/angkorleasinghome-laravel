@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
-/public/uploads/0000
+#/public/uploads/0000
 /storage/*.key
 storage/app/*
 !storage/app/public/

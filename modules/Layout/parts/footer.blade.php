@@ -1,5 +1,6 @@
-@if (request()->is('/') || request()->route('slug') == 'home-page')
+
 {{-- Room Lease Expert --}}
+@isset($terms)
 <div id="front-terms" class="d-none">
     <div class="container space-bottom-1">
         <div class="row mb-3 pt-md-3 mt-1 pb-md-3 mb-md-2 align-items-end">
@@ -53,6 +54,8 @@
         </div>
     </div>
 </div>
+@endisset
+
 {{-- Vision --}}
 
 @if (setting_item('vision_title'))
@@ -230,7 +233,7 @@
 
 
 {{-- Map --}}
-<div id="front-map">
+<div id="front-map" class="d-none">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 offset-xl-2">
@@ -260,7 +263,6 @@
     </div>
 </div>
 
-@endif
 @if(!is_api())
 
 
@@ -412,7 +414,7 @@
             });
 
         });
-    //$(`#map`).append($(`#front-map`));
+    $(`#map`).append($(`#front-map`).html());
 
     });
 
