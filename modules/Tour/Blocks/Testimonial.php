@@ -33,11 +33,24 @@ class Testimonial extends BaseBlock
                             'type'  => 'textArea',
                             'label' => __('Desc')
                         ],
+
                         [
                             'id'        => 'position',
                             'type'      => 'input',
                             'inputType' => 'text',
                             'label'     => __('Position')
+                        ],
+                        [
+                            'id'        => 'text_score',
+                            'type'      => 'input',
+                            'inputType' => 'text',
+                            'label'     => __('Text Score')
+                        ],
+                        [
+                            'id'        => 'number_star',
+                            'type'      => 'input',
+                            'inputType' => 'number',
+                            'label'     => __('Rate Star')
                         ],
                         [
                             'id'    => 'avatar',

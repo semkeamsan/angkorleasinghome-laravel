@@ -17,16 +17,26 @@
                 <div class="card rounded-xs border-0 w-100 bg-transparent">
                     <div class="card-body p-5 border-color-7 border  bg-white">
                         <div class="mb-5 text-center">
-                                <h5>Nice place</h5>
-                            <div class="d-inline-flex align-items-center font-size-13 text-lh-1 text-primary">
-                                <div class="green-lighter ml-1 letter-spacing-2">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
+                                <h5>{{ @$item['text_score'] }}</h5>
+                                @if (@$item['number_star'])
+                                    <div class="d-inline-flex align-items-center font-size-13 text-lh-1 text-primary">
+                                        <div class="green-lighter ml-1 letter-spacing-2">
+                                            @if ($item['number_star'] >= 5)
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            @else
+                                                @for ($i = 1; $i < $item['number_star']; $i++)
+                                                 <i class="fa fa-star"></i>
+                                                @endfor
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                @endif
+
                             </label>
                         </div>
                         <p class="mb-0 text-gray-1 text-lh-inherit">

@@ -1,14 +1,14 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Vision;
 use App\User;
+use App\Models\Vision;
 use Illuminate\Http\Request;
 use Modules\News\Models\Tag;
 use Modules\News\Models\News;
 use Modules\Page\Models\Page;
-use Illuminate\Support\Facades\DB;
 use Modules\Core\Models\Terms;
+use Illuminate\Support\Facades\DB;
 use Modules\News\Models\NewsCategory;
 
 class HomeController extends Controller
@@ -48,7 +48,7 @@ class HomeController extends Controller
             if (setting_item('term_enable_travel')) {
                 $data['travel'] =Terms::withCount('tour')->where('id',1)->whereHas('tour')->first();
             }
-            
+
             return view('Page::frontend.detail',$data);
         }
 
