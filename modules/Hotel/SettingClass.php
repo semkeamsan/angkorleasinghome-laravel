@@ -19,6 +19,7 @@ class SettingClass extends BaseSettingsClass
                     'hotel_disable',
                     'hotel_page_search_title',
                     'hotel_page_search_banner',
+                    'hotel_page_search_price',
                     'hotel_layout_search',
                     'hotel_layout_item_search',
                     'hotel_attribute_show_in_listing_page',
@@ -42,6 +43,7 @@ class SettingClass extends BaseSettingsClass
                     'hotel_allow_vendor_can_change_paid_amount',
                     'hotel_allow_vendor_can_add_service_fee',
                     'hotel_search_fields',
+
                     'hotel_map_search_fields',
 
                     'hotel_allow_review_after_making_completed_booking',

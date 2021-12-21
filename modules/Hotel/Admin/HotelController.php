@@ -35,6 +35,13 @@ class HotelController extends AdminController
         $this->attributesClass = Attributes::class;
         $this->locationClass = Location::class;
         $this->locationCategoryClass = LocationCategory::class;
+
+        request()->merge([
+            'price_enable'=> request('price_enable',0),
+            'price_month_enable'=> request('price_month_enable',0),
+            'price_year_enable'=> request('price_year_enable',0),
+        ]);
+
     }
     public function callAction($method, $parameters)
     {
@@ -146,6 +153,7 @@ class HotelController extends AdminController
 
     public function edit(Request $request, $id)
     {
+
         $this->checkPermission('hotel_update');
         $row = $this->hotelClass::find($id);
         if (empty($row)) {
@@ -182,6 +190,7 @@ class HotelController extends AdminController
 
     public function store( Request $request, $id ){
 
+
         if($id>0){
             $this->checkPermission('hotel_update');
             $row = $this->hotelClass::find($id);
@@ -214,6 +223,11 @@ class HotelController extends AdminController
             'map_zoom',
             'star_rate',
             'price',
+            'price_enable',
+            'price_month',
+            'price_year',
+            'price_month_enable',
+            'price_year_enable',
             'sale_price',
             'check_in_time',
             'check_out_time',
