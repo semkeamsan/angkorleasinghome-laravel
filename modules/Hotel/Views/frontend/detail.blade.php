@@ -15,11 +15,8 @@
                     <div class="col-md-12 col-lg-9">
                         @php $review_score = $row->review_data @endphp
                         @include('Hotel::frontend.layouts.details.hotel-detail')
-
-                        @if ($row->price_enable)
-                         @include('Hotel::frontend.layouts.details.hotel-rooms')
-                        @endif
-
+                
+                        @include('Hotel::frontend.layouts.details.hotel-rooms')
 
                         @include('Hotel::frontend.layouts.details.hotel-attributes')
 
