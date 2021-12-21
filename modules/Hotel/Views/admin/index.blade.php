@@ -53,7 +53,7 @@
                         ] : false)
                         ?>
                     @endif
-                    <input type="text" name="s" value="{{ Request()->s }}" placeholder="{{__('Search by name')}}" class="form-control">
+                    <input type="text" name="s" value="{{ Request()->s }}" placeholder="{{__('Search by name, price')}}" class="form-control">
                     <button class="btn-info btn btn-icon btn_search" type="submit">{{__('Search')}}</button>
                 </form>
             </div>
@@ -70,6 +70,7 @@
                             <tr>
                                 <th width="60px"><input type="checkbox" class="check-all"></th>
                                 <th> {{ __('Name')}}</th>
+                                <th width="200px"> {{ __('Pricing')}}</th>
                                 <th width="200px"> {{ __('Location')}}</th>
                                 <th width="130px"> {{ __('Author')}}</th>
                                 <th width="100px"> {{ __('Status')}}</th>
@@ -86,6 +87,13 @@
                                         </td>
                                         <td class="title">
                                             <a href="{{route('hotel.admin.edit',['id'=>$row->id])}}">{{$row->title}}</a>
+                                        </td>
+                                        <td>
+                                            <span>{{$row->price}} / {{ __('night') }}</span>
+                                            <br>
+                                            <span>{{$row->price_month}} / {{ __('month') }}</span>
+                                            <br>
+                                            <span>{{$row->price_year}}/ {{ __('year') }}</span>
                                         </td>
                                         <td>{{$row->location->name ?? ''}}</td>
                                         <td>

@@ -59,6 +59,10 @@ class HotelController extends AdminController
         $query->orderBy('id', 'desc');
         if (!empty($hotel_name = $request->input('s'))) {
             $query->where('title', 'LIKE', '%' . $hotel_name . '%');
+            $query->orWhere('price', 'LIKE', '%' . $hotel_name . '%');
+            $query->orWhere('price_month', 'LIKE', '%' . $hotel_name . '%');
+            $query->orWhere('price_year', 'LIKE', '%' . $hotel_name . '%');
+
             $query->orderBy('title', 'asc');
         }
 

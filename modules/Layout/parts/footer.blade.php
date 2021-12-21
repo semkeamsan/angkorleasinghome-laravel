@@ -472,6 +472,16 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
     var save_cookie_url = "{{route('core.cookie.check')}}";
 
 </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215543459-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-215543459-1');
+</script>
+
 <script src="{{ asset('js/cookie.js?_ver='.config('app.version')) }}"></script>
 @endif
 

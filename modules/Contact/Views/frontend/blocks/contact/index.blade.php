@@ -19,7 +19,7 @@
         @php  $contact_lists = json_decode($contact_lists,true) @endphp
         <div class="border-bottom border-color-8 pb-6 pb-lg-8 mb-5 mb-lg-7">
             <div class="container pb-1">
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach( $contact_lists as $item)
                         <div class="col-md-6 col-lg-4">
                             <div class="mb-5 mb-lg-0 text-center text-md-left">
