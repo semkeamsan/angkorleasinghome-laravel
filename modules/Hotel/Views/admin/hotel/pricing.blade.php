@@ -52,11 +52,15 @@
         <div class="panel-body">
             @if(is_default_lang())
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 border-bottom mb-3">
                         <div class="form-group">
-                            <label class="control-label">{{__("Price")}}</label>
-                            <input type="number" step="any" min="0" name="price" class="form-control" value="{{$row->price}}" placeholder="{{__("Hotel Price")}}">
+                            <label class="control-label">{{__("Price")}} ({{ _('night') }})</label>
+                            <input type="number" step="any" min="0" name="price" class="form-control" value="{{$row->price}}" placeholder="{{__("Price / Night")}}">
                         </div>
+                        <label>
+                            <input type="checkbox" {{$row->price_enable == null ?: 'checked'}} name="price_enable" value="1"> {{__('Enable price')}}
+                        </label>
+
                     </div>
                     <div class="col-lg-6 d-none">
                         <div class="form-group">
@@ -66,6 +70,27 @@
                         </div>
                     </div>
                 </div>
+                <div class="row border-bottom mb-5">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label">{{__("Price")}} ({{ _('month') }})</label>
+                            <input type="number" step="any" min="0" name="price_month" class="form-control" value="{{$row->price_month}}" placeholder="{{__("Price / Month")}}">
+                        </div>
+                        <label>
+                            <input type="checkbox" {{$row->price_month_enable == null ?: 'checked'}} name="price_month_enable" value="1"> {{__('Enable price')}}
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label">{{__("Price")}} ({{ _('year') }})</label>
+                            <input type="number" step="any" min="0" name="price_year" class="form-control" value="{{$row->price_year}}" placeholder="{{__("Price / Year")}}">
+                        </div>
+                        <label>
+                            <input type="checkbox" {{$row->price_year_enable == null ?: 'checked'}} name="price_year_enable" value="1"> {{__('Enable price')}}
+                        </label>
+                    </div>
+                </div>
+
             @endif
             <div class="form-group @if(!is_default_lang()) d-none @endif">
                 <label><input type="checkbox" name="enable_extra_price" @if(!empty($row->enable_extra_price)) checked @endif value="1"> {{__('Enable extra price')}}

@@ -1212,6 +1212,7 @@ jQuery(function ($) {
         $this.bravoAutocomplete(options);
     });
 
+
     $(".smart-search .smart-select").each(function () {
         var $this = $(this);
         var string_list = $this.attr('data-default');
@@ -1221,7 +1222,7 @@ jQuery(function ($) {
         }
         var options = {
             dataDefault: default_list,
-            iconItem: "",
+            iconItem: $this.data('icon'),
             textLoading: $this.attr("data-onLoad"),
         };
         $this.bravoAutocomplete(options);

@@ -22,12 +22,10 @@
             <div class=" {{ $loop->last ? 'col-md-6 col-xl-8 col-sm-4' : 'col-md-6 col-xl-4 col-sm-4' }}  mb-xl-3 mb-md-4">
                 <a href="/hotel/?terms[]={{ $item->id }}" class="text-white font-weight-bold font-size-21 mb-3 text-lh-1 d-block">
                     <div class="min-height-350 bg-img-hero rounded-border border-0 position-relative" style="background-image: url({{ $item->image() }});">
-                        <div class="bottom-0 position-absolute text-center py-5 w-100" @if (!$loop->last) style="background: #0a0a0a6b;" @endif>
+                        <div class="bottom-0 position-absolute text-center py-5 w-100">
                             <div>
                                 <h1 class="m-0 text-white"> {{ $item->name }}</h1>
-                                @if (!$loop->last)
                                 <p class="text-white"><small>{{ $item->hotel_count }} Properties</small></p>
-                                @endif
                             </div>
                         </div>
                     </div>
@@ -42,8 +40,7 @@
                         <div class="min-height-350 bg-img-hero rounded-border border-0 position-relative" style="background-image: url(/uploads/0000/1/2021/12/06/ta-prohm-temple-angkor-travel-guide-winetraveler.jpg);">
                             <div class="bottom-0 position-absolute text-center py-5 w-100" style="background: #0a0a0a6b;">
                                 <div>
-                                    <h1 class="m-0"> Travel</h1>
-                                    <p class="text-white"><small>{{ $travel? $travel->tour_count : 0  }} Properties</small></p>
+                                    <h1 class="m-0"> {{__('Travel')}}</h1>
                                 </div>
                             </div>
                         </div>
@@ -377,14 +374,14 @@
 <script>
     $(document).on('ready', function() {
         $.MyTravelHeader.init($('#header'));
-        $(`#our-mission`).append($(`#front-mission`).html());
-        $(`#our-vision`).append($(`#front-vision`).html());
+        $(`#our-mission`).html($(`#front-mission`).html());
+        $(`#our-vision`).html($(`#front-vision`).html());
         $(`#our-vision`).parents('.container').wrap(`<div class="bg-gray">`);
-        $(`#room-lease-expert`).append($(`#front-terms`).html());
+        $(`#room-lease-expert`).html($(`#front-terms`).html());
         if ($(`#front-benefit`).length) {
             $(`#benefits`).css({
                 background: 'url(/images/Group.png) no-repeat top'
-            , }).addClass('pt-xl-7 mt-2').append($(`#front-benefit`).html());
+            , }).addClass('pt-xl-7 mt-2').html($(`#front-benefit`).html());
             $(`#benefits`).find('.owl-carousel').owlCarousel({
                 items: 1
                 , loop: true
@@ -406,15 +403,27 @@
                 , max: $(this).data('max') ? $(this).data('max') : 0
                 , from: $(this).data('from') ? $(this).data('from') : 0
                 , to: $(this).data('to') ? $(this).data('to') : 0
+                , step: $(this).data('step') ? $(this).data('step') : 50
                 , prefix: "$"
-                , onChange: (data) => {
+                , onChange: (data)=>{
                     $(`#rangeSliderMinResult`).text(data.from);
                     $(`#rangeSliderMaxResult`).text(data.to);
+                },
+                onFinish : (data)=>{
+                    if(data.to > 500){
+                        $(this).data("ionRangeSlider").update({
+                            step: 500,
+                        });
+                    }else{
+                        $(this).data("ionRangeSlider").update({
+                            step: 50,
+                        });
+                    }
                 }
             });
 
         });
-    $(`#map`).append($(`#front-map`).html());
+    $(`#map`).html($(`#front-map`).html());
 
     });
 

@@ -4,10 +4,10 @@
     </h5>
     <div class="nav-enquiry" v-if="is_form_enquiry_and_book">
         <div class="enquiry-item active" >
-            <span>{{ __("Book") }}</span>
+            <span>{{ __("Preview") }}</span>
         </div>
         <div class="enquiry-item" data-toggle="modal" data-target="#enquiry_form_modal">
-            <span>{{ __("Enquiry") }}</span>
+            <span>{{ __("Contact") }}</span>
         </div>
     </div>
     <div class="form-book">
@@ -18,7 +18,7 @@
                         <i class="fa fa-angle-down arrow"></i>
                         <input type="text" class="start_date" ref="start_date" style="height: 1px; visibility: hidden">
                         <div class="date-wrapper form-content" >
-                            <label class="form-label">{{__("Check In - Out")}}</label>
+                            <label class="form-label">{{__("Book Period")}}</label>
                             <div class="render check-in-render" v-html="start_date_html"></div>
                         </div>
                     </div>

@@ -66,9 +66,12 @@ class Settings extends BaseModel
 
         // Modules
         $custom_modules = \Modules\ServiceProvider::getModules();
+
         if(!empty($custom_modules)){
             foreach($custom_modules as $module){
+
                 $moduleClass = "\\Modules\\".ucfirst($module)."\\SettingClass";
+
                 if(class_exists($moduleClass))
                 {
                     $blockConfig = call_user_func([$moduleClass,'getSettingPages']);

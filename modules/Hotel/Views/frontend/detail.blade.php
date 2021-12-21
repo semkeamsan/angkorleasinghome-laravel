@@ -16,7 +16,10 @@
                         @php $review_score = $row->review_data @endphp
                         @include('Hotel::frontend.layouts.details.hotel-detail')
 
-                        @include('Hotel::frontend.layouts.details.hotel-rooms')
+                        @if ($row->price_enable)
+                         @include('Hotel::frontend.layouts.details.hotel-rooms')
+                        @endif
+
 
                         @include('Hotel::frontend.layouts.details.hotel-attributes')
 
@@ -92,16 +95,37 @@
                                             <div class="ribbon ribbon--red">{{ __("SAVE :text",['text'=>$row->discount_percent]) }}</div>
                                         </div>
                                     @endif
-                                    <div class="p-4">
+                                    @if ( $row->price_enable)
+                                    <div class="px-4 py-2 border-bottom">
                                         <span class="font-size-14">{{ __("From") }}</span>
                                         <span class="font-size-24 text-gray-6 font-weight-bold ml-1">
                                             <small class="font-size-16 text-decoration-line-through text-danger">
                                                {{ $row->display_sale_price }}
                                             </small>
                                             {{ $row->display_price }}
-                                            <span class="font-size-14"> / {{__('night')}}</span>
+                                            <span class="font-size-14"> / {{__('nigth')}}</span>
                                         </span>
                                     </div>
+                                    @endif
+                                    @if ( $row->price_month_enable)
+                                    <div class="px-4 py-2 border-bottom">
+                                        <span class="font-size-14">{{ __("From") }}</span>
+                                        <span class="font-size-24 text-gray-6 font-weight-bold ml-1">
+                                            {{ format_money_main($row->price_month) }}
+                                            <span class="font-size-14"> / {{__('month')}}</span>
+                                        </span>
+                                    </div>
+                                    @endif
+                                    @if ( $row->price_year_enable)
+                                    <div class="px-4 py-2 border-bottom">
+                                        <span class="font-size-14">{{ __("From") }}</span>
+                                        <span class="font-size-24 text-gray-6 font-weight-bold ml-1">
+                                            {{ format_money_main ($row->price_year) }}
+                                            <span class="font-size-14"> / {{__('year')}}</span>
+                                        </span>
+                                    </div>
+                                    @endif
+
                                 </div>
                                 <div class="p-3">
                                     <div class="px-2 pt-2">

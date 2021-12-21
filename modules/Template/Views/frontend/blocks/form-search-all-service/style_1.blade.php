@@ -1,7 +1,7 @@
 <div class="bravo-form-search-all hero-block hero-v1 bg-img-hero-bottom gradient-overlay-half-black-gradient text-center z-index-2" style="background-image: url('{{$bg_image_url}}') !important;">
     <div class="container space-top-xl-4">
         <div class="row py-xl-10 pb-xl-11 ml-0">
-            <div class="py-8 py-xl-4 px-4 text-left" style="background: #0a0a0a2e;">
+            <div class="py-10 px-4 text-left" style="background: #0a0a0a2e;">
                 <div class="" >
                     <h1 class="font-size-60 font-size-xs-30 text-white font-weight-bold m-0">{{$title ?? ''}}</h1>
                     <p class="font-size-30 font-weight-normal text-white">{{$sub_title ?? ''}}</p>

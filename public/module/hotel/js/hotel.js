@@ -31,6 +31,7 @@ jQuery(function ($) {
             $this.ionRangeSlider({
                 hide_min_max: true,
                 hide_from_to: true,
+                step : 50,
                 onStart: isEmpty(config.onStart) === true ? function (data) {
                     if (graphForegroundTarget) {
                         var w = (100 - (data.from_percent + (100 - data.to_percent)));

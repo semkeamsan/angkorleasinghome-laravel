@@ -98,11 +98,30 @@
                                         </span>
                                     </div>
                                 @endif
+                                @if ($row->price_enable)
                                 <div class="mb-0">
-                                    <span class="mr-1 font-size-14 text-gray-1">{{__("From")}}</span>
-                                    <span class="font-weight-bold">{{ $item->display_price }}</span>
-                                    <span class="font-size-14 text-gray-1">{{__("/night")}}</span>
+                                    <span class="mr-1 font-size-14 text-gray-1">{{ __('from') }}</span>
+                                    <span class="font-weight-bold">{{ $row->display_price }}</span>
+                                    <span class="font-size-14 text-gray-1"> / {{ __('night') }}</span>
                                 </div>
+                            @endif
+                            @if ($row->price_month_enable)
+                                <div class="mb-0">
+                                    <span class="mr-1 font-size-14 text-gray-1">{{ __('from') }}</span>
+                                    <span class="font-weight-bold">{{  format_money($row->price_month) }}</span>
+                                    <span class="font-size-14 text-gray-1"> / {{ __('month') }}</span>
+                                </div>
+                            @endif
+                            @if ($row->price_year_enable)
+                            <div class="mb-0">
+                                <span class="mr-1 font-size-14 text-gray-1">{{ __('from') }}</span>
+                                <span class="font-weight-bold">{{  format_money($row->price_year) }}</span>
+                                <span class="font-size-14 text-gray-1"> / {{ __('year') }}</span>
+                            </div>
+                        @endif
+
+
+
                             </div>
                         </div>
                     </div>

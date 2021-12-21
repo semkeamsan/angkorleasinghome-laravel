@@ -82,7 +82,7 @@ class Template extends BaseModel
     public function getBlocks()
     {
         $blocks = $this->getAllBlocks();
-
+        
         $res = [];
         foreach ($blocks as $block => $class) {
             if (!class_exists($class))
@@ -95,6 +95,7 @@ class Template extends BaseModel
             $this->parseBlockOptions($options);
             $res[] = $options;
         }
+        
         return $res;
     }
 
@@ -133,8 +134,10 @@ class Template extends BaseModel
 
     public function getAllBlocks(){
         $blocks = config('template.blocks');
+   
         // Modules
         $custom_modules = \Modules\ServiceProvider::getModules();
+      
         if(!empty($custom_modules)){
             foreach($custom_modules as $module){
                 $moduleClass = "\\Modules\\".ucfirst($module)."\\ModuleProvider";
@@ -226,3 +229,4 @@ class Template extends BaseModel
         return $res;
     }
 }
+

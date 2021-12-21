@@ -80,7 +80,7 @@
                                 @endif
                             </ul>
                         @endif
-                        <button class="bravo-more-menu">
+                        <button class="bravo-more-menu bg-dark">
                             <i class="fa fa-bars"></i>
                         </button>
                     </div>

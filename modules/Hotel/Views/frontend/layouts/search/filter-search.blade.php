@@ -25,7 +25,7 @@
             @endif
             {{--Filter--}}
             <div class="sidenav border border-color-8 rounded-xs">
-                <div id="bravo-filter-price" class="accordion shadow-none bravo-filter-price border-bottom">
+                {{-- <div id="bravo-filter-price" class="accordion shadow-none bravo-filter-price border-bottom">
                     <?php
                     $price_min = $pri_from = floor(App\Currency::convertPrice($hotel_min_max_price[0]));
                     $price_max = $pri_to = ceil(App\Currency::convertPrice($hotel_min_max_price[1]));
@@ -76,8 +76,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion rounded-0 shadow-none border-bottom">
+                </div> --}}
+                {{-- <div class="accordion rounded-0 shadow-none border-bottom">
                     <div class="border-0">
                         <div class="card-collapse">
                             <h3 class="mb-0">
@@ -156,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 @php
                     $selected = (array) Request::query('terms');
                 @endphp

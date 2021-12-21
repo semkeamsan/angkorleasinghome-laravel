@@ -1,5 +1,5 @@
 <div class="sidebar border border-color-1 rounded-xs">
-    <div class="p-4 mb-1">
+    <div class="p-2 mb-1">
         <form action="{{ route("hotel.search") }}" class="bravo_form" method="get">
             @php $search_fields = setting_item_array('hotel_search_fields');
             $search_fields = array_values(\Illuminate\Support\Arr::sort($search_fields, function ($value) {
@@ -18,6 +18,9 @@
                         @break
                         @case ('date')
                         @include('Hotel::frontend.layouts.search.fields.date')
+                        @break
+                        @case ('price')
+                        @include('Hotel::frontend.layouts.search.fields.price')
                         @break
                         @case ('guests')
                         @include('Hotel::frontend.layouts.search.fields.guests')

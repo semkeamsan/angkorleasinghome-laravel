@@ -618,17 +618,19 @@ class Hotel extends Bookable
 
     public static function getMinMaxPrice()
     {
-        $model = parent::selectRaw('MIN( price ) AS min_price ,
-                                    MAX( price ) AS max_price ')->where("status", "publish")->first();
+
+        $model = parent::selectRaw('LEAST(min(price), min(price_month), min(price_year)) AS min_price ,
+        GREATEST(max(price), max(price_month), max(price_year)) AS max_price ')->where("status", "publish")->first();
         if (empty($model->min_price) and empty($model->max_price)) {
             return [
-                0,
-                100
+                50,
+                6000
             ];
         }
+
         return [
-            $model->min_price,
-            $model->max_price
+            ($model->min_price < 1) ? 50 : $model->min_price,
+            ($model->max_price > 6000) ?  6000 : $model->max_price
         ];
     }
 
@@ -1001,7 +1003,13 @@ class Hotel extends Bookable
             $pri_to = explode(";", $price_range)[1];
             $raw_sql_min_max = "(  bc_hotels.price >= ? )
                             AND (  bc_hotels.price <= ? )";
+        $raw_sql_min_max .= "Or (  bc_hotels.price_month >= $pri_from )
+                            AND (  bc_hotels.price_month <= $pri_to)";
+    $raw_sql_min_max .= "Or (  bc_hotels.price_year >=  $pri_from )
+                            AND (  bc_hotels.price_year <= $pri_to )";
+
             $model_hotel->WhereRaw($raw_sql_min_max,[$pri_from,$pri_to]);
+
         }
 
         if (!empty($star_rate = $request->query('star_rate'))) {

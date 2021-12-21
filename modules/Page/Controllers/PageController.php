@@ -4,6 +4,7 @@ namespace Modules\Page\Controllers;
 use Modules\AdminController;
 use Modules\Page\Models\Page;
 use Modules\Core\Models\Terms;
+use Modules\Hotel\Models\Hotel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
@@ -45,6 +46,7 @@ class PageController extends Controller
             'translation' => $translation,
             'seo_meta'  => $page->getSeoMetaWithTranslation(app()->getLocale(),$translation),
             'body_class'  => "page",
+            'hotel_min_max_price' => Hotel::getMinMaxPrice(),
             'terms' => Terms::withCount('hotel')->whereIn('id',json_decode(setting_item('term_properties'))??[] )->orderBy('id')->get(),
         ];
         if (setting_item('term_enable_travel')) {

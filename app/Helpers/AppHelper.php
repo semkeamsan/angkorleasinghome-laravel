@@ -796,7 +796,7 @@ function size_unit_format($number=''){
             return $number." m<sup>2</sup>";
             break;
         default:
-            return $number." ".__('sqft');
+            return $number." ".__('sqm');
             break;
     }
 }

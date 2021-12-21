@@ -50,7 +50,9 @@ class SettingsController extends AdminController
 
     public function store(Request $request, $group)
     {
+
         $request->merge(['term_enable_travel' => request('term_enable_travel',0)]);
+
         if(empty($this->groups)){
             $this->setGroups();
         }
@@ -160,7 +162,6 @@ class SettingsController extends AdminController
 
         $lang = $request->input('lang');
         if(is_default_lang($lang)) $lang = false;
-
 
         if (!empty($request->input())) {
             if (!empty($keys)) {

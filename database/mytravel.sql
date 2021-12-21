@@ -13,6 +13,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- Dumping structure for table mytravel.bc_airline
+DROP TABLE IF EXISTS `bc_airline`;
 CREATE TABLE IF NOT EXISTS `bc_airline` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -51,6 +52,7 @@ INSERT INTO `bc_airline` (`id`, `name`, `image_id`, `create_user`, `update_user`
 /*!40000 ALTER TABLE `bc_airline` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_airport
+DROP TABLE IF EXISTS `bc_airport`;
 CREATE TABLE IF NOT EXISTS `bc_airport` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -96,6 +98,7 @@ INSERT INTO `bc_airport` (`id`, `name`, `code`, `address`, `location_id`, `descr
 /*!40000 ALTER TABLE `bc_airport` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_attrs
+DROP TABLE IF EXISTS `bc_attrs`;
 CREATE TABLE IF NOT EXISTS `bc_attrs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -132,6 +135,7 @@ INSERT INTO `bc_attrs` (`id`, `name`, `slug`, `service`, `create_user`, `update_
 /*!40000 ALTER TABLE `bc_attrs` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_attrs_translations
+DROP TABLE IF EXISTS `bc_attrs_translations`;
 CREATE TABLE IF NOT EXISTS `bc_attrs_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -150,6 +154,7 @@ CREATE TABLE IF NOT EXISTS `bc_attrs_translations` (
 /*!40000 ALTER TABLE `bc_attrs_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_bookings
+DROP TABLE IF EXISTS `bc_bookings`;
 CREATE TABLE IF NOT EXISTS `bc_bookings` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -209,6 +214,7 @@ INSERT INTO `bc_bookings` (`id`, `code`, `vendor_id`, `customer_id`, `payment_id
 /*!40000 ALTER TABLE `bc_bookings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_booking_meta
+DROP TABLE IF EXISTS `bc_booking_meta`;
 CREATE TABLE IF NOT EXISTS `bc_booking_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `booking_id` int DEFAULT NULL,
@@ -245,6 +251,7 @@ INSERT INTO `bc_booking_meta` (`id`, `booking_id`, `name`, `val`, `create_user`,
 /*!40000 ALTER TABLE `bc_booking_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_booking_payments
+DROP TABLE IF EXISTS `bc_booking_payments`;
 CREATE TABLE IF NOT EXISTS `bc_booking_payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `booking_id` int DEFAULT NULL,
@@ -274,6 +281,7 @@ CREATE TABLE IF NOT EXISTS `bc_booking_payments` (
 /*!40000 ALTER TABLE `bc_booking_payments` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_booking_time_slots
+DROP TABLE IF EXISTS `bc_booking_time_slots`;
 CREATE TABLE IF NOT EXISTS `bc_booking_time_slots` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `booking_id` int DEFAULT NULL,
@@ -295,6 +303,7 @@ CREATE TABLE IF NOT EXISTS `bc_booking_time_slots` (
 /*!40000 ALTER TABLE `bc_booking_time_slots` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_cars
+DROP TABLE IF EXISTS `bc_cars`;
 CREATE TABLE IF NOT EXISTS `bc_cars` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -359,6 +368,7 @@ INSERT INTO `bc_cars` (`id`, `title`, `slug`, `content`, `image_id`, `banner_ima
 /*!40000 ALTER TABLE `bc_cars` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_car_dates
+DROP TABLE IF EXISTS `bc_car_dates`;
 CREATE TABLE IF NOT EXISTS `bc_car_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -382,6 +392,7 @@ CREATE TABLE IF NOT EXISTS `bc_car_dates` (
 /*!40000 ALTER TABLE `bc_car_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_car_term
+DROP TABLE IF EXISTS `bc_car_term`;
 CREATE TABLE IF NOT EXISTS `bc_car_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -545,6 +556,7 @@ INSERT INTO `bc_car_term` (`id`, `term_id`, `target_id`, `create_user`, `update_
 /*!40000 ALTER TABLE `bc_car_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_car_translations
+DROP TABLE IF EXISTS `bc_car_translations`;
 CREATE TABLE IF NOT EXISTS `bc_car_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -567,6 +579,7 @@ CREATE TABLE IF NOT EXISTS `bc_car_translations` (
 /*!40000 ALTER TABLE `bc_car_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_contact
+DROP TABLE IF EXISTS `bc_contact`;
 CREATE TABLE IF NOT EXISTS `bc_contact` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -586,6 +599,7 @@ CREATE TABLE IF NOT EXISTS `bc_contact` (
 /*!40000 ALTER TABLE `bc_contact` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_enquiries
+DROP TABLE IF EXISTS `bc_enquiries`;
 CREATE TABLE IF NOT EXISTS `bc_enquiries` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -609,6 +623,7 @@ CREATE TABLE IF NOT EXISTS `bc_enquiries` (
 /*!40000 ALTER TABLE `bc_enquiries` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_events
+DROP TABLE IF EXISTS `bc_events`;
 CREATE TABLE IF NOT EXISTS `bc_events` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -669,6 +684,7 @@ INSERT INTO `bc_events` (`id`, `title`, `slug`, `content`, `image_id`, `banner_i
 /*!40000 ALTER TABLE `bc_events` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_event_dates
+DROP TABLE IF EXISTS `bc_event_dates`;
 CREATE TABLE IF NOT EXISTS `bc_event_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -692,6 +708,7 @@ CREATE TABLE IF NOT EXISTS `bc_event_dates` (
 /*!40000 ALTER TABLE `bc_event_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_event_term
+DROP TABLE IF EXISTS `bc_event_term`;
 CREATE TABLE IF NOT EXISTS `bc_event_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -783,6 +800,7 @@ INSERT INTO `bc_event_term` (`id`, `term_id`, `target_id`, `create_user`, `updat
 /*!40000 ALTER TABLE `bc_event_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_event_translations
+DROP TABLE IF EXISTS `bc_event_translations`;
 CREATE TABLE IF NOT EXISTS `bc_event_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -806,6 +824,7 @@ CREATE TABLE IF NOT EXISTS `bc_event_translations` (
 /*!40000 ALTER TABLE `bc_event_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_flight
+DROP TABLE IF EXISTS `bc_flight`;
 CREATE TABLE IF NOT EXISTS `bc_flight` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -859,6 +878,7 @@ INSERT INTO `bc_flight` (`id`, `title`, `code`, `review_score`, `departure_time`
 /*!40000 ALTER TABLE `bc_flight` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_flight_seat
+DROP TABLE IF EXISTS `bc_flight_seat`;
 CREATE TABLE IF NOT EXISTS `bc_flight_seat` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `price` decimal(12,2) DEFAULT NULL,
@@ -946,6 +966,7 @@ INSERT INTO `bc_flight_seat` (`id`, `price`, `max_passengers`, `flight_id`, `sea
 /*!40000 ALTER TABLE `bc_flight_seat` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_flight_term
+DROP TABLE IF EXISTS `bc_flight_term`;
 CREATE TABLE IF NOT EXISTS `bc_flight_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -1073,6 +1094,7 @@ INSERT INTO `bc_flight_term` (`id`, `term_id`, `target_id`, `create_user`, `upda
 /*!40000 ALTER TABLE `bc_flight_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotels
+DROP TABLE IF EXISTS `bc_hotels`;
 CREATE TABLE IF NOT EXISTS `bc_hotels` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1118,30 +1140,30 @@ CREATE TABLE IF NOT EXISTS `bc_hotels` (
 -- Dumping data for table mytravel.bc_hotels: ~28 rows (approximately)
 /*!40000 ALTER TABLE `bc_hotels` DISABLE KEYS */;
 INSERT INTO `bc_hotels` (`id`, `title`, `slug`, `content`, `image_id`, `banner_image_id`, `location_id`, `address`, `map_lat`, `map_lng`, `map_zoom`, `is_featured`, `gallery`, `video`, `policy`, `star_rate`, `price`, `check_in_time`, `check_out_time`, `allow_full_day`, `sale_price`, `status`, `create_user`, `update_user`, `deleted_at`, `created_at`, `updated_at`, `review_score`, `ical_import_url`, `enable_extra_price`, `extra_price`, `badge_tags`, `min_day_before_booking`, `min_day_stays`, `enable_service_fee`, `service_fee`, `surrounding`) VALUES
-	(1, 'Hotel Stanford', 'hotel-stanford-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 67, 94, 1, 'Arrondissement de Paris', '19.148665', '72.839670', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(2, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 68, 96, 1, 'Porte de Vanves', '19.110390', '72.832764', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(1, 'Hotel Stanford', 'hotel-stanford-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 67, 94, 1, 'Arrondissement de Paris', '19.148665', '72.839670', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:49:39', 4.5, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(2, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 68, 96, 1, 'Porte de Vanves', '19.110390', '72.832764', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:49:33', 4.5, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(3, 'Castello Casole Hotel', 'castello-casole-hotel-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 69, 93, 1, 'Petit-Montrouge', '19.077946', '72.838255', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.3, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(4, 'Redac Gateway Hotel', 'redac-gateway-hotel-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 70, 96, 1, 'Petit-Montrouge', '19.031217', '72.851982', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(5, 'Studio Allston Hotel', 'studio-allston-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 71, 95, 1, 'New York', '18.972786', '72.819724', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 5.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(6, 'EnVision Hotel Boston', 'envision-hotel-biston', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 72, 95, 1, 'New York', '18.873011', '72.975724', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 700.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(5, 'Studio Allston Hotel', 'studio-allston-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 71, 95, 1, 'New York', '18.972786', '72.819724', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:49:01', 5.0, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(6, 'EnVision Hotel Boston', 'envision-hotel-biston', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 72, 95, 1, 'New York', '18.873011', '72.975724', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 700.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:49:46', 4.5, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(7, 'Crowne Plaza Hotel', 'crowne-plaza-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 73, 93, 1, 'New York', '19.001355', '73.111444', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 900.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 5.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(8, 'Stewart Hotel', 'stewart-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 74, 95, 1, 'New York', '19.080542', '73.010551', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 900.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.8, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(8, 'Stewart Hotel', 'stewart-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 74, 95, 1, 'New York', '19.080542', '73.010551', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 900.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:48:57', 4.8, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(9, 'Parian Holiday Villas', 'parian-holiday-villas', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 75, 94, 1, 'Regal Cinemas Battery Park', '19.161637', '72.997510', 12, 1, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 550.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 5.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(10, 'Dylan Hotel', 'dylan-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 64, 95, 1, 'Regal Cinemas Battery', '19.229727', '72.984470', 12, 1, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 550.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.8, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(11, 'The May Fair Hotel', 'the-may-fair-hotel-1', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 67, 96, 1, 'Paris Cinemas Battery', '19.277696', '72.887009', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 4, 550.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 2, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.3, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(12, 'The Diary Fair Hotel', 'the-may-fair-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 67, 95, 1, 'Paris Cinemas Battery', '19.277696', '72.887009', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 4, 550.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 5.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(13, 'Hotel Stanford', 'hotel-stanford-2', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 67, 95, 1, 'Arrondissement de Paris', '19.148665', '72.839670', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.3, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(14, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-2', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 68, 94, 1, 'Porte de Vanves', '19.110390', '72.832764', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.8, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(14, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-2', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 68, 94, 1, 'Porte de Vanves', '19.110390', '72.832764', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:48:31', 4.8, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(15, 'Castello Casole Hotel', 'castello-casole-hotel-2', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 69, 93, 1, 'Petit-Montrouge', '19.077946', '72.838255', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 5.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(16, 'Redac Gateway Hotel', 'redac-gateway-hotel-2', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 70, 96, 2, 'Petit-Montrouge', '19.031217', '72.851982', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(17, 'Hotel Stanford', 'hotel-stanford-3', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 67, 93, 2, 'Arrondissement de Paris', '19.148665', '72.839670', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.8, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(18, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-3', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 68, 95, 2, 'Porte de Vanves', '19.110390', '72.832764', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(18, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-3', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 68, 95, 2, 'Porte de Vanves', '19.110390', '72.832764', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:00', '2021-12-09 02:48:26', 4.0, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(19, 'Castello Casole Hotel', 'castello-casole-hotel-3', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 69, 94, 2, 'Petit-Montrouge', '19.077946', '72.838255', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.7, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(20, 'Redac Gateway Hotel', 'redac-gateway-hotel-3', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 70, 93, 2, 'Petit-Montrouge', '19.031217', '72.851982', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:00', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(21, 'Hotel Stanford', 'hotel-stanford-4', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 67, 94, 2, 'Arrondissement de Paris', '19.148665', '72.839670', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:01', '2021-12-03 15:02:08', 4.7, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(21, 'Hotel Stanford', 'hotel-stanford-4', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 67, 94, 2, 'Arrondissement de Paris', '19.148665', '72.839670', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:01', '2021-12-09 02:50:40', 4.7, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(22, 'Hotel WBF Hommachi', 'hotel-wbf-homachi-4', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 68, 93, 2, 'Porte de Vanves', '19.110390', '72.832764', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:01', '2021-12-03 15:02:08', 4.0, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(23, 'Castello Casole Hotel', 'castello-casole-hotel-4', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 69, 96, 2, 'Petit-Montrouge', '19.077946', '72.838255', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:01', '2021-12-03 15:02:08', 4.4, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
-	(24, 'Redac Gateway Hotel', 'redac-gateway-hotel-4', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel’s easy access to the city’s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L’Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p><h4>HIGHLIGHTS</h4><ul><li>Visit the Museum of Modern Art in Manhattan</li><li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li><li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li><li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li><li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li></ul>', 70, 96, 2, 'Petit-Montrouge', '19.031217', '72.851982', 12, 0, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, NULL, NULL, '2021-12-03 15:02:01', '2021-12-03 15:02:08', 4.5, NULL, 1, '[{"name":"Service VIP ","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
+	(24, 'Redac Gateway Hotel', 'redac-gateway-hotel-4', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 70, 96, 2, 'Petit-Montrouge', '19.031217', '72.851982', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 500.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:01', '2021-12-09 02:50:25', 4.5, NULL, 1, '[{"name":"Service VIP","price":"200","type":"one_time"},{"name":"Breakfasts","price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(25, 'Hotel Stanford', 'hotel-stanford', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 67, 93, 2, 'Arrondissement de Paris', '19.148665', '72.839670', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 300.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:01', '2021-12-06 07:49:17', 4.0, NULL, 1, '[{"name":"Service VIP","name_ja":null,"name_egy":null,"price":"200","type":"one_time"},{"name":"Breakfasts","name_ja":null,"name_egy":null,"price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(26, 'Hotel WBF Hommachi', 'hotel-wbf-homachi', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 68, 96, 2, 'Porte de Vanves', '19.110390', '72.832764', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:01', '2021-12-06 07:48:05', 4.0, NULL, 1, '[{"name":"Service VIP","name_ja":null,"name_egy":null,"price":"200","type":"one_time"},{"name":"Breakfasts","name_ja":null,"name_egy":null,"price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
 	(27, 'Castello Casole Hotel', 'castello-casole-hotel', '<p>Built in 1986, Hotel Stanford is a distinct addition to New York (NY) and a smart choice for travelers. The excitement of the city center is only 0 KM away. No less exceptional is the hotel&rsquo;s easy access to the city&rsquo;s myriad attractions and landmarks, such as Toto Music Studio, British Virgin Islands Tourist Board, L&rsquo;Atelier Du Chocolat. Start and end in San Francisco! With the in-depth cultural tour Northern California Summer 2019, you have a 8 day tour package taking you through San Francisco, USA and 9 other destinations in USA. Northern California Summer 2019 includes accommodation as well as an expert guide, meals, transport and more.</p>\r\n<h4>HIGHLIGHTS</h4>\r\n<ul>\r\n<li>Visit the Museum of Modern Art in Manhattan</li>\r\n<li>See amazing works of contemporary art, including Vincent van Gogh\'s The Starry Night</li>\r\n<li>Check out Campbell\'s Soup Cans by Warhol and The Dance (I) by Matisse</li>\r\n<li>Behold masterpieces by Gauguin, Dali, Picasso, and Pollock</li>\r\n<li>Enjoy free audio guides available in English, French, German, Italian, Spanish, Portuguese</li>\r\n</ul>', 69, 94, 2, 'Petit-Montrouge', '19.077946', '72.838255', 12, NULL, '97,98,99,100,101,102', 'https://www.youtube.com/watch?v=bhOiLfkChPo', '[{"title":"Guarantee Policy","content":"- A valid credit card will be required upon booking;\\r\\n- For credit card reservations, the same card(s) must be presented upon check in at the respective hotels;\\r\\n- Management reserves the right to cancel any reservations without notice if we are notified of any fraud or illegal activities associated with the full payments received."},{"title":"Children Policy","content":"- Child under 5-year old: free of charge.\\r\\n- Child from 5-year old to under 12-year old: surcharge $10\\/person\\/room\\/night.\\r\\n- Child from 12-year old or extra Adult: surcharge $15\\/person\\/room\\/night."},{"title":"Cancellation\\/Amendment Policy","content":"- If cancellation\\/amendment is made 72 hours prior to your arrival date, no fee will be charged.\\r\\n- If cancellation\\/amendment is made within 72 hours, including reservations made within 72 hours of your arrival, 1st night\\u2019s room rate and tax will be charged\\r\\n- In case of no-show, 100% room rate and tax will be charged.\\r\\n- Early Bird\\/Long Stay\\/Last Min\\/Package Rates are Non - changeable & Non - refundable"},{"title":"Late check-out policy","content":"- Late check-out is subject to room availability\\r\\n- 12:00 to 17:00 check-out: 50% room rate surcharge\\r\\n- After 17:00 check-out: 100% room rate surcharge"}]', 5, 350.00, '12:00AM', '11:00AM', NULL, NULL, 'publish', 1, 1, NULL, '2021-12-03 15:02:01', '2021-12-06 07:34:38', 4.3, NULL, 1, '[{"name":"Service VIP","name_ja":null,"name_egy":null,"price":"200","type":"one_time"},{"name":"Breakfasts","name_ja":null,"name_egy":null,"price":"100","type":"one_time"}]', '[{"title":"Free breakfast","color":"green"},{"title":"Service VIP","color":"danger"}]', NULL, NULL, NULL, NULL, NULL),
@@ -1149,6 +1171,7 @@ INSERT INTO `bc_hotels` (`id`, `title`, `slug`, `content`, `image_id`, `banner_i
 /*!40000 ALTER TABLE `bc_hotels` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_rooms
+DROP TABLE IF EXISTS `bc_hotel_rooms`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_rooms` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1292,6 +1315,7 @@ INSERT INTO `bc_hotel_rooms` (`id`, `title`, `content`, `image_id`, `gallery`, `
 /*!40000 ALTER TABLE `bc_hotel_rooms` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_bookings
+DROP TABLE IF EXISTS `bc_hotel_room_bookings`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_bookings` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `room_id` bigint DEFAULT NULL,
@@ -1316,6 +1340,7 @@ INSERT INTO `bc_hotel_room_bookings` (`id`, `room_id`, `parent_id`, `booking_id`
 /*!40000 ALTER TABLE `bc_hotel_room_bookings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_dates
+DROP TABLE IF EXISTS `bc_hotel_room_dates`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -1340,6 +1365,7 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_room_dates` (
 /*!40000 ALTER TABLE `bc_hotel_room_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_term
+DROP TABLE IF EXISTS `bc_hotel_room_term`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -1814,6 +1840,7 @@ INSERT INTO `bc_hotel_room_term` (`id`, `term_id`, `target_id`, `create_user`, `
 /*!40000 ALTER TABLE `bc_hotel_room_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_room_translations
+DROP TABLE IF EXISTS `bc_hotel_room_translations`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_room_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -1835,6 +1862,7 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_room_translations` (
 /*!40000 ALTER TABLE `bc_hotel_room_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_term
+DROP TABLE IF EXISTS `bc_hotel_term`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -1844,9 +1872,9 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_term` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=326 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_hotel_term: ~316 rows (approximately)
+-- Dumping data for table mytravel.bc_hotel_term: ~325 rows (approximately)
 /*!40000 ALTER TABLE `bc_hotel_term` DISABLE KEYS */;
 INSERT INTO `bc_hotel_term` (`id`, `term_id`, `target_id`, `create_user`, `update_user`, `created_at`, `updated_at`) VALUES
 	(1, 47, 1, NULL, NULL, '2021-12-03 15:02:03', '2021-12-03 15:02:03'),
@@ -2164,10 +2192,20 @@ INSERT INTO `bc_hotel_term` (`id`, `term_id`, `target_id`, `create_user`, `updat
 	(313, 18, 28, 1, NULL, '2021-12-06 07:16:16', '2021-12-06 07:16:16'),
 	(314, 39, 27, 1, NULL, '2021-12-06 07:34:38', '2021-12-06 07:34:38'),
 	(315, 36, 26, 1, NULL, '2021-12-06 07:48:05', '2021-12-06 07:48:05'),
-	(316, 95, 25, 1, NULL, '2021-12-06 07:49:17', '2021-12-06 07:49:17');
+	(316, 95, 25, 1, NULL, '2021-12-06 07:49:17', '2021-12-06 07:49:17'),
+	(317, 36, 18, 1, NULL, '2021-12-09 02:48:26', '2021-12-09 02:48:26'),
+	(318, 36, 14, 1, NULL, '2021-12-09 02:48:31', '2021-12-09 02:48:31'),
+	(319, 36, 8, 1, NULL, '2021-12-09 02:48:57', '2021-12-09 02:48:57'),
+	(320, 36, 5, 1, NULL, '2021-12-09 02:49:01', '2021-12-09 02:49:01'),
+	(321, 37, 2, 1, NULL, '2021-12-09 02:49:33', '2021-12-09 02:49:33'),
+	(322, 37, 1, 1, NULL, '2021-12-09 02:49:39', '2021-12-09 02:49:39'),
+	(323, 95, 6, 1, NULL, '2021-12-09 02:49:46', '2021-12-09 02:49:46'),
+	(324, 97, 24, 1, NULL, '2021-12-09 02:50:25', '2021-12-09 02:50:25'),
+	(325, 97, 21, 1, NULL, '2021-12-09 02:50:40', '2021-12-09 02:50:40');
 /*!40000 ALTER TABLE `bc_hotel_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_hotel_translations
+DROP TABLE IF EXISTS `bc_hotel_translations`;
 CREATE TABLE IF NOT EXISTS `bc_hotel_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -2192,6 +2230,7 @@ CREATE TABLE IF NOT EXISTS `bc_hotel_translations` (
 /*!40000 ALTER TABLE `bc_hotel_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_locations
+DROP TABLE IF EXISTS `bc_locations`;
 CREATE TABLE IF NOT EXISTS `bc_locations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2235,6 +2274,7 @@ INSERT INTO `bc_locations` (`id`, `name`, `sub_title`, `content`, `slug`, `image
 /*!40000 ALTER TABLE `bc_locations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_location_translations
+DROP TABLE IF EXISTS `bc_location_translations`;
 CREATE TABLE IF NOT EXISTS `bc_location_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -2256,6 +2296,7 @@ CREATE TABLE IF NOT EXISTS `bc_location_translations` (
 /*!40000 ALTER TABLE `bc_location_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_payouts
+DROP TABLE IF EXISTS `bc_payouts`;
 CREATE TABLE IF NOT EXISTS `bc_payouts` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `vendor_id` bigint DEFAULT NULL,
@@ -2279,6 +2320,7 @@ CREATE TABLE IF NOT EXISTS `bc_payouts` (
 /*!40000 ALTER TABLE `bc_payouts` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_review
+DROP TABLE IF EXISTS `bc_review`;
 CREATE TABLE IF NOT EXISTS `bc_review` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -2564,6 +2606,7 @@ INSERT INTO `bc_review` (`id`, `object_id`, `object_model`, `title`, `content`, 
 /*!40000 ALTER TABLE `bc_review` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_review_meta
+DROP TABLE IF EXISTS `bc_review_meta`;
 CREATE TABLE IF NOT EXISTS `bc_review_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `review_id` int DEFAULT NULL,
@@ -3879,6 +3922,7 @@ INSERT INTO `bc_review_meta` (`id`, `review_id`, `object_id`, `object_model`, `n
 /*!40000 ALTER TABLE `bc_review_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_seat_type
+DROP TABLE IF EXISTS `bc_seat_type`;
 CREATE TABLE IF NOT EXISTS `bc_seat_type` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -3903,6 +3947,7 @@ INSERT INTO `bc_seat_type` (`id`, `code`, `name`, `create_user`, `update_user`, 
 /*!40000 ALTER TABLE `bc_seat_type` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_seo
+DROP TABLE IF EXISTS `bc_seo`;
 CREATE TABLE IF NOT EXISTS `bc_seo` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -3919,9 +3964,9 @@ CREATE TABLE IF NOT EXISTS `bc_seo` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_seo: ~8 rows (approximately)
+-- Dumping data for table mytravel.bc_seo: ~17 rows (approximately)
 /*!40000 ALTER TABLE `bc_seo` DISABLE KEYS */;
 INSERT INTO `bc_seo` (`id`, `object_id`, `object_model`, `seo_index`, `seo_title`, `seo_desc`, `seo_image`, `seo_share`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 10, 'page', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-03 15:13:56', '2021-12-03 15:13:56'),
@@ -3931,10 +3976,20 @@ INSERT INTO `bc_seo` (`id`, `object_id`, `object_model`, `seo_index`, `seo_title
 	(5, 25, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-06 07:49:17', '2021-12-06 07:49:17'),
 	(6, 1, 'location', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-07 02:35:23', '2021-12-07 02:35:23'),
 	(7, 2, 'location', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-07 02:36:35', '2021-12-07 02:36:35'),
-	(8, 9, 'page', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-08 08:47:38', '2021-12-08 08:47:38');
+	(8, 9, 'page', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-08 08:47:38', '2021-12-08 08:47:38'),
+	(9, 18, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:48:26', '2021-12-09 02:48:26'),
+	(10, 14, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:48:31', '2021-12-09 02:48:31'),
+	(11, 8, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:48:57', '2021-12-09 02:48:57'),
+	(12, 5, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:49:01', '2021-12-09 02:49:01'),
+	(13, 2, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:49:33', '2021-12-09 02:49:33'),
+	(14, 1, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:49:39', '2021-12-09 02:49:39'),
+	(15, 6, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:49:46', '2021-12-09 02:49:46'),
+	(16, 24, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:50:25', '2021-12-09 02:50:25'),
+	(17, 21, 'hotel', 1, NULL, NULL, NULL, '{"facebook":{"title":null,"desc":null,"image":null},"twitter":{"title":null,"desc":null,"image":null}}', 1, NULL, NULL, NULL, '2021-12-09 02:50:40', '2021-12-09 02:50:40');
 /*!40000 ALTER TABLE `bc_seo` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_services
+DROP TABLE IF EXISTS `bc_services`;
 CREATE TABLE IF NOT EXISTS `bc_services` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -3964,18 +4019,28 @@ CREATE TABLE IF NOT EXISTS `bc_services` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `bc_services_slug_index` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.bc_services: ~4 rows (approximately)
+-- Dumping data for table mytravel.bc_services: ~13 rows (approximately)
 /*!40000 ALTER TABLE `bc_services` DISABLE KEYS */;
 INSERT INTO `bc_services` (`id`, `title`, `slug`, `category_id`, `location_id`, `address`, `map_lat`, `map_lng`, `is_featured`, `star_rate`, `price`, `sale_price`, `min_people`, `max_people`, `max_guests`, `review_score`, `min_day_before_booking`, `min_day_stays`, `object_id`, `object_model`, `status`, `create_user`, `update_user`, `deleted_at`, `created_at`, `updated_at`) VALUES
 	(1, 'Redac Gateway Hotel', 'redac-gateway-hotel', NULL, 7, 'Petit-Montrouge', '19.031217', '72.851982', NULL, 5, 500.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 28, 'hotel', 'publish', 1, NULL, NULL, '2021-12-06 07:16:16', '2021-12-06 07:16:16'),
 	(2, 'Castello Casole Hotel', 'castello-casole-hotel', NULL, 7, 'Petit-Montrouge', '19.077946', '72.838255', NULL, 5, 350.00, NULL, NULL, NULL, NULL, 4, NULL, NULL, 27, 'hotel', 'publish', 1, NULL, NULL, '2021-12-06 07:34:38', '2021-12-06 07:34:38'),
 	(3, 'Hotel WBF Hommachi', 'hotel-wbf-hommachi', NULL, 7, 'Porte de Vanves', '19.110390', '72.832764', NULL, 5, 350.00, NULL, NULL, NULL, NULL, 4, NULL, NULL, 26, 'hotel', 'publish', 1, NULL, NULL, '2021-12-06 07:48:05', '2021-12-06 07:48:05'),
-	(4, 'Hotel Stanford', 'hotel-stanford', NULL, 7, 'Arrondissement de Paris', '19.148665', '72.839670', NULL, 5, 300.00, NULL, NULL, NULL, NULL, 4, NULL, NULL, 25, 'hotel', 'publish', 1, NULL, NULL, '2021-12-06 07:49:17', '2021-12-06 07:49:17');
+	(4, 'Hotel Stanford', 'hotel-stanford', NULL, 7, 'Arrondissement de Paris', '19.148665', '72.839670', NULL, 5, 300.00, NULL, NULL, NULL, NULL, 4, NULL, NULL, 25, 'hotel', 'publish', 1, NULL, NULL, '2021-12-06 07:49:17', '2021-12-06 07:49:17'),
+	(5, 'Hotel WBF Hommachi', 'hotel-wbf-hommachi-1', NULL, 2, 'Porte de Vanves', '19.110390', '72.832764', NULL, 5, 350.00, NULL, NULL, NULL, NULL, 4, NULL, NULL, 18, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:48:26', '2021-12-09 02:48:26'),
+	(6, 'Hotel WBF Hommachi', 'hotel-wbf-hommachi-2', NULL, 1, 'Porte de Vanves', '19.110390', '72.832764', NULL, 5, 350.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 14, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:48:31', '2021-12-09 02:48:31'),
+	(7, 'Stewart Hotel', 'stewart-hotel', NULL, 1, 'New York', '19.080542', '73.010551', NULL, 5, 900.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 8, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:48:57', '2021-12-09 02:48:57'),
+	(8, 'Studio Allston Hotel', 'studio-allston-hotel', NULL, 1, 'New York', '18.972786', '72.819724', NULL, 5, 500.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 5, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:49:01', '2021-12-09 02:49:01'),
+	(9, 'Hotel WBF Hommachi', 'hotel-wbf-hommachi-3', NULL, 1, 'Porte de Vanves', '19.110390', '72.832764', NULL, 5, 350.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 2, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:49:33', '2021-12-09 02:49:33'),
+	(10, 'Hotel Stanford', 'hotel-stanford-1', NULL, 1, 'Arrondissement de Paris', '19.148665', '72.839670', NULL, 5, 300.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 1, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:49:39', '2021-12-09 02:49:39'),
+	(11, 'EnVision Hotel Boston', 'envision-hotel-boston', NULL, 1, 'New York', '18.873011', '72.975724', NULL, 5, 700.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 6, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:49:46', '2021-12-09 02:49:46'),
+	(12, 'Redac Gateway Hotel', 'redac-gateway-hotel-1', NULL, 2, 'Petit-Montrouge', '19.031217', '72.851982', NULL, 5, 500.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 24, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:50:25', '2021-12-09 02:50:25'),
+	(13, 'Hotel Stanford', 'hotel-stanford-2', NULL, 2, 'Arrondissement de Paris', '19.148665', '72.839670', NULL, 5, 300.00, NULL, NULL, NULL, NULL, 5, NULL, NULL, 21, 'hotel', 'publish', 1, NULL, NULL, '2021-12-09 02:50:40', '2021-12-09 02:50:40');
 /*!40000 ALTER TABLE `bc_services` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_service_translations
+DROP TABLE IF EXISTS `bc_service_translations`;
 CREATE TABLE IF NOT EXISTS `bc_service_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -3996,6 +4061,7 @@ CREATE TABLE IF NOT EXISTS `bc_service_translations` (
 /*!40000 ALTER TABLE `bc_service_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_spaces
+DROP TABLE IF EXISTS `bc_spaces`;
 CREATE TABLE IF NOT EXISTS `bc_spaces` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4059,6 +4125,7 @@ INSERT INTO `bc_spaces` (`id`, `title`, `slug`, `content`, `image_id`, `banner_i
 /*!40000 ALTER TABLE `bc_spaces` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_space_dates
+DROP TABLE IF EXISTS `bc_space_dates`;
 CREATE TABLE IF NOT EXISTS `bc_space_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -4082,6 +4149,7 @@ CREATE TABLE IF NOT EXISTS `bc_space_dates` (
 /*!40000 ALTER TABLE `bc_space_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_space_term
+DROP TABLE IF EXISTS `bc_space_term`;
 CREATE TABLE IF NOT EXISTS `bc_space_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -4281,6 +4349,7 @@ INSERT INTO `bc_space_term` (`id`, `term_id`, `target_id`, `create_user`, `updat
 /*!40000 ALTER TABLE `bc_space_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_space_translations
+DROP TABLE IF EXISTS `bc_space_translations`;
 CREATE TABLE IF NOT EXISTS `bc_space_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -4304,6 +4373,7 @@ CREATE TABLE IF NOT EXISTS `bc_space_translations` (
 /*!40000 ALTER TABLE `bc_space_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_terms
+DROP TABLE IF EXISTS `bc_terms`;
 CREATE TABLE IF NOT EXISTS `bc_terms` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4425,6 +4495,7 @@ INSERT INTO `bc_terms` (`id`, `name`, `content`, `attr_id`, `slug`, `create_user
 /*!40000 ALTER TABLE `bc_terms` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_terms_translations
+DROP TABLE IF EXISTS `bc_terms_translations`;
 CREATE TABLE IF NOT EXISTS `bc_terms_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4444,6 +4515,7 @@ CREATE TABLE IF NOT EXISTS `bc_terms_translations` (
 /*!40000 ALTER TABLE `bc_terms_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tours
+DROP TABLE IF EXISTS `bc_tours`;
 CREATE TABLE IF NOT EXISTS `bc_tours` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4516,6 +4588,7 @@ INSERT INTO `bc_tours` (`id`, `title`, `slug`, `content`, `image_id`, `banner_im
 /*!40000 ALTER TABLE `bc_tours` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_category
+DROP TABLE IF EXISTS `bc_tour_category`;
 CREATE TABLE IF NOT EXISTS `bc_tour_category` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4546,6 +4619,7 @@ INSERT INTO `bc_tour_category` (`id`, `name`, `content`, `slug`, `status`, `_lft
 /*!40000 ALTER TABLE `bc_tour_category` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_category_translations
+DROP TABLE IF EXISTS `bc_tour_category_translations`;
 CREATE TABLE IF NOT EXISTS `bc_tour_category_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4565,6 +4639,7 @@ CREATE TABLE IF NOT EXISTS `bc_tour_category_translations` (
 /*!40000 ALTER TABLE `bc_tour_category_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_dates
+DROP TABLE IF EXISTS `bc_tour_dates`;
 CREATE TABLE IF NOT EXISTS `bc_tour_dates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `target_id` bigint DEFAULT NULL,
@@ -4589,6 +4664,7 @@ CREATE TABLE IF NOT EXISTS `bc_tour_dates` (
 /*!40000 ALTER TABLE `bc_tour_dates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_meta
+DROP TABLE IF EXISTS `bc_tour_meta`;
 CREATE TABLE IF NOT EXISTS `bc_tour_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `tour_id` int DEFAULT NULL,
@@ -4628,6 +4704,7 @@ INSERT INTO `bc_tour_meta` (`id`, `tour_id`, `enable_person_types`, `person_type
 /*!40000 ALTER TABLE `bc_tour_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_term
+DROP TABLE IF EXISTS `bc_tour_term`;
 CREATE TABLE IF NOT EXISTS `bc_tour_term` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `term_id` int DEFAULT NULL,
@@ -4794,6 +4871,7 @@ INSERT INTO `bc_tour_term` (`id`, `term_id`, `tour_id`, `create_user`, `update_u
 /*!40000 ALTER TABLE `bc_tour_term` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.bc_tour_translations
+DROP TABLE IF EXISTS `bc_tour_translations`;
 CREATE TABLE IF NOT EXISTS `bc_tour_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -4821,26 +4899,8 @@ CREATE TABLE IF NOT EXISTS `bc_tour_translations` (
 /*!40000 ALTER TABLE `bc_tour_translations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bc_tour_translations` ENABLE KEYS */;
 
--- Dumping structure for table mytravel.benefits
-CREATE TABLE IF NOT EXISTS `benefits` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `detail` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `actions` json DEFAULT NULL,
-  `images` json DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table mytravel.benefits: ~1 rows (approximately)
-/*!40000 ALTER TABLE `benefits` DISABLE KEYS */;
-INSERT INTO `benefits` (`id`, `title`, `subtitle`, `detail`, `actions`, `images`, `created_at`, `updated_at`) VALUES
-	(1, 'Benefits', 'Our Offers', 'An energy efficient building reduces maintenance and utility costs, but, in many cases improves durability, kessens noise, increases comfort and created a healthy and safe indoor environment.', '{"link": "/page/home-hotel", "text": "Book A Visit"}', '[{"image": "/uploads/0000/1/2021/12/06/photo-2021-10-30-09-00-44-2.jpg", "title": "Title", "subtitle": "Subtitle"}, {"image": "/uploads/0000/1/2021/12/06/photo-2021-10-30-08-58-30-2.jpg", "title": "Title", "subtitle": "Subtitle"}, {"image": "/uploads/0000/1/2021/12/06/photo-2021-10-11-10-19-35.jpg", "title": "Title", "subtitle": "Subtitle"}]', NULL, '2021-12-07 08:06:32');
-/*!40000 ALTER TABLE `benefits` ENABLE KEYS */;
-
 -- Dumping structure for table mytravel.booking_passengers
+DROP TABLE IF EXISTS `booking_passengers`;
 CREATE TABLE IF NOT EXISTS `booking_passengers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `flight_id` bigint unsigned DEFAULT NULL,
@@ -4873,6 +4933,7 @@ CREATE TABLE IF NOT EXISTS `booking_passengers` (
 /*!40000 ALTER TABLE `booking_passengers` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.ch_favorites
+DROP TABLE IF EXISTS `ch_favorites`;
 CREATE TABLE IF NOT EXISTS `ch_favorites` (
   `id` bigint NOT NULL,
   `user_id` bigint NOT NULL,
@@ -4887,6 +4948,7 @@ CREATE TABLE IF NOT EXISTS `ch_favorites` (
 /*!40000 ALTER TABLE `ch_favorites` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.ch_messages
+DROP TABLE IF EXISTS `ch_messages`;
 CREATE TABLE IF NOT EXISTS `ch_messages` (
   `id` bigint NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -4905,6 +4967,7 @@ CREATE TABLE IF NOT EXISTS `ch_messages` (
 /*!40000 ALTER TABLE `ch_messages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_inbox
+DROP TABLE IF EXISTS `core_inbox`;
 CREATE TABLE IF NOT EXISTS `core_inbox` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_user` bigint DEFAULT NULL,
@@ -4924,6 +4987,7 @@ CREATE TABLE IF NOT EXISTS `core_inbox` (
 /*!40000 ALTER TABLE `core_inbox` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_inbox_messages
+DROP TABLE IF EXISTS `core_inbox_messages`;
 CREATE TABLE IF NOT EXISTS `core_inbox_messages` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `inbox_id` bigint DEFAULT NULL,
@@ -4944,6 +5008,7 @@ CREATE TABLE IF NOT EXISTS `core_inbox_messages` (
 /*!40000 ALTER TABLE `core_inbox_messages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_languages
+DROP TABLE IF EXISTS `core_languages`;
 CREATE TABLE IF NOT EXISTS `core_languages` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4957,17 +5022,21 @@ CREATE TABLE IF NOT EXISTS `core_languages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_languages: ~3 rows (approximately)
+-- Dumping data for table mytravel.core_languages: ~6 rows (approximately)
 /*!40000 ALTER TABLE `core_languages` DISABLE KEYS */;
 INSERT INTO `core_languages` (`id`, `locale`, `name`, `flag`, `status`, `create_user`, `update_user`, `last_build_at`, `deleted_at`, `created_at`, `updated_at`) VALUES
 	(1, 'en', 'English', 'gb', 'publish', 1, NULL, NULL, NULL, '2021-12-03 15:01:53', '2021-12-03 15:01:53'),
 	(2, 'ja', 'Japanese', 'jp', 'publish', 1, NULL, NULL, NULL, '2021-12-03 15:01:53', '2021-12-03 15:01:53'),
-	(3, 'egy', 'Egyptian', 'eg', 'publish', 1, NULL, NULL, NULL, '2021-12-03 15:01:53', '2021-12-03 15:01:53');
+	(3, 'egy', 'Egyptian', 'eg', 'publish', 1, NULL, NULL, NULL, '2021-12-03 15:01:53', '2021-12-03 15:01:53'),
+	(4, 'en', 'English', 'gb', 'publish', 1, NULL, NULL, '2021-12-09 07:00:30', '2021-12-09 06:50:24', '2021-12-09 07:00:30'),
+	(5, 'ja', 'Japanese', 'jp', 'publish', 1, NULL, NULL, '2021-12-09 07:00:30', '2021-12-09 06:50:24', '2021-12-09 07:00:30'),
+	(6, 'egy', 'Egyptian', 'eg', 'publish', 1, NULL, NULL, '2021-12-09 07:00:30', '2021-12-09 06:50:24', '2021-12-09 07:00:30');
 /*!40000 ALTER TABLE `core_languages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_menus
+DROP TABLE IF EXISTS `core_menus`;
 CREATE TABLE IF NOT EXISTS `core_menus` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -4989,6 +5058,7 @@ INSERT INTO `core_menus` (`id`, `name`, `items`, `create_user`, `update_user`, `
 /*!40000 ALTER TABLE `core_menus` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_menu_translations
+DROP TABLE IF EXISTS `core_menu_translations`;
 CREATE TABLE IF NOT EXISTS `core_menu_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5010,6 +5080,7 @@ INSERT INTO `core_menu_translations` (`id`, `origin_id`, `locale`, `items`, `cre
 /*!40000 ALTER TABLE `core_menu_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_model_has_permissions
+DROP TABLE IF EXISTS `core_model_has_permissions`;
 CREATE TABLE IF NOT EXISTS `core_model_has_permissions` (
   `permission_id` int unsigned NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5024,6 +5095,7 @@ CREATE TABLE IF NOT EXISTS `core_model_has_permissions` (
 /*!40000 ALTER TABLE `core_model_has_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_model_has_roles
+DROP TABLE IF EXISTS `core_model_has_roles`;
 CREATE TABLE IF NOT EXISTS `core_model_has_roles` (
   `role_id` int unsigned NOT NULL,
   `model_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5042,6 +5114,7 @@ INSERT INTO `core_model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 /*!40000 ALTER TABLE `core_model_has_roles` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news
+DROP TABLE IF EXISTS `core_news`;
 CREATE TABLE IF NOT EXISTS `core_news` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5074,6 +5147,7 @@ INSERT INTO `core_news` (`id`, `title`, `content`, `slug`, `status`, `cat_id`, `
 /*!40000 ALTER TABLE `core_news` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_category
+DROP TABLE IF EXISTS `core_news_category`;
 CREATE TABLE IF NOT EXISTS `core_news_category` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5106,6 +5180,7 @@ INSERT INTO `core_news_category` (`id`, `name`, `content`, `slug`, `status`, `_l
 /*!40000 ALTER TABLE `core_news_category` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_category_translations
+DROP TABLE IF EXISTS `core_news_category_translations`;
 CREATE TABLE IF NOT EXISTS `core_news_category_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5125,6 +5200,7 @@ CREATE TABLE IF NOT EXISTS `core_news_category_translations` (
 /*!40000 ALTER TABLE `core_news_category_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_tag
+DROP TABLE IF EXISTS `core_news_tag`;
 CREATE TABLE IF NOT EXISTS `core_news_tag` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `news_id` int DEFAULT NULL,
@@ -5142,6 +5218,7 @@ CREATE TABLE IF NOT EXISTS `core_news_tag` (
 /*!40000 ALTER TABLE `core_news_tag` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_news_translations
+DROP TABLE IF EXISTS `core_news_translations`;
 CREATE TABLE IF NOT EXISTS `core_news_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5161,6 +5238,7 @@ CREATE TABLE IF NOT EXISTS `core_news_translations` (
 /*!40000 ALTER TABLE `core_news_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_notifications
+DROP TABLE IF EXISTS `core_notifications`;
 CREATE TABLE IF NOT EXISTS `core_notifications` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_user` bigint DEFAULT NULL,
@@ -5183,6 +5261,7 @@ CREATE TABLE IF NOT EXISTS `core_notifications` (
 /*!40000 ALTER TABLE `core_notifications` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_pages
+DROP TABLE IF EXISTS `core_pages`;
 CREATE TABLE IF NOT EXISTS `core_pages` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -5222,6 +5301,7 @@ INSERT INTO `core_pages` (`id`, `slug`, `title`, `content`, `short_desc`, `statu
 /*!40000 ALTER TABLE `core_pages` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_page_translations
+DROP TABLE IF EXISTS `core_page_translations`;
 CREATE TABLE IF NOT EXISTS `core_page_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5243,6 +5323,7 @@ CREATE TABLE IF NOT EXISTS `core_page_translations` (
 /*!40000 ALTER TABLE `core_page_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_permissions
+DROP TABLE IF EXISTS `core_permissions`;
 CREATE TABLE IF NOT EXISTS `core_permissions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5352,6 +5433,7 @@ INSERT INTO `core_permissions` (`id`, `name`, `guard_name`, `created_at`, `updat
 /*!40000 ALTER TABLE `core_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_roles
+DROP TABLE IF EXISTS `core_roles`;
 CREATE TABLE IF NOT EXISTS `core_roles` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5372,6 +5454,7 @@ INSERT INTO `core_roles` (`id`, `name`, `guard_name`, `origin_id`, `lang`, `crea
 /*!40000 ALTER TABLE `core_roles` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_role_has_permissions
+DROP TABLE IF EXISTS `core_role_has_permissions`;
 CREATE TABLE IF NOT EXISTS `core_role_has_permissions` (
   `permission_id` int unsigned NOT NULL,
   `role_id` int unsigned NOT NULL,
@@ -5505,6 +5588,7 @@ INSERT INTO `core_role_has_permissions` (`permission_id`, `role_id`) VALUES
 /*!40000 ALTER TABLE `core_role_has_permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_settings
+DROP TABLE IF EXISTS `core_settings`;
 CREATE TABLE IF NOT EXISTS `core_settings` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5517,9 +5601,9 @@ CREATE TABLE IF NOT EXISTS `core_settings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_settings: ~189 rows (approximately)
+-- Dumping data for table mytravel.core_settings: ~192 rows (approximately)
 /*!40000 ALTER TABLE `core_settings` DISABLE KEYS */;
 INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_user`, `update_user`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, 'update_to_110', NULL, '1', NULL, NULL, NULL, NULL, '2021-12-08 08:07:55', '2021-12-08 08:07:55'),
@@ -5661,7 +5745,7 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 	(137, 'location_contact', 'general', 'Siem Reap, Cambodia', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(138, 'site_locale', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(139, 'site_first_day_of_the_weekin_calendar', 'general', '1', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
-	(140, 'site_enable_multi_lang', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
+	(140, 'site_enable_multi_lang', 'general', '1', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-09 03:43:54'),
 	(141, 'enable_rtl', 'general', '', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 02:27:18'),
 	(142, 'page_contact_link_google_map', 'general', 'https://goo.gl/maps/XqAXAYpViaUKnfrw8', NULL, 1, 1, NULL, '2021-12-08 02:24:54', '2021-12-08 10:05:25'),
 	(143, 'mission_title', 'mission', 'Our Mission', NULL, 1, 1, NULL, NULL, '2021-12-08 04:41:23'),
@@ -5710,10 +5794,14 @@ INSERT INTO `core_settings` (`id`, `name`, `group`, `val`, `autoload`, `create_u
 	(186, 'term_title', 'term', 'Room Lease Expert', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29'),
 	(187, 'term_subtitle', 'term', 'Our Lorem Text', NULL, 1, 1, NULL, '2021-12-08 03:15:16', '2021-12-08 03:17:29'),
 	(188, 'term_properties', 'term', '["36","37","95","97"]', NULL, 1, 1, NULL, '2021-12-08 04:41:23', '2021-12-08 05:58:34'),
-	(189, 'term_enable_travel', 'general', '1', NULL, 1, 1, NULL, '2021-12-08 05:50:28', '2021-12-08 05:52:03');
+	(189, 'term_enable_travel', 'general', '1', NULL, 1, 1, NULL, '2021-12-08 05:50:28', '2021-12-08 05:52:03'),
+	(190, 'site_locale', 'general', 'en', NULL, NULL, NULL, NULL, NULL, NULL),
+	(191, 'site_enable_multi_lang', 'general', '1', NULL, NULL, NULL, NULL, NULL, NULL),
+	(192, 'enable_rtl_egy', 'general', '1', NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `core_settings` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_subscribers
+DROP TABLE IF EXISTS `core_subscribers`;
 CREATE TABLE IF NOT EXISTS `core_subscribers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5736,6 +5824,7 @@ INSERT INTO `core_subscribers` (`id`, `email`, `first_name`, `last_name`, `creat
 /*!40000 ALTER TABLE `core_subscribers` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_tags
+DROP TABLE IF EXISTS `core_tags`;
 CREATE TABLE IF NOT EXISTS `core_tags` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5763,6 +5852,7 @@ INSERT INTO `core_tags` (`id`, `name`, `slug`, `content`, `create_user`, `update
 /*!40000 ALTER TABLE `core_tags` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_tag_translations
+DROP TABLE IF EXISTS `core_tag_translations`;
 CREATE TABLE IF NOT EXISTS `core_tag_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5782,6 +5872,7 @@ CREATE TABLE IF NOT EXISTS `core_tag_translations` (
 /*!40000 ALTER TABLE `core_tag_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_templates
+DROP TABLE IF EXISTS `core_templates`;
 CREATE TABLE IF NOT EXISTS `core_templates` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5799,7 +5890,7 @@ CREATE TABLE IF NOT EXISTS `core_templates` (
 -- Dumping data for table mytravel.core_templates: ~8 rows (approximately)
 /*!40000 ALTER TABLE `core_templates` DISABLE KEYS */;
 INSERT INTO `core_templates` (`id`, `title`, `content`, `type_id`, `create_user`, `update_user`, `origin_id`, `lang`, `created_at`, `updated_at`) VALUES
-	(1, 'Home Page', '[{"type":"form_search_all_service","name":"Form Search All Service","model":{"title_for_car":"","title_for_event":"","title_for_flight":"","title_for_hotel":"","title_for_space":"","title_for_tour":"","service_types":["hotel"],"title":"Your Dream Vocation","sub_title":"Angkor Leasing Home","style":"","bg_image":223,"hide_form_search":false,"single_form_search":true},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"room-lease-expert\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-mission\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-vision\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"benefits\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"testimonial","name":"List Testimonial","model":{"title":"Our Guests Love Us","list_item":[{"_active":false,"name":"Ali Tufan ","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","number_star":null,"avatar":1,"position":"Client"},{"_active":false,"name":"Augusta Silva","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":2},{"_active":false,"name":"Jessica Brown","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":3}],"style":"index"},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_news","name":"News: List Items","model":{"title":"Latest News","number":4,"category_id":"","order":"id","order_by":"asc"},"component":"RegularBlock","open":true,"is_container":false}]', NULL, 1, 1, NULL, NULL, '2021-12-03 15:01:54', '2021-12-08 03:40:42'),
+	(1, 'Home Page', '[{"type":"form_search_all_service","name":"Form Search All Service","model":{"title_for_car":"","title_for_event":"","title_for_flight":"","title_for_hotel":"","title_for_space":"","title_for_tour":"","service_types":["hotel"],"title":"Your Dream Vocation","sub_title":"Angkor Leasing Home","style":"","bg_image":223,"hide_form_search":false,"single_form_search":true},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"room-lease-expert\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-mission\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-vision\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"benefits\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"testimonial","name":"List Testimonial","model":{"title":"Our Guests Love Us","list_item":[{"_active":true,"name":"Ali Tufan ","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","number_star":4,"avatar":1,"position":"Client","text_score":"Very Good"},{"_active":true,"name":"Augusta Silva","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":2,"number_star":3,"text_score":"Good"},{"_active":true,"name":"Jessica Brown","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":3,"number_star":5,"text_score":"Very Good"}],"style":"index"},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_news","name":"News: List Items","model":{"title":"Latest News","number":4,"category_id":"","order":"id","order_by":"asc"},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"map\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true}]', NULL, 1, 1, NULL, NULL, '2021-12-03 15:01:54', '2021-12-09 02:19:07'),
 	(2, 'Become a vendor', '[{"type":"breadcrumb_section","name":"Breadcrumb Section","model":{"title":"Become Local Expert","sub_title":"About","bg_image":206},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_featured_item","name":"List Featured Item","model":{"list_item":[{"_active":true,"title":"Sign up","sub_title":"Click edit button to change this text  to change this text","icon_image":207,"order":null},{"_active":true,"title":" Add your services","sub_title":" Click edit button to change this text  to change this text","icon_image":208,"order":null},{"_active":true,"title":"Get bookings","sub_title":" Click edit button to change this text  to change this text","icon_image":209,"order":null}],"style":"","title":"How it Works"},"component":"RegularBlock","open":true,"is_container":false},{"type":"video_player","name":"Video Player","model":{"title":"Travelling Highlights","youtube":"https://www.youtube.com/watch?v=hHUbLv4ThOo","bg_image":210,"sub_title":"Your New Travelling Idea"},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_featured_item","name":"List Featured Item","model":{"list_item":[{"_active":true,"title":"Competitive Pricing","sub_title":"With 500+ suppliers and the purchasing power of 300 million members, mytravel.com can save you more!","icon_image":"","order":null,"icon":"flaticon-price","link":""},{"_active":true,"title":"Award-Winning Service","sub_title":"Travel worry-free knowing that we\'re here if you needus, 24 hours a day","icon_image":"","order":null,"icon":"flaticon-medal"},{"_active":true,"title":"Worldwide Coverage","sub_title":"Over 1,200,000 hotels in more than 200 countries and regions & flights to over 5,000 cities","icon_image":"","order":null,"icon":"flaticon-global-1"}],"style":"style_2","title":"Why be a Local Expert"},"component":"RegularBlock","open":true,"is_container":false},{"type":"vendor_register_form","name":"Vendor Register Form","model":{"title":"Become a vendor","desc":"Join our community to unlock your greatest asset and welcome paying guests into your home.","youtube":"https://www.youtube.com/watch?v=AmZ0WrEaf34","bg_image":211},"component":"RegularBlock","open":true,"is_container":false}]', NULL, 1, NULL, NULL, NULL, '2021-12-03 15:01:54', NULL),
 	(3, 'Home Hotel', '[{"type":"form_search_all_service","name":"Form Search All Service","model":{"title_for_car":"","title_for_event":"","title_for_flight":"","title_for_hotel":"","title_for_space":"","title_for_tour":"","service_types":["hotel"],"title":"Find Your Ideal Hotel and Compare Prices","sub_title":"Check out the best deals on over 2,000,000 hotels worldwide","style":"","bg_image":212,"hide_form_search":"","single_form_search":true},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_hotel","name":"Hotel: List Items","model":{"title":"Most Popular Hotels","desc":"","number":20,"style":"style_2","location_id":"","order":"id","order_by":"desc","is_featured":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_locations","name":"List Locations","model":{"service_type":["hotel"],"title":"Top Destinations","number":6,"layout":"style_2","order":"id","order_by":"asc","custom_ids":"","to_location_detail":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"call_to_action","name":"Call To Action","model":{"title":"Enjoy Summer Deals","sub_title":"Up to 40% Discount!","link_title":"Learn more","link_more":"#","style":"","bg_image":213},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_services_by_location","name":"List Services By Location","model":{"service_types":"hotel","title":"Recommended Hotels","sub_title":"","style":"","bg_image":"","hide_form_search":"","location_id":[1,2,3,4,5,6,7]},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_featured_item","name":"List Featured Item","model":{"title":"Why Choose","list_item":[{"_active":true,"title":"Competitive Pricing","sub_title":"With 500+ suppliers and the purchasing power of 300 million members, mytravel.com can save you more!","link":"#","icon_image":null,"icon":"flaticon-price","order":null},{"_active":true,"title":"Award-Winning Service","sub_title":"Travel worry-free knowing that we are here if you needus, 24 hours a day","link":"#","icon_image":null,"icon":"flaticon-medal","order":null},{"_active":true,"title":"Worldwide Coverage","sub_title":"Over 1,200,000 hotels in more than 200 countries and regions & flights to over 5,000 cities","link":"#","icon_image":null,"icon":"flaticon-global-1","order":null}],"style":"style_2","border_none":true},"component":"RegularBlock","open":true,"is_container":false}]', NULL, 1, NULL, NULL, NULL, '2021-12-03 15:01:54', NULL),
 	(4, 'Home Tour', '[{"type":"form_search_all_service","name":"Form Search All Service","model":{"title_for_car":"","title_for_event":"","title_for_flight":"","title_for_hotel":"","title_for_space":"","title_for_tour":"","service_types":["tour"],"title":"Find Next Place To Visit","sub_title":"Discover amzaing places at exclusive deals","style":"","bg_image":214,"hide_form_search":"","single_form_search":true},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_featured_item","name":"List Featured Item","model":{"title":"","list_item":[{"_active":true,"title":"2.000 +Destinations","sub_title":"Our expert team handpicked all destinations in this site","link":"#","icon_image":null,"icon":"flaticon-placeholder-2","order":null},{"_active":true,"title":" Best Price Guarantee","sub_title":"Price match within 48 hours of order confirmation","link":"#","icon_image":null,"icon":"flaticon-price-1","order":null},{"_active":true,"title":"Top Notch Support","sub_title":"We are here to help, before, during, and even after your trip.","link":"#","icon_image":null,"icon":"flaticon-customer-service","order":null}],"style":"style_3","border_none":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_locations","name":"List Locations","model":{"service_type":["tour"],"title":"Popular Destination","number":7,"layout":"style_3","order":"id","order_by":"asc","custom_ids":"","to_location_detail":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_tours","name":"Tour: List Items","model":{"title":"Popular Tours","desc":"","number":20,"style":"style_2","category_id":"","location_id":"","order":"id","order_by":"desc","is_featured":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"video_player","name":"Video Player","model":{"title":"Travelling Highlights","sub_title":"Your New Travelling Idea","youtube":"https://www.youtube.com/watch?v=hHUbLv4ThOo","bg_image":210,"bg_gradient":"gradient_overlay_half_bg_blue_light"},"component":"RegularBlock","open":true,"is_container":false},{"type":"testimonial","name":"List Testimonial","model":{"title":"Customer Reviews","list_item":[{"_active":true,"name":"Jessica Brown","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"client","avatar":215},{"_active":true,"name":"Augusta Silva","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"client","avatar":216},{"_active":true,"name":"Ali Tufan","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"client","avatar":217},{"_active":true,"name":"Jessica Brown","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"client","avatar":215},{"_active":true,"name":"Ali Tufan","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"client","avatar":216},{"_active":true,"name":"Augusta Silva","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"client","avatar":217}],"style":"style_2"},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_news","name":"News: List Items","model":{"title":"Recent Article","number":3,"category_id":"","order":"id","order_by":"desc"},"component":"RegularBlock","open":true,"is_container":false},{"type":"brands_list","name":"Brands List","model":{"list_item":[{"_active":true,"title":"Expedia","image_id":218},{"_active":true,"title":"American Airlines","image_id":219},{"_active":true,"title":"Trip advisor","image_id":220},{"_active":true,"title":"Carlson","image_id":221},{"_active":true,"title":"booking.com","image_id":222}]},"component":"RegularBlock","open":true}]', NULL, 1, NULL, NULL, NULL, '2021-12-03 15:01:54', NULL),
@@ -5810,6 +5901,7 @@ INSERT INTO `core_templates` (`id`, `title`, `content`, `type_id`, `create_user`
 /*!40000 ALTER TABLE `core_templates` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_template_translations
+DROP TABLE IF EXISTS `core_template_translations`;
 CREATE TABLE IF NOT EXISTS `core_template_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` int unsigned NOT NULL,
@@ -5822,13 +5914,17 @@ CREATE TABLE IF NOT EXISTS `core_template_translations` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `core_template_translations_locale_index` (`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.core_template_translations: ~0 rows (approximately)
+-- Dumping data for table mytravel.core_template_translations: ~2 rows (approximately)
 /*!40000 ALTER TABLE `core_template_translations` DISABLE KEYS */;
+INSERT INTO `core_template_translations` (`id`, `origin_id`, `locale`, `title`, `content`, `create_user`, `update_user`, `created_at`, `updated_at`) VALUES
+	(1, 1, 'ja', 'Home Page', '[{"type":"form_search_all_service","name":"Form Search All Service","model":{"title_for_car":"","title_for_event":"","title_for_flight":"","title_for_hotel":"","title_for_space":"","title_for_tour":"","service_types":["hotel"],"title":"Your Dream Vocation","sub_title":"Angkor Leasing Home","style":"","bg_image":223,"hide_form_search":false,"single_form_search":true},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"room-lease-expert\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-mission\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-vision\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"benefits\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"testimonial","name":"List Testimonial","model":{"title":"Our Guests Love Us","list_item":[{"_active":true,"name":"Ali Tufan ","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","number_star":4,"avatar":1,"position":"Client","text_score":"Very Good"},{"_active":true,"name":"Augusta Silva","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":2,"number_star":3,"text_score":"Good"},{"_active":true,"name":"Jessica Brown","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":3,"number_star":5,"text_score":"Very Good"}],"style":"index"},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_news","name":"News: List Items","model":{"title":"Latest News","number":4,"category_id":"","order":"id","order_by":"asc"},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"map\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true}]', 1, 1, '2021-12-09 04:02:25', '2021-12-09 04:04:59'),
+	(2, 1, 'en', 'Home Page', '[{"type":"form_search_all_service","name":"Form Search All Service","model":{"title_for_car":"","title_for_event":"","title_for_flight":"","title_for_hotel":"","title_for_space":"","title_for_tour":"","service_types":["hotel"],"title":"Your Dream Vocation","sub_title":"Angkor Leasing Home","style":"","bg_image":223,"hide_form_search":false,"single_form_search":true},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"room-lease-expert\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-mission\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"our-vision\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"benefits\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true,"is_container":false},{"type":"testimonial","name":"List Testimonial","model":{"title":"Our Guests Love Us","list_item":[{"_active":true,"name":"Ali Tufan ","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","number_star":4,"avatar":1,"position":"Client","text_score":"Very Good"},{"_active":true,"name":"Augusta Silva","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":2,"number_star":3,"text_score":"Good"},{"_active":true,"name":"Jessica Brown","desc":"This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize","position":"Client","avatar":3,"number_star":5,"text_score":"Very Good"}],"style":"index"},"component":"RegularBlock","open":true,"is_container":false},{"type":"list_news","name":"News: List Items","model":{"title":"Latest News","number":4,"category_id":"","order":"id","order_by":"asc"},"component":"RegularBlock","open":true,"is_container":false},{"type":"text","name":"Text","model":{"content":"<div id=\\"map\\">&nbsp;</div>","class":""},"component":"RegularBlock","open":true}]', 1, 1, '2021-12-09 04:05:39', '2021-12-09 04:10:48');
 /*!40000 ALTER TABLE `core_template_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_translations
+DROP TABLE IF EXISTS `core_translations`;
 CREATE TABLE IF NOT EXISTS `core_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `locale` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5848,6 +5944,7 @@ CREATE TABLE IF NOT EXISTS `core_translations` (
 /*!40000 ALTER TABLE `core_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_vendor_plans
+DROP TABLE IF EXISTS `core_vendor_plans`;
 CREATE TABLE IF NOT EXISTS `core_vendor_plans` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -5867,6 +5964,7 @@ CREATE TABLE IF NOT EXISTS `core_vendor_plans` (
 /*!40000 ALTER TABLE `core_vendor_plans` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.core_vendor_plan_meta
+DROP TABLE IF EXISTS `core_vendor_plan_meta`;
 CREATE TABLE IF NOT EXISTS `core_vendor_plan_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `vendor_plan_id` int NOT NULL,
@@ -5888,6 +5986,7 @@ CREATE TABLE IF NOT EXISTS `core_vendor_plan_meta` (
 /*!40000 ALTER TABLE `core_vendor_plan_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.location_category
+DROP TABLE IF EXISTS `location_category`;
 CREATE TABLE IF NOT EXISTS `location_category` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -5918,6 +6017,7 @@ INSERT INTO `location_category` (`id`, `name`, `icon_class`, `content`, `slug`, 
 /*!40000 ALTER TABLE `location_category` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.location_category_translations
+DROP TABLE IF EXISTS `location_category_translations`;
 CREATE TABLE IF NOT EXISTS `location_category_translations` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `origin_id` bigint DEFAULT NULL,
@@ -5937,6 +6037,7 @@ CREATE TABLE IF NOT EXISTS `location_category_translations` (
 /*!40000 ALTER TABLE `location_category_translations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.media_files
+DROP TABLE IF EXISTS `media_files`;
 CREATE TABLE IF NOT EXISTS `media_files` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `file_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6207,6 +6308,7 @@ INSERT INTO `media_files` (`id`, `file_name`, `file_path`, `file_size`, `file_ty
 /*!40000 ALTER TABLE `media_files` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.migrations
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6290,6 +6392,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.notifications
+DROP TABLE IF EXISTS `notifications`;
 CREATE TABLE IF NOT EXISTS `notifications` (
   `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6303,9 +6406,10 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mytravel.notifications: ~13 rows (approximately)
+-- Dumping data for table mytravel.notifications: ~25 rows (approximately)
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
+	('0f1517ac-98fe-4119-86b6-666e65087f42', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"0f1517ac-98fe-4119-86b6-666e65087f42","for_admin":1,"notification":{"id":14,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=14","type":"hotel","message":"Hotel WBF Hommachi was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:48:31', '2021-12-09 02:48:31'),
 	('1548420a-c6a2-4abd-bebb-3742a9143786', 'App\\Notifications\\PrivateChannelServices', 'App\\User', 3, '{"id":"1548420a-c6a2-4abd-bebb-3742a9143786","for_admin":0,"notification":{"event":"SetPaidAmountEvent","to":"customer","id":2,"name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/user\\/booking-history","type":"hotel","message":"System Admin has updated the PAID amount on Hotel Stanford"}}', NULL, '2021-12-08 05:27:51', '2021-12-08 05:27:51'),
 	('1ffaf28c-1dd9-4ddb-80e2-62d1c89b8d08', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"1ffaf28c-1dd9-4ddb-80e2-62d1c89b8d08","for_admin":1,"notification":{"id":27,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=27","type":"hotel","message":"Castello Casole Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-06 07:34:38', '2021-12-06 07:34:38'),
 	('23e9f89d-d6f7-4b92-93ad-726be3d90be1', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"23e9f89d-d6f7-4b92-93ad-726be3d90be1","for_admin":1,"notification":{"id":3,"event":"UserSubscriberSubmit","to":"admin","name":"Someone","avatar":"","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/user\\/subscriber","type":"subscriber","message":"You have just gotten a new Subscriber"}}', NULL, '2021-12-06 09:12:06', '2021-12-06 09:12:06'),
@@ -6313,15 +6417,27 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 	('3f608c18-d59b-4ea6-b5da-1c42d1f9e354', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"3f608c18-d59b-4ea6-b5da-1c42d1f9e354","for_admin":1,"notification":{"event":"SetPaidAmountEvent","to":"admin","id":2,"name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/report\\/booking","type":"hotel","message":"System Admin has updated the PAID amount on Hotel Stanford"}}', NULL, '2021-12-08 05:27:51', '2021-12-08 05:27:51'),
 	('4d9137fd-fe92-4958-82a9-f97264034fe4', 'App\\Notifications\\AdminChannelServices', 'App\\User', 3, '{"id":"4d9137fd-fe92-4958-82a9-f97264034fe4","for_admin":1,"notification":{"id":1,"event":"BookingCreatedEvent","to":"admin","name":"Customer 01","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/report\\/booking","type":"hotel","message":"Customer 01 has created new Booking"}}', '2021-12-08 05:27:02', '2021-12-08 05:00:54', '2021-12-08 05:27:02'),
 	('4ea51548-b50b-450e-b3ed-6ca124487c63', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"4ea51548-b50b-450e-b3ed-6ca124487c63","for_admin":1,"notification":{"id":28,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=28","type":"hotel","message":"Redac Gateway Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-06 07:16:18', '2021-12-06 07:16:18'),
+	('57476302-2d46-4d4e-85c3-634fed77edd4', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"57476302-2d46-4d4e-85c3-634fed77edd4","for_admin":1,"notification":{"id":2,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=2","type":"hotel","message":"Hotel WBF Hommachi was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:49:33', '2021-12-09 02:49:33'),
+	('5c28029e-764d-4b2a-adaa-c7f9bbcb2cea', 'App\\Notifications\\PrivateChannelServices', 'App\\User', 2, '{"id":"5c28029e-764d-4b2a-adaa-c7f9bbcb2cea","for_admin":0,"notification":{"id":8,"event":"UpdatedServiceEvent","to":"vendor","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/user\\/hotel?id=8","type":"hotel","message":"Stewart Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:48:57', '2021-12-09 02:48:57'),
+	('5dca38f4-a91f-4acd-b8fb-5cc4cd024b1c', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"5dca38f4-a91f-4acd-b8fb-5cc4cd024b1c","for_admin":1,"notification":{"id":1,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=1","type":"hotel","message":"Hotel Stanford was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:49:39', '2021-12-09 02:49:39'),
+	('778bf791-6b11-406b-af24-08ff5f6d0815', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"778bf791-6b11-406b-af24-08ff5f6d0815","for_admin":1,"notification":{"id":21,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=21","type":"hotel","message":"Hotel Stanford was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:50:40', '2021-12-09 02:50:40'),
+	('85ef0f90-5999-41e3-b2ef-c388df14bcf2', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"85ef0f90-5999-41e3-b2ef-c388df14bcf2","for_admin":1,"notification":{"id":5,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=5","type":"hotel","message":"Studio Allston Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:49:02', '2021-12-09 02:49:02'),
+	('8e673a11-8c34-44f1-aceb-4f9fb7d21d52', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"8e673a11-8c34-44f1-aceb-4f9fb7d21d52","for_admin":1,"notification":{"id":24,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=24","type":"hotel","message":"Redac Gateway Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:50:25', '2021-12-09 02:50:25'),
 	('944a04f9-f06d-44e2-a46f-f2a4d5ef20d9', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"944a04f9-f06d-44e2-a46f-f2a4d5ef20d9","for_admin":1,"notification":{"event":"SetPaidAmountEvent","to":"admin","id":2,"name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/report\\/booking","type":"hotel","message":"System Admin has updated the PAID amount on Hotel Stanford"}}', NULL, '2021-12-08 05:38:55', '2021-12-08 05:38:55'),
 	('a5182c9c-5e34-48d3-ba26-7e6fd0c1c13c', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"a5182c9c-5e34-48d3-ba26-7e6fd0c1c13c","for_admin":1,"notification":{"id":2,"event":"UserSubscriberSubmit","to":"admin","name":"Someone","avatar":"","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/user\\/subscriber","type":"subscriber","message":"You have just gotten a new Subscriber"}}', NULL, '2021-12-06 09:12:06', '2021-12-06 09:12:06'),
+	('ae5861ee-2dc9-446b-9105-fc00834b717b', 'App\\Notifications\\PrivateChannelServices', 'App\\User', 2, '{"id":"ae5861ee-2dc9-446b-9105-fc00834b717b","for_admin":0,"notification":{"id":6,"event":"UpdatedServiceEvent","to":"vendor","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/user\\/hotel?id=6","type":"hotel","message":"EnVision Hotel Boston was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:49:46', '2021-12-09 02:49:46'),
 	('b8cd23e3-eda1-4a47-a1ef-5a8739e29673', 'App\\Notifications\\AdminChannelServices', 'App\\User', 3, '{"id":"b8cd23e3-eda1-4a47-a1ef-5a8739e29673","for_admin":1,"notification":{"id":2,"event":"BookingCreatedEvent","to":"admin","name":"Customer 01","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/report\\/booking","type":"hotel","message":"Customer 01 has created new Booking"}}', NULL, '2021-12-08 05:26:33', '2021-12-08 05:26:33'),
+	('b9fffef7-b790-4f36-8d9c-ed139a3bbd49', 'App\\Notifications\\PrivateChannelServices', 'App\\User', 2, '{"id":"b9fffef7-b790-4f36-8d9c-ed139a3bbd49","for_admin":0,"notification":{"id":5,"event":"UpdatedServiceEvent","to":"vendor","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/user\\/hotel?id=5","type":"hotel","message":"Studio Allston Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:49:02', '2021-12-09 02:49:02'),
+	('bc4fa24d-438b-49ef-aa4e-9d4206e4b948', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"bc4fa24d-438b-49ef-aa4e-9d4206e4b948","for_admin":1,"notification":{"id":8,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=8","type":"hotel","message":"Stewart Hotel was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:48:57', '2021-12-09 02:48:57'),
 	('c8486add-327a-419f-918c-1ab6b2c4459c', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"c8486add-327a-419f-918c-1ab6b2c4459c","for_admin":1,"notification":{"id":1,"event":"UserSubscriberSubmit","to":"admin","name":"Someone","avatar":"","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/user\\/subscriber","type":"subscriber","message":"You have just gotten a new Subscriber"}}', NULL, '2021-12-06 09:12:06', '2021-12-06 09:12:06'),
+	('cc421798-1271-4673-9455-62262b4cb694', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"cc421798-1271-4673-9455-62262b4cb694","for_admin":1,"notification":{"id":6,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=6","type":"hotel","message":"EnVision Hotel Boston was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:49:46', '2021-12-09 02:49:46'),
 	('d5cf8a6d-b329-44a6-9fde-433c7a82bd76', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"d5cf8a6d-b329-44a6-9fde-433c7a82bd76","for_admin":1,"notification":{"id":26,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=26","type":"hotel","message":"Hotel WBF Hommachi was updated to Publish by System Admin"}}', NULL, '2021-12-06 07:48:06', '2021-12-06 07:48:06'),
+	('f17bc6b4-b306-4094-a53f-f2f88573b57e', 'App\\Notifications\\AdminChannelServices', 'App\\User', 1, '{"id":"f17bc6b4-b306-4094-a53f-f2f88573b57e","for_admin":1,"notification":{"id":18,"event":"UpdatedServiceEvent","to":"admin","name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/admin\\/module\\/hotel?id=18","type":"hotel","message":"Hotel WBF Hommachi was updated to Publish by System Admin"}}', NULL, '2021-12-09 02:48:28', '2021-12-09 02:48:28'),
 	('fc41bda2-7969-4a11-897b-b743513ec13e', 'App\\Notifications\\PrivateChannelServices', 'App\\User', 3, '{"id":"fc41bda2-7969-4a11-897b-b743513ec13e","for_admin":0,"notification":{"event":"SetPaidAmountEvent","to":"customer","id":2,"name":"System Admin","avatar":"http:\\/\\/my-travel.org\\/images\\/avatar.png","link":"http:\\/\\/my-travel.org\\/user\\/booking-history","type":"hotel","message":"System Admin has updated the PAID amount on Hotel Stanford"}}', NULL, '2021-12-08 05:38:55', '2021-12-08 05:38:55');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.password_resets
+DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6334,6 +6450,7 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_forums
+DROP TABLE IF EXISTS `social_forums`;
 CREATE TABLE IF NOT EXISTS `social_forums` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6354,6 +6471,7 @@ CREATE TABLE IF NOT EXISTS `social_forums` (
 /*!40000 ALTER TABLE `social_forums` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_groups
+DROP TABLE IF EXISTS `social_groups`;
 CREATE TABLE IF NOT EXISTS `social_groups` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -6379,6 +6497,7 @@ CREATE TABLE IF NOT EXISTS `social_groups` (
 /*!40000 ALTER TABLE `social_groups` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_group_user
+DROP TABLE IF EXISTS `social_group_user`;
 CREATE TABLE IF NOT EXISTS `social_group_user` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint DEFAULT NULL,
@@ -6396,6 +6515,7 @@ CREATE TABLE IF NOT EXISTS `social_group_user` (
 /*!40000 ALTER TABLE `social_group_user` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_posts
+DROP TABLE IF EXISTS `social_posts`;
 CREATE TABLE IF NOT EXISTS `social_posts` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `content` text COLLATE utf8mb4_unicode_ci,
@@ -6423,6 +6543,7 @@ CREATE TABLE IF NOT EXISTS `social_posts` (
 /*!40000 ALTER TABLE `social_posts` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_post_comments
+DROP TABLE IF EXISTS `social_post_comments`;
 CREATE TABLE IF NOT EXISTS `social_post_comments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint DEFAULT NULL,
@@ -6444,6 +6565,7 @@ CREATE TABLE IF NOT EXISTS `social_post_comments` (
 /*!40000 ALTER TABLE `social_post_comments` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.social_user_follow
+DROP TABLE IF EXISTS `social_user_follow`;
 CREATE TABLE IF NOT EXISTS `social_user_follow` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_user` bigint DEFAULT NULL,
@@ -6460,6 +6582,7 @@ CREATE TABLE IF NOT EXISTS `social_user_follow` (
 /*!40000 ALTER TABLE `social_user_follow` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6502,17 +6625,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_user_name_unique` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mytravel.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `address`, `address2`, `phone`, `birthday`, `city`, `state`, `country`, `zip_code`, `last_login_at`, `avatar_id`, `bio`, `status`, `create_user`, `update_user`, `vendor_commission_amount`, `vendor_commission_type`, `deleted_at`, `remember_token`, `created_at`, `updated_at`, `payment_gateway`, `total_guests`, `locale`, `business_name`, `avatar`, `messenger_color`, `dark_mode`, `active_status`, `verify_submit_status`, `is_verified`, `user_name`) VALUES
-	(1, 'System Admin', 'System', 'Admin', 'admin@dev.com', '2021-12-03 15:01:53', '$2y$10$HQ7U0fuISqKk0OwUQXYt/OQkxHkUt820YdNkMIpHT.VqzSUuy04NS', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, 'qloZtMjnndOaN5GHJIzoUbWwph2Q5goOjq6wukf8hQTuy4tYsH6XEf8OXFSe', '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL),
+	(1, 'System Admin', 'System', 'Admin', 'admin@dev.com', '2021-12-03 15:01:53', '$2y$10$HQ7U0fuISqKk0OwUQXYt/OQkxHkUt820YdNkMIpHT.VqzSUuy04NS', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, '4YQcHWDMI7kMI80Jol3Q3aI7nZr3VQvVby9KKrO9zqtnLvVJ2nyWK6rxNU4l', '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL),
 	(2, 'Vendor 01', 'Vendor', '01', 'vendor1@dev.com', '2021-12-03 15:01:53', '$2y$10$NqxPr.P5VL7hssjmYt9QAeDvM5pejbGbriApy2kwVxkMeEyQtcyKG', NULL, NULL, '112 666 888', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, 'v6Za4tUettBGyXt0XfRl5h5el4mXdT19gL6HhuYSQYApjuBnPB6KjwpQQzIV', '2021-12-03 15:01:53', NULL, NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL),
 	(3, 'Customer 01', 'Customer', '01', 'customer1@dev.com', '2021-12-03 15:01:53', '$2y$10$Q8AmH8P1Re0I8cfZ.O4tM.A918515RJeFflU77651Bi42pAu73oOi', NULL, NULL, '112 666 888', NULL, NULL, NULL, 'KH', NULL, NULL, NULL, 'We\'re designers who have fallen in love with creating spaces for others to reflect, reset, and create. We split our time between two deserts (the Mojave, and the Sonoran). We love the way the heat sinks into our bones, the vibrant sunsets, and the wildlife we get to call our neighbors.', 'publish', NULL, NULL, NULL, NULL, NULL, 'Cmtfut6XP18l97vXybtRQXFCdC7ti4ngQDv7nMRk1DZi48oio5Ei9Fj7hV2z', '2021-12-03 15:01:53', '2021-12-08 05:00:49', NULL, NULL, NULL, NULL, 'avatar.png', '#2180f3', 0, 0, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_meta
+DROP TABLE IF EXISTS `user_meta`;
 CREATE TABLE IF NOT EXISTS `user_meta` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
@@ -6531,6 +6655,7 @@ CREATE TABLE IF NOT EXISTS `user_meta` (
 /*!40000 ALTER TABLE `user_meta` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_transactions
+DROP TABLE IF EXISTS `user_transactions`;
 CREATE TABLE IF NOT EXISTS `user_transactions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `payable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6563,6 +6688,7 @@ CREATE TABLE IF NOT EXISTS `user_transactions` (
 /*!40000 ALTER TABLE `user_transactions` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_transfers
+DROP TABLE IF EXISTS `user_transfers`;
 CREATE TABLE IF NOT EXISTS `user_transfers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `from_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6595,6 +6721,7 @@ CREATE TABLE IF NOT EXISTS `user_transfers` (
 /*!40000 ALTER TABLE `user_transfers` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_upgrade_request
+DROP TABLE IF EXISTS `user_upgrade_request`;
 CREATE TABLE IF NOT EXISTS `user_upgrade_request` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
@@ -6615,6 +6742,7 @@ CREATE TABLE IF NOT EXISTS `user_upgrade_request` (
 /*!40000 ALTER TABLE `user_upgrade_request` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_wallets
+DROP TABLE IF EXISTS `user_wallets`;
 CREATE TABLE IF NOT EXISTS `user_wallets` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `holder_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -6644,6 +6772,7 @@ INSERT INTO `user_wallets` (`id`, `holder_type`, `holder_id`, `name`, `slug`, `d
 /*!40000 ALTER TABLE `user_wallets` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.user_wishlist
+DROP TABLE IF EXISTS `user_wishlist`;
 CREATE TABLE IF NOT EXISTS `user_wishlist` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `object_id` int DEFAULT NULL,
@@ -6654,13 +6783,14 @@ CREATE TABLE IF NOT EXISTS `user_wishlist` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mytravel.user_wishlist: ~0 rows (approximately)
 /*!40000 ALTER TABLE `user_wishlist` DISABLE KEYS */;
 /*!40000 ALTER TABLE `user_wishlist` ENABLE KEYS */;
 
 -- Dumping structure for table mytravel.vendors_plan_payments
+DROP TABLE IF EXISTS `vendors_plan_payments`;
 CREATE TABLE IF NOT EXISTS `vendors_plan_payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `vendor_id` int NOT NULL,

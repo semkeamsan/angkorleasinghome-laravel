@@ -44,7 +44,7 @@
                     <div class="panel">
                         <div class="panel-title">{{__('Template Content')}}</div>
                         <div class="panel-body">
-                            <div class="templates-items-zone">
+                            <div class="templates-items-zone">                              
                                 <draggable v-model="items">
                                     <component v-on:delete="deleteBlock" :block="searchBlockById(item.type)" :is="item.component" :item="item" v-for="(item,index) in items" :index=index :key="index"></component>
                                 </draggable>

@@ -24,6 +24,7 @@ class HotelController extends Controller
         $this->hotelClass = Hotel::class;
         $this->locationClass = Location::class;
         $this->locationCategoryClass = LocationCategory::class;
+
     }
     public function callAction($method, $parameters)
     {
@@ -39,6 +40,7 @@ class HotelController extends Controller
 
         $is_ajax = $request->query('_ajax');
         $list = call_user_func([$this->hotelClass,'search'],$request);
+
         $markers = [];
         if (!empty($list)) {
             foreach ($list as $row) {
@@ -75,13 +77,14 @@ class HotelController extends Controller
                 "markers" => $data['markers']
             ]);
         }
-        $data['attributes'] = Attributes::where('service', 'hotel')->orderBy("position","desc")->with(['terms'=>function($query){$query->withCount('hotel');},'translations'])->get();
+        $data['attributes'] = Attributes::where('service', 'hotel')->orderBy("position","asc")->with(['terms'=>function($query){$query->withCount('hotel');},'translations'])->get();
 
         if ($layout == "map") {
             $data['body_class'] = 'has-search-map';
             $data['html_class'] = 'full-page';
             return view('Hotel::frontend.search-map', $data);
         }
+
         return view('Hotel::frontend.search', $data);
     }
 

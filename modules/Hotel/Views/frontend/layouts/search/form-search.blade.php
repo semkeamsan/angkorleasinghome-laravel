@@ -6,7 +6,9 @@
                 return $value['position'] ?? 0;
             }));
             @endphp
+
             @if(!empty($hotel_search_fields))
+           
                 @foreach($hotel_search_fields as $field)
                     @php $field['title'] = $field['title_'.app()->getLocale()] ?? $field['title'] ?? "" @endphp
                     <div class="col-md-{{ $field['size'] ?? "6" }} mb-4 mb-lg-0 text-left">
@@ -18,7 +20,9 @@
                             @include('Hotel::frontend.layouts.search.fields.location')
                             @break
                             @case ('date')
-                            {{-- @include('Hotel::frontend.layouts.search.fields.date') --}}
+                            @include('Hotel::frontend.layouts.search.fields.date')
+                            @break
+                            @case ('price')
                             @include('Hotel::frontend.layouts.search.fields.price')
                             @break
                             @case ('guests')

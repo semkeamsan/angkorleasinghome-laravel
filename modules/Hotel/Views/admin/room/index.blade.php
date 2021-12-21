@@ -55,7 +55,7 @@
                                         <th width="45px"><input type="checkbox" class="check-all"></th>
                                         <th> {{ __('Room name')}}</th>
                                         <th width="100px"> {{ __('Number')}}</th>
-                                        <th width="100px"> {{ __('Price')}}</th>
+                                        <th width="100px"> {{ __('Price')}}/{{ __('Night')}}</th>
                                         <th width="100px"> {{ __('Status')}}</th>
                                         <th width="100px"></th>
                                     </tr>
