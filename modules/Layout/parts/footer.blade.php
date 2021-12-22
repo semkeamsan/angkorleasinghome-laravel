@@ -267,9 +267,9 @@
     <div class="main-footer">
         <div class="container">
             <div class="row justify-content-xl-between mb-3">
-                @if(!empty($info_contact = clean(setting_item_with_lang('footer_info_text'))))
+                @if(!empty($info_contact = setting_item_with_lang('footer_info_text')))
                 <div class="col-12 col-lg-4 col-xl-3dot1 mb-6 mb-md-10 mb-xl-0">
-                    {!! clean($info_contact) !!}
+                    {!! $info_contact !!}
                 </div>
                 @endif
                 @if($list_widget_footers = setting_item_with_lang("list_widget_footer"))
@@ -471,15 +471,6 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
 <script>
     var save_cookie_url = "{{route('core.cookie.check')}}";
 
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-215543459-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-215543459-1');
 </script>
 
 <script src="{{ asset('js/cookie.js?_ver='.config('app.version')) }}"></script>

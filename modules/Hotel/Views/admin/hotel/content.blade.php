@@ -33,6 +33,27 @@
 </div>
 
 <div class="panel">
+    <div class="panel-title"><strong>{{__("Bed/Bath")}}</strong></div>
+    <div class="panel-body">
+        @if(is_default_lang())
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{{__("Bed")}}</label>
+                        <input type="number" value="{{$row->bed}}" min="1" max="20" placeholder="{{__("Eg: 1")}}" name="bed" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{{__("Bath")}}</label>
+                        <input type="number" value="{{$row->bath}}" min="1" max="20" placeholder="{{__("Eg:2")}}" name="bath" class="form-control">
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
+</div>
+<div class="panel">
     <div class="panel-title"><strong>{{__("Hotel Policy")}}</strong></div>
     <div class="panel-body">
         @if(is_default_lang())

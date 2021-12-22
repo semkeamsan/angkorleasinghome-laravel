@@ -3,6 +3,7 @@ namespace Modules\Hotel\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Modules\AdminController;
 use Modules\Core\Events\CreatedServicesEvent;
 use Modules\Core\Events\UpdatedServiceEvent;
@@ -54,6 +55,8 @@ class HotelController extends AdminController
 
     public function index(Request $request)
     {
+       
+
         $this->checkPermission('hotel_view');
         $query = $this->hotelClass::query() ;
         $query->orderBy('id', 'desc');
@@ -222,6 +225,8 @@ class HotelController extends AdminController
             'policy',
             'location_id',
             'address',
+            'bed',
+            'bath',
             'map_lat',
             'map_lng',
             'map_zoom',

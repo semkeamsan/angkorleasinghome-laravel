@@ -124,6 +124,10 @@ if(!empty($custom_modules)){
 
 $currentUrl = url(Illuminate\Support\Facades\Route::current()->uri());
 if (!empty($menus))
+    unset( $menus['car']);
+    unset( $menus['event']);
+    unset( $menus['flight']);
+    unset( $menus['space']);
     $menus = array_values(\Illuminate\Support\Arr::sort($menus, function ($value) {
         return $value['position'] ?? 100;
     }));

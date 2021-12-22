@@ -31,6 +31,16 @@
                 @endif
             @endif
         </div>
+        <div class="mb-0 px-2">
+            <span class="pr-2 font-size-14 ">
+                <i class="fa fa-bed mr-1"></i>
+                {{ $row->bed }}
+            </span>
+            <span class="px-2 font-size-14">
+                <i class="fa fa-bath mr-1"></i>
+                {{ $row->bath }}
+            </span>
+        </div>
     </div>
 
 </div>

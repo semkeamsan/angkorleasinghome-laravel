@@ -59,6 +59,16 @@ $translation = $row->translateOrOrigin(app()->getLocale());
                                 @endif
                             @endif
                         </div>
+                        <div class="mb-1">
+                            <span class="pr-2 font-size-14 ">
+                                <i class="fa fa-bed mr-1"></i>
+                                {{ $row->bed }}
+                            </span>
+                            <span class="px-2 font-size-14">
+                                <i class="fa fa-bath mr-1"></i>
+                                {{ $row->bath }}
+                            </span>
+                        </div>
                         @if (!empty(($attribute = $row->getAttributeInListingPage())))
                         @php
                             $translate_attribute = $attribute->translateOrOrigin(app()->getLocale());
@@ -77,6 +87,7 @@ $translation = $row->translateOrOrigin(app()->getLocale());
                                     </li>
                                 @endif
                             @endforeach
+
                         </ul>
                         @endif
                         @if (!empty($translation->badge_tags))
@@ -91,6 +102,7 @@ $translation = $row->translateOrOrigin(app()->getLocale());
                                 @endforeach
                             </ul>
                         @endif
+
                     </div>
                 </div>
             </div>
@@ -99,24 +111,27 @@ $translation = $row->translateOrOrigin(app()->getLocale());
                     class="d-xl-flex flex-wrap border-xl-left ml-4 ml-xl-0 pr-xl-3 pr-wd-5 text-xl-right justify-content-xl-end">
                     @if (setting_item('hotel_enable_review'))
                         @php  $reviewData = $row->getScoreReview(); @endphp
-                        <div class="mb-xl-5 mb-wd-7">
-                            <div class="mb-0">
-                                <div class="my-xl-1">
-                                    <div class="d-flex align-items-center justify-content-xl-end mb-2">
-                                        <span
-                                            class="badge badge-primary rounded-xs font-size-14 p-2 mr-2 mb-0">{{ $reviewData['score_total'] }}
-                                            /5 </span>
-                                        <span
-                                            class="font-size-17 font-weight-bold text-primary">{{ $reviewData['review_text'] }}</span>
+                        @if ($reviewData['total_review'])
+                            <div class="mb-xl-5 mb-wd-7">
+                                <div class="mb-0">
+                                    <div class="my-xl-1">
+                                        <div class="d-flex align-items-center justify-content-xl-end mb-2">
+                                            <span
+                                                class="badge badge-primary rounded-xs font-size-14 p-2 mr-2 mb-0">{{ $reviewData['score_total'] }}
+                                                /5 </span>
+                                            <span
+                                                class="font-size-17 font-weight-bold text-primary">{{ $reviewData['review_text'] }}</span>
+                                        </div>
                                     </div>
+                                    <span class="font-size-14 text-gray-1">
+                                        @if (!empty($reviewData['total_review']))
+                                            ({{ __(':number reviews', ['number' => $reviewData['total_review']]) }})
+                                        @endif
+                                    </span>
                                 </div>
-                                <span class="font-size-14 text-gray-1">
-                                    @if (!empty($reviewData['total_review']))
-                                        ({{ __(':number reviews', ['number' => $reviewData['total_review']]) }})
-                                    @endif
-                                </span>
                             </div>
-                        </div>
+                        @endif
+
                     @endif
                     @if ($row->price_enable)
                         <div class="mb-0">
@@ -128,17 +143,18 @@ $translation = $row->translateOrOrigin(app()->getLocale());
                     @if ($row->price_month_enable)
                         <div class="mb-0">
                             <span class="mr-1 font-size-14 text-gray-1">{{ __('from') }}</span>
-                            <span class="font-weight-bold">{{  format_money($row->price_month) }}</span>
+                            <span class="font-weight-bold">{{ format_money($row->price_month) }}</span>
                             <span class="font-size-14 text-gray-1"> / {{ __('month') }}</span>
                         </div>
                     @endif
                     @if ($row->price_year_enable)
-                    <div class="mb-0">
-                        <span class="mr-1 font-size-14 text-gray-1">{{ __('from') }}</span>
-                        <span class="font-weight-bold">{{  format_money($row->price_year) }}</span>
-                        <span class="font-size-14 text-gray-1"> / {{ __('year') }}</span>
-                    </div>
-                @endif
+                        <div class="mb-0">
+                            <span class="mr-1 font-size-14 text-gray-1">{{ __('from') }}</span>
+                            <span class="font-weight-bold">{{ format_money($row->price_year) }}</span>
+                            <span class="font-size-14 text-gray-1"> / {{ __('year') }}</span>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>

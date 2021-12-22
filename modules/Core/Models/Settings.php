@@ -83,6 +83,12 @@ class Settings extends BaseModel
                 }
             }
         }
+        unset($allSettings['car']);
+        unset($allSettings['event']);
+        unset($allSettings['flight']);
+        unset($allSettings['review']);
+        unset($allSettings['space']);
+
         //Custom
         $custom_modules = \Custom\ServiceProvider::getModules();
         if(!empty($custom_modules)){
@@ -129,6 +135,7 @@ class Settings extends BaseModel
                 $item['icon'] = $item['icon'] ?? '';
             }
         }
+
         return $allSettings;
     }
     public static function clearCustomCssCache(){

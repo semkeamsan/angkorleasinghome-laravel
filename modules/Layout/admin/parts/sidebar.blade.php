@@ -6,13 +6,13 @@ $menus = [
         'icon'  => 'icon ion-ios-desktop',
         "position"=>0
     ],
-    'review'=>[
-        "position"=>50,
-        'url'   => 'admin/module/review',
-        'title' => __("Reviews"),
-        'icon'  => 'icon ion-ios-text',
-        'permission' => 'review_manage_others',
-    ],
+    // 'review'=>[
+    //     "position"=>50,
+    //     'url'   => 'admin/module/review',
+    //     'title' => __("Reviews"),
+    //     'icon'  => 'icon ion-ios-text',
+    //     'permission' => 'review_manage_others',
+    // ],
     'menu'=>[
         "position"=>60,
         'url'        => 'admin/module/core/menu',
@@ -20,13 +20,13 @@ $menus = [
         'icon'       => 'icon ion-ios-apps',
         'permission' => 'menu_view',
     ],
-    'template'=>[
-        "position"=>70,
-        'url'        => 'admin/module/template',
-        'title'      => __('Templates'),
-        'icon'       => 'icon ion-logo-html5',
-        'permission' => 'template_create',
-    ],
+    // 'template'=>[
+    //     "position"=>70,
+    //     'url'        => 'admin/module/template',
+    //     'title'      => __('Templates'),
+    //     'icon'       => 'icon ion-logo-html5',
+    //     'permission' => 'template_create',
+    // ],
     'general'=>[
         "position"=>80,
         'url'        => 'admin/module/core/settings/index/general',
@@ -79,6 +79,7 @@ if(!empty($custom_modules)){
             $menuSubMenu = call_user_func([$moduleClass,'getAdminSubMenu']);
 
             if(!empty($menuSubMenu)){
+
                 foreach($menuSubMenu as $k=>$submenu){
                     $submenu['id'] = $submenu['id'] ?? '_'.$k;
 
@@ -125,6 +126,7 @@ if(!empty($plugins_modules)){
 
 // Custom Menu
 $custom_modules = \Custom\ServiceProvider::getModules();
+
 if(!empty($custom_modules)){
     foreach($custom_modules as $module){
         $moduleClass = "\\Custom\\".ucfirst($module)."\\ModuleProvider";
@@ -178,18 +180,20 @@ if (!empty($menus)){
     }
 
     //@todo Sort Menu by Position
+    unset( $menus['car']);
+    unset( $menus['event']);
+    unset( $menus['flight']);
+    unset( $menus['space']);
     $menus = array_values(\Illuminate\Support\Arr::sort($menus, function ($value) {
             return $value['position'] ?? 100;
     }));
 }
 
+
 ?>
 
 <ul class="main-menu">
     @foreach($menus as $menuItem)
-
-
-    @if( Str::contains($menuItem['url'],['space','event','flight','car'] ) == false)
         @php $menuItem['class'] .= " ".str_ireplace("/","_",$menuItem['url']) @endphp
             <li class="{{$menuItem['class']}}"><a href="{{ url($menuItem['url']) }}">
                         @if(!empty($menuItem['icon']))
@@ -200,6 +204,7 @@ if (!empty($menus)){
                         ]) !!}
                     </a>
                     @if(!empty($menuItem['children']))
+
                         <span class="btn-toggle"><i class="fa fa-angle-left pull-right"></i></span>
                         <ul class="children">
                             @foreach($menuItem['children'] as $menuItem2)
@@ -216,6 +221,6 @@ if (!empty($menus)){
                     @endif
                 </li>
 
-            @endif
+
     @endforeach
 </ul>
