@@ -538,7 +538,7 @@ class Tour extends Bookable
         if (strtotime($start_date) < strtotime(date('Y-m-d 00:00:00'))) {
             return $this->sendError(__("Your selected dates are not valid"));
         }
-        
+
         // Validate Date and Booking
         if(!$this->isAvailableInRanges($start_date)){
             return $this->sendError(__("This tour is not available at selected dates"));
@@ -1113,6 +1113,7 @@ class Tour extends Bookable
     public function dataForApi($forSingle = false)
     {
         $data = parent::dataForApi($forSingle);
+        $data['slug'] = $this->slug;
         $data['duration'] = duration_format($this->duration);
         if ($forSingle) {
             $data['review_score'] = $this->getReviewDataAttribute();

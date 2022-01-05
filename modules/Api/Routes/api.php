@@ -77,8 +77,8 @@ Route::get('hotels', 'HotelController@index')->name('api.hotels.index');
 Route::get('hotels/{id}', 'HotelController@detail')->name('api.hotels.detail');
 
 // Flight
-Route::get('flights', 'FlightController@index')->name('api.flights.index');
-Route::get('flights/{id}', 'FlightController@detail')->name('api.flights.detail');
+//Route::get('flights', 'FlightController@index')->name('api.flights.index');
+//Route::get('flights/{id}', 'FlightController@detail')->name('api.flights.detail');
 
 // Tour
 Route::get('tours', 'TourController@index')->name('api.tours.index');
@@ -92,8 +92,22 @@ Route::get('events/{id}', 'EventController@detail')->name('api.events.detail');
 Route::get('notifications', 'NotificationController@index')->name('api.notification.index');
 Route::get('notifications/all', 'NotificationController@allNotification')->name('api.notification.all');
 
+// Car
+Route::get('cars', 'CarController@index')->name('api.cars.index');
+Route::get('cars/{slug}', 'CarController@detail')->name('api.cars.detail');
+
+// Car
+Route::get('spaces', 'SpaceController@index')->name('api.spaces.index');
+Route::get('spaces/{slug}', 'SpaceController@detail')->name('api.spaces.detail');
+
 
 /* Media */
 Route::group(['prefix' => 'media', 'middleware' => 'auth:api'], function () {
     Route::post('/store', 'MediaController@store')->name("api.media.store");
+});
+
+Route::fallback(function () {
+    return response([
+        'message' => "404 NOT FOUND"
+    ], 404);
 });
