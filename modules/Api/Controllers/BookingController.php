@@ -1,7 +1,8 @@
 <?php
+
 namespace Modules\Api\Controllers;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Modules\Booking\Models\Booking;
 use Modules\Template\Models\Template;
 use Illuminate\Support\Facades\Validator;
@@ -12,57 +13,98 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
     {
         parent::__construct();
         $this->middleware('auth:api')->except([
-            'detail','getConfigs','getHomeLayout','getTypes','checkout','doCheckout','checkStatusCheckout','confirmPayment','getGatewaysForApi',
+            'detail', 'getConfigs', 'getHomeLayout', 'getTypes', 'checkout', 'doCheckout', 'checkStatusCheckout', 'confirmPayment', 'getGatewaysForApi',
             'thankyou'
         ]);
     }
-    public function getTypes(){
+
+    function generate_menu($location = 'primary')
+    {
+        $options['walker'] = $options['walker'] ?? '\\Modules\\Core\\Walkers\\MenuWalker';
+
+        $setting = json_decode(setting_item('menu_locations'), true);
+
+        if (!empty($setting)) {
+            foreach ($setting as $l => $menuId) {
+                if ($l == $location and $menuId) {
+                    $menu = (new \Modules\Core\Models\Menu())->findById($menuId);
+                    return $menu->translateOrOrigin(app()->getLocale());
+                }
+            }
+        }
+    }
+
+    public function getTypes()
+    {
         $types = get_bookable_services();
 
         $res = [];
-        foreach ($types as $type=>$class) {
+        foreach ($types as $type => $class) {
             $obj = new $class();
             $res[$type] = [
-                'icon'=>call_user_func([$obj,'getServiceIconFeatured']),
-                'name'=>call_user_func([$obj,'getModelName']),
-                'search_fields'=>[
-
-                ],
+                'icon' => call_user_func([$obj, 'getServiceIconFeatured']),
+                'name' => call_user_func([$obj, 'getModelName']),
+                'search_fields' => [],
             ];
         }
         return $res;
     }
 
-    public function getConfigs(){
+    public function getConfigs()
+    {
         $languages = \Modules\Language\Models\Language::getActive();
         $template = Template::find(setting_item('api_app_layout'));
+
+        // currency
+        $currency = \App\Currency::getActiveCurrency();
+        $current_currency = \App\Currency::getCurrent('currency_main');
+
+        // site info
+        $logo = setting_item("logo_id");
+        $logo = get_file_url($logo, 'full');
+
+        $menu = $this->generate_menu();
+
+
         $res = [
-            'languages'=>$languages->map(function($lang){
-                return $lang->only(['locale','name']);
+            'site_info' => [
+                'logo' => $logo,
+                'site_title' => setting_item("site_title"),
+                'phone' => setting_item("phone_contact"),
+                'email' => setting_item("admin_email"),
+                'main_menu' => json_decode($menu->items),
+            ],
+            'languages' => $languages->map(function ($lang) {
+                return $lang->only(['locale', 'name']);
             }),
-            'booking_types'=>$this->getTypes(),
-            'country'=>get_country_lists(),
-            'app_layout'=>$template? json_decode($template->content,true) : [],
-            'is_enable_guest_checkout'=>(int)is_enable_guest_checkout()
+            'booking_types' => $this->getTypes(),
+            'app_layout' => $template ? json_decode($template->content, true) : [],
+            'is_enable_guest_checkout' => (int)is_enable_guest_checkout(),
+            'currency_main' => $current_currency,
+            'currency' => $currency,
+            'country' => get_country_lists(),
+
         ];
         return $this->sendSuccess($res);
     }
 
-    public function getHomeLayout(){
+    public function getHomeLayout()
+    {
         $res = [];
         $template = Template::find(setting_item('api_app_layout'));
-        if(!empty($template)){
+        if (!empty($template)) {
             $res = $template->getProcessedContentAPI();
         }
         return $this->sendSuccess(
             [
-                "data"=>$res
+                "data" => $res
             ]
         );
     }
 
 
-    protected function validateCheckout($code){
+    protected function validateCheckout($code)
+    {
 
         $booking = $this->booking::where('code', $code)->first();
 
@@ -87,8 +129,8 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             return $this->sendError(__("You do not have permission to access"))->setStatusCode(404);
         }
         $data = [
-            'booking'    => $booking,
-            'service'    => $booking->service,
+            'booking' => $booking,
+            'service' => $booking->service,
         ];
         if ($booking->gateway) {
             $data['gateway'] = get_payment_gateway_obj($booking->gateway);
@@ -98,7 +140,8 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         );
     }
 
-    protected function validateDoCheckout(){
+    protected function validateDoCheckout()
+    {
 
         $request = \request();
         /**
@@ -125,43 +168,43 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
     {
         $booking = $this->booking::where('code', $code)->first();
         $data = [
-            'error'    => false,
-            'message'  => '',
+            'error' => false,
+            'message' => '',
             'redirect' => ''
         ];
         if (empty($booking)) {
             $data = [
-                'error'    => true,
+                'error' => true,
                 'redirect' => url('/')
             ];
         }
 
         if ($booking->status != 'draft') {
             $data = [
-                'error'    => true,
+                'error' => true,
                 'redirect' => url('/')
             ];
         }
         return response()->json($data, 200);
     }
 
-    public function getGatewaysForApi(){
+    public function getGatewaysForApi()
+    {
         $res = [];
         $gateways = $this->getGateways();
-        foreach ($gateways as $gateway=>$obj){
+        foreach ($gateways as $gateway => $obj) {
             $res[$gateway] = [
-                'logo'=>$obj->getDisplayLogo(),
-                'name'=>$obj->getDisplayName(),
-                'desc'=>$obj->getApiDisplayHtml(),
+                'logo' => $obj->getDisplayLogo(),
+                'name' => $obj->getDisplayName(),
+                'desc' => $obj->getApiDisplayHtml(),
             ];
-            if($option = $obj->getForm()){
+            if ($option = $obj->getForm()) {
                 $res[$gateway]['form'] = $option;
             }
-            if($options = $obj->getApiOptions()){
+            if ($options = $obj->getApiOptions()) {
                 $res[$gateway]['options'] = $options;
             }
         }
-
         return $this->sendSuccess($res);
     }
 
@@ -179,8 +222,8 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
 
         $data = [
             'page_title' => __('Booking Details'),
-            'booking'    => $booking,
-            'service'    => $booking->service,
+            'booking' => $booking,
+            'service' => $booking->service,
         ];
         if ($booking->gateway) {
             $data['gateway'] = get_payment_gateway_obj($booking->gateway);
