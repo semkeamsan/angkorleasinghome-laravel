@@ -1090,6 +1090,7 @@ class Hotel extends Bookable
 
     public function dataForApi($forSingle = false){
         $data = parent::dataForApi($forSingle);
+        $data['slug'] = $this->slug;
         if($forSingle){
             $data['review_score'] = $this->getReviewDataAttribute();
             $data['review_stats'] = $this->getReviewStats();
