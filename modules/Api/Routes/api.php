@@ -75,6 +75,7 @@ Route::get('news/{id}', 'NewsController@detail')->name('api.news.detail');
 // Hotels
 Route::get('hotels', 'HotelController@index')->name('api.hotels.index');
 Route::get('hotels/{id}', 'HotelController@detail')->name('api.hotels.detail');
+Route::get('hotel/availability/{id}', 'HotelController@checkAvailability')->name('api.hotels.availability');
 
 // Flight
 //Route::get('flights', 'FlightController@index')->name('api.flights.index');
