@@ -79,6 +79,7 @@ class AuthController extends Controller
             return $this->sendError($validator->errors());
         } else {
             $user = \App\User::create([
+                'name'       =>$request->input('first_name') .' '.$request->input('last_name'),
                 'first_name' => $request->input('first_name'),
                 'last_name'  => $request->input('last_name'),
                 'email'      => $request->input('email'),

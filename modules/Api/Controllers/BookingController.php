@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Modules\Booking\Models\Booking;
 use Modules\Template\Models\Template;
 use Illuminate\Support\Facades\Validator;
+use Modules\Location\Models\Location;
 
 class BookingController extends \Modules\Booking\Controllers\BookingController
 {
@@ -59,16 +60,78 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         $currency = \App\Currency::getActiveCurrency();
         $current_currency = \App\Currency::getCurrent('currency_main');
 
-        // site info
-        $logo = setting_item("logo_id");
-        $logo = get_file_url($logo, 'full');
 
         $menu = $this->generate_menu();
 
 
+
+        $hotel_search_fields = [];
+        foreach (json_decode(setting_item('hotel_search_fields', '[]')) as $search) {
+            if ($search->attr) {
+                $attr = \Modules\Core\Models\Attributes::find($search->attr);
+                $translate =  $attr->translateOrOrigin(app()->getLocale());
+                $hotel_search_fields[$search->position] = [
+                    'id' => $attr->id,
+                    'name' => $translate->name,
+                    'children' => $attr->terms->map(function ($row) {
+                        $translate = $row->translateOrOrigin(app()->getLocale());
+                        return [
+                            'id' => $row->id,
+                            'name' => $translate->name,
+                        ];
+                    }),
+                ];
+            } elseif ($search->field == 'location') {
+                $hotel_search_fields[$search->position] = [
+                    'id' =>null,
+                    'name' => $search->title,
+                    'children' => Location::where('status', 'publish')->get()->toTree()->map(function($row){
+                        $translate = $row->translateOrOrigin(app()->getLocale());
+                        return [
+                            'id' => $row->id,
+                            'name' => $translate->name,
+                            'children' => $row->children->map(function($row){
+                                $translate = $row->translateOrOrigin(app()->getLocale());
+                                return [
+                                    'id' => $row->id,
+                                    'name' => $translate->name,
+                                    'children' => [],
+                                ];
+                            }),
+                        ];
+                    }),
+                ];
+            } elseif ($search->field == 'price') {
+                $hotel_page_search_price = json_decode(setting_item('hotel_page_search_price', '[]'));
+                $hotel_price_range = [];
+                foreach ($hotel_page_search_price as $price) {
+                    for ($i = $price->from; $i < $price->to; $i += $price->increment) {
+                        $hotel_price_range[] = [
+                            'id' => $i . ';' . ($i + $price->increment),
+                            'title' => $i . ' → ' . ($i + $price->increment),
+                            'children' => [],
+                        ];
+                    }
+                }
+                $hotel_price_range[] = [
+                    'id' => collect($hotel_page_search_price)->last()->to . ';1000000',
+                    'title' => collect($hotel_page_search_price)->last()->to . ' → ' . __('Up'),
+                    'children' => [],
+                ];
+
+                $hotel_search_fields[$search->position] = [
+                    'id' =>null,
+                    'name' => $search->title,
+                    'children' => $hotel_price_range,
+                ];
+            }
+        }
+
+
         $res = [
             'site_info' => [
-                'logo' => $logo,
+                'logo' => get_file_url(setting_item("logo_id_2"), 'full'),
+                'logo_white' => get_file_url(setting_item("logo_id"), 'full'),
                 'site_title' => setting_item("site_title"),
                 'phone' => setting_item("phone_contact"),
                 'email' => setting_item("admin_email"),
@@ -77,12 +140,15 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             'languages' => $languages->map(function ($lang) {
                 return $lang->only(['locale', 'name']);
             }),
-            'booking_types' => $this->getTypes(),
+            'hotel' => [
+                'search_fields' => array_values($hotel_search_fields),
+            ],
+            //'booking_types' => $this->getTypes(),
             'app_layout' => $template ? json_decode($template->content, true) : [],
             'is_enable_guest_checkout' => (int)is_enable_guest_checkout(),
             'currency_main' => $current_currency,
             'currency' => $currency,
-            'country' => get_country_lists(),
+            //'country' => get_country_lists(),
 
         ];
         return $this->sendSuccess($res);
