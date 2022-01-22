@@ -32,7 +32,6 @@ class LocationController extends Controller
         if (empty($row)) {
             return $this->sendError(__("Location not found"));
         }
-
         return $this->sendSuccess([
             'data' => $row->dataForApi(true)
         ]);

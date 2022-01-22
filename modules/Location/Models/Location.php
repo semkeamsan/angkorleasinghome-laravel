@@ -116,13 +116,14 @@ class Location extends Bookable
             $data["map_lng"] = $this->map_lng;
             $data["map_zoom"] = $this->map_zoom;
             $data["banner_image"] = get_file_url($this->banner_image_id, 'full');
-            $data["trip_ideas"] = $this->trip_ideas;
-            if (count($this->trip_ideas) > 0) {
+            if ($this->trip_ideas && count($this->trip_ideas) > 0) {
                 $trip_ideas = $this->trip_ideas;
                 foreach ($trip_ideas as &$item) {
                     $item['image'] = get_file_url($item['image_id'], 'full');
                 }
                 $data["trip_ideas"] = $trip_ideas;
+            }else{
+                $data["trip_ideas"] = [];
             }
         }
         return $data;
