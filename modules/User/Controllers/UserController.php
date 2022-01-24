@@ -87,6 +87,7 @@ class UserController extends FrontendController
     }
 
     public function profileUpdate(Request $request){
+        dd($request->all());
         $user = Auth::user();
         $messages = [
             'user_name.required'      => __('The User name field is required.'),
@@ -114,6 +115,7 @@ class UserController extends FrontendController
             ],
         ],$messages);
         $input = $request->except('bio');
+
         $user->fill($input);
         $user->bio = clean($request->input('bio'));
         $user->birthday = date("Y-m-d", strtotime($user->birthday));

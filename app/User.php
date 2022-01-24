@@ -39,6 +39,7 @@
             'name',
             'first_name',
             'last_name',
+            'user_name',
             'email',
             'email_verified_at',
             'password',
