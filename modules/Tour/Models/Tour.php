@@ -1122,6 +1122,10 @@ class Tour extends Bookable
             $data['category'] = TourCategory::selectRaw("id,name")->find($this->category_id) ?? null;
             $data['min_people'] = $this->min_people;
             $data['max_people'] = $this->max_people;
+            $data['wifi_available'] = $this->wifi_available;
+            $data['date_form_to'] = $this->date_form_to;
+            $data['min_age'] = $this->min_age;
+            $data['pickup'] = $this->pickup;
             $data['faqs'] = $this->faqs;
             $data['include'] = $this->include;
             $data['exclude'] = $this->exclude;

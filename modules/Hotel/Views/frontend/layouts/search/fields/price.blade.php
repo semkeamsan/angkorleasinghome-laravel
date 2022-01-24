@@ -97,6 +97,10 @@
                     ];
                 $name =  str_replace(';',' → ', request('price_range', $list_json[0]['title']));
                 $name =  str_replace('1000000',__('Up'), $name);
+                $list_json[] = [
+                        'id' => null,
+                        'title' => __('All'),
+                ];
             @endphp
             <div class="smart-search  bg-gray border-0 p-0 form-control  height-40">
                 <input type="text"

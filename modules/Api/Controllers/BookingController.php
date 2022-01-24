@@ -3,10 +3,12 @@
 namespace Modules\Api\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Core\Models\Terms;
 use Modules\Booking\Models\Booking;
+use Modules\Core\Models\Attributes;
+use Modules\Location\Models\Location;
 use Modules\Template\Models\Template;
 use Illuminate\Support\Facades\Validator;
-use Modules\Location\Models\Location;
 
 class BookingController extends \Modules\Booking\Controllers\BookingController
 {
@@ -109,14 +111,12 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
                         $hotel_price_range[] = [
                             'id' => $i . ';' . ($i + $price->increment),
                             'title' => $i . ' → ' . ($i + $price->increment),
-                            'children' => [],
                         ];
                     }
                 }
                 $hotel_price_range[] = [
                     'id' => collect($hotel_page_search_price)->last()->to . ';1000000',
                     'title' => collect($hotel_page_search_price)->last()->to . ' → ' . __('Up'),
-                    'children' => [],
                 ];
 
                 $hotel_search_fields[$search->position] = [
@@ -126,6 +126,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
                 ];
             }
         }
+        ksort($hotel_search_fields);
 
 
         $res = [
@@ -142,6 +143,42 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             }),
             'hotel' => [
                 'search_fields' => array_values($hotel_search_fields),
+                'filters' => [
+                    'price_range' =>$hotel_price_range,
+                    'attributes' => Attributes::whereIn('service', ['hotel','hotel_room'])->get()->map(function($row){
+                        $translate =  $row->translateOrOrigin(app()->getLocale());
+                        return [
+                            'id' => $row->id,
+                            'name' => $translate->name,
+                            'children' => Terms::where("attr_id", $row->id)->get()->map(function($row){
+                                $translate =  $row->translateOrOrigin(app()->getLocale());
+                                return [
+                                    'id' => $row->id,
+                                    'name' => $translate->name,
+                                    'count_hotel' => $row->hotel->count()
+                                ];
+                            })
+                        ];
+                    }),
+                ],
+                'order_by' => [
+                    [
+                        'id' => '',
+                        'name' => 'Recommended',
+                    ],
+                    [
+                        'id' => 'price_low_high',
+                        'name' => __('Price (Low to high)'),
+                    ],
+                    [
+                        'id' => 'price_high_low',
+                        'name' => __('Price (High to low)'),
+                    ],
+                    [
+                        'id' => 'rate_high_low',
+                        'name' => __('Rating (High to low)'),
+                    ],
+                ]
             ],
             //'booking_types' => $this->getTypes(),
             'app_layout' => $template ? json_decode($template->content, true) : [],
