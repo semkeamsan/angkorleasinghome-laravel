@@ -999,7 +999,7 @@ class Hotel extends Bookable
             }
         }
         if (!empty($price_range = $request->query('price_range'))) {
-            if ($price_range == 'all') {
+            if (strtolower($price_range) == 'all') {
 
             }else{
                 $pri_from = explode(";", $price_range)[0];
