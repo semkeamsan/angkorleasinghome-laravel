@@ -87,7 +87,6 @@ class UserController extends FrontendController
     }
 
     public function profileUpdate(Request $request){
-        dd($request->all());
         $user = Auth::user();
         $messages = [
             'user_name.required'      => __('The User name field is required.'),
