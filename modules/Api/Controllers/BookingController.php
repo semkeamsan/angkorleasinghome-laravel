@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Modules\Core\Models\Terms;
 use Modules\Booking\Models\Booking;
 use Modules\Core\Models\Attributes;
+use Illuminate\Support\Facades\Auth;
 use Modules\Location\Models\Location;
 use Modules\Template\Models\Template;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +18,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         parent::__construct();
         $this->middleware('auth:api')->except([
             'detail', 'getConfigs', 'getHomeLayout', 'getTypes', 'checkout', 'doCheckout', 'checkStatusCheckout', 'confirmPayment', 'getGatewaysForApi',
-            'thankyou'
+            'thankyou',
         ]);
     }
 
@@ -332,5 +333,50 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             $data['gateway'] = get_payment_gateway_obj($booking->gateway);
         }
         return view('Booking::frontend/detail', $data);
+    }
+
+       /**
+     * @todo Handle Add To Cart Validate
+     *
+     * @param Request $request
+     * @return string json
+     */
+    public function addToCart(Request $request)
+    {
+
+        if(!is_enable_guest_checkout() and !Auth::check()){
+            return $this->sendError(__("You have to login in to do this"))->setStatusCode(401);
+        }
+        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+            return $this->sendError(__("You have to verify email first"), ['url' => url('/email/verify')]);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'service_id'   => 'required|integer',
+            'service_type' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('', ['errors' => $validator->errors()]);
+        }
+        $service_type = $request->input('service_type');
+        $service_id = $request->input('service_id');
+        $allServices = get_bookable_services();
+        if (empty($allServices[$service_type])) {
+            return $this->sendError(__('Service type not found'));
+        }
+        $module = $allServices[$service_type];
+        $service = $module::find($service_id);
+        if (empty($service) or !is_subclass_of($service, '\\Modules\\Booking\\Models\\Bookable')) {
+            return $this->sendError(__('Service not found'));
+        }
+        if (!$service->isBookable()) {
+            return $this->sendError(__('Service is not bookable'));
+        }
+
+        if(Auth::id() == $service->create_user){
+            return $this->sendError(__('You cannot book your own service'));
+        }
+
+        return $service->addToCart($request);
     }
 }

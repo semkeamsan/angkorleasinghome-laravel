@@ -139,6 +139,7 @@ class BookingController extends \App\Http\Controllers\Controller
 
     public function doCheckout(Request $request)
     {
+        dd($request->all());
         /**
          * @var $booking Booking
          * @var $user User
