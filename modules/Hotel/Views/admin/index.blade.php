@@ -89,11 +89,17 @@
                                             <a href="{{route('hotel.admin.edit',['id'=>$row->id])}}">{{$row->title}}</a>
                                         </td>
                                         <td>
-                                            <span>{{$row->price}} / {{ __('night') }}</span>
+                                            @if ($row->price)
+                                                <span>{{$row->price}} / {{ __('night') }}</span>
+                                            @endif
+                                            @if ($row->price_month)
+                                                <br>
+                                                <span>{{$row->price_month}} / {{ __('month') }}</span>
+                                            @endif
+                                            @if ($row->price_year)
                                             <br>
-                                            <span>{{$row->price_month}} / {{ __('month') }}</span>
-                                            <br>
-                                            <span>{{$row->price_year}}/ {{ __('year') }}</span>
+                                                <span>{{$row->price_year}}/ {{ __('year') }}</span>
+                                            @endif
                                         </td>
                                         <td>{{$row->location->name ?? ''}}</td>
                                         <td>

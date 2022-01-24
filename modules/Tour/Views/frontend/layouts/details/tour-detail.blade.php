@@ -84,7 +84,7 @@
                 <div class="ml-1 text-gray-1"> {{duration_format($row->duration,true)}}</div>
             </li>
         @endif
-        @if($row->duration)
+        @if($row->max_people)
             <li class="col-md-4 flex-horizontal-center list-group-item text-lh-sm mb-2 border-0">
                 <i class="flaticon-social text-primary font-size-22 mr-2 d-block"></i>
                 <div class="ml-1 text-gray-1">{{ __("Max People") }} : {{ $row->max_people }}</div>

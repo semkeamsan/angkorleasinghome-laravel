@@ -38,18 +38,20 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::get('me', 'AuthController@me');
     Route::post('me', 'AuthController@updateUser');
     Route::post('change-password', 'AuthController@changePassword');
+    Route::post('forget-password', 'AuthController@forgetPassword');
 });
 
 /* User */
 Route::group(['prefix' => 'user', 'middleware' => ['api'],], function ($router) {
     Route::get('booking-history', 'UserController@getBookingHistory')->name("api.user.booking_history");
     Route::post('/wishlist', 'UserController@handleWishList')->name("api.user.wishList.handle");
+    Route::delete('/wishlist', 'UserController@handleWishList')->name("api.user.wishList.handle");
     Route::get('/wishlist', 'UserController@indexWishlist')->name("api.user.wishList.index");
 });
 
 /* Location */
 Route::get('locations', 'LocationController@search')->name('api.location.search');
-Route::get('location/{id}', 'LocationController@detail')->name('api.location.detail');
+Route::get('locations/{id}', 'LocationController@detail')->name('api.location.detail');
 
 // Booking
 Route::group(['prefix' => config('booking.booking_route_prefix')], function () {
@@ -75,6 +77,7 @@ Route::get('news/{id}', 'NewsController@detail')->name('api.news.detail');
 // Hotels
 Route::get('hotels', 'HotelController@index')->name('api.hotels.index');
 Route::get('hotels/{id}', 'HotelController@detail')->name('api.hotels.detail');
+Route::post('hotels/availability', 'HotelController@checkAvailability')->name('api.hotels.availability');
 
 // Flight
 //Route::get('flights', 'FlightController@index')->name('api.flights.index');

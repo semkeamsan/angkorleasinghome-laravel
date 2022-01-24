@@ -999,7 +999,10 @@ class Hotel extends Bookable
             }
         }
         if (!empty($price_range = $request->query('price_range'))) {
-            $pri_from = explode(";", $price_range)[0];
+            if (strtolower($price_range) == 'all') {
+              
+            }else{
+                $pri_from = explode(";", $price_range)[0];
             $pri_to = explode(";", $price_range)[1];
             $raw_sql_min_max = "(  bc_hotels.price >= ? )
                             AND (  bc_hotels.price <= ? )";
@@ -1009,6 +1012,7 @@ class Hotel extends Bookable
                             AND (  bc_hotels.price_year <= $pri_to )";
 
             $model_hotel->WhereRaw($raw_sql_min_max,[$pri_from,$pri_to]);
+            }
 
         }
 
@@ -1091,6 +1095,13 @@ class Hotel extends Bookable
     public function dataForApi($forSingle = false){
         $data = parent::dataForApi($forSingle);
         $data['slug'] = $this->slug;
+        $data['price_enable'] = $this->price_enable??0;
+        $data['price_month_enable'] = $this->price_month_enable??0;
+        $data['price_year_enable'] = $this->price_year_enable??0;
+        $data['price_month'] = $this->price_month;
+        $data['price_year'] = $this->price_year;
+        $data['bed'] = $this->bed;
+        $data['bath'] = $this->bath;
         if($forSingle){
             $data['review_score'] = $this->getReviewDataAttribute();
             $data['review_stats'] = $this->getReviewStats();

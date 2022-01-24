@@ -69,7 +69,12 @@
             </i>
 
             <?php
-            $list_json = [];
+            $list_json = [
+                      [
+                        'id' => 'All',
+                        'title' => __('All'),
+                      ]
+            ];
             $hotel_page_search_price = setting_item('hotel_page_search_price');
             if (!empty($hotel_page_search_price)) {
                 $hotel_page_search_price = json_decode($hotel_page_search_price, true);

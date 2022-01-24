@@ -114,6 +114,7 @@ class UserController extends FrontendController
             ],
         ],$messages);
         $input = $request->except('bio');
+
         $user->fill($input);
         $user->bio = clean($request->input('bio'));
         $user->birthday = date("Y-m-d", strtotime($user->birthday));

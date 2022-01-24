@@ -1,16 +1,19 @@
 <?php
 namespace Modules\Api\Controllers;
 
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\Rule;
-use Matrix\Exception;
-use Modules\User\Events\SendMailUserRegistered;
 use Validator;
+use Matrix\Exception;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\ValidationException;
+use Modules\User\Events\SendMailUserRegistered;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 class AuthController extends Controller
 {
@@ -21,7 +24,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','register']]);
+        $this->middleware('auth:api', ['except' => ['login','register','forgetPassword']]);
     }
 
     /**
@@ -79,6 +82,7 @@ class AuthController extends Controller
             return $this->sendError($validator->errors());
         } else {
             $user = \App\User::create([
+                'name'       =>$request->input('first_name') .' '.$request->input('last_name'),
                 'first_name' => $request->input('first_name'),
                 'last_name'  => $request->input('last_name'),
                 'email'      => $request->input('email'),
@@ -183,6 +187,7 @@ class AuthController extends Controller
     }
 
     public function changePassword(Request $request){
+
         if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
             return $this->sendError(__("Your current password does not matches with the password you provided. Please try again."));
         }
@@ -198,4 +203,10 @@ class AuthController extends Controller
         $user->save();
         return $this->sendSuccess(__('Password changed successfully !'));
     }
+
+    public function forgetPassword(Request $request)
+    {
+
+    }
+
 }
