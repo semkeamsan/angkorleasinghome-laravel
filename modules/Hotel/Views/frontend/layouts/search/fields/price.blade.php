@@ -69,7 +69,12 @@
             </i>
 
             <?php
-            $list_json = [];
+            $list_json = [
+                      [
+                        'id' => 'All',
+                        'title' => __('All'),
+                      ]
+            ];
             $hotel_page_search_price = setting_item('hotel_page_search_price');
             if (!empty($hotel_page_search_price)) {
                 $hotel_page_search_price = json_decode($hotel_page_search_price, true);
@@ -97,10 +102,6 @@
                     ];
                 $name =  str_replace(';',' → ', request('price_range', $list_json[0]['title']));
                 $name =  str_replace('1000000',__('Up'), $name);
-                $list_json[] = [
-                        'id' => 'all',
-                        'title' => __('All'),
-                ];
             @endphp
             <div class="smart-search  bg-gray border-0 p-0 form-control  height-40">
                 <input type="text"
