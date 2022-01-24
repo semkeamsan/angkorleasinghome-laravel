@@ -49,7 +49,8 @@ class Booking extends BaseModel
         'email',
         'first_name',
         'last_name',
-        'phone'
+        'phone',
+        'country',
     ];
 
     protected $casts = [

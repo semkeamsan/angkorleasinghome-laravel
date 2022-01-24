@@ -385,18 +385,19 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         return $service->addToCart($request);
     }
 
-    public function bookHotel(Request $request)
+    public function create(Request $request, $object_model)
     {
+        if ($object_model != 'hotel' && $object_model != 'tour') {
+            return $this->sendError(__('Service not found'));
+        }
         $user = $request->user();
         $rules = [
             'hotel_id' => 'required',
             'object_id' => 'required',
             'gateway' => 'required',
             'object_id' => 'required',
-            'object_model' => 'required',
             'start_date' => 'required:date_format:Y-m-d',
             'end_date' => 'required:date_format:Y-m-d',
-            'status' => 'required',
             'commission' => 'required',
             'total' => 'required',
             'total_guests' => 'required',
@@ -405,6 +406,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             'last_name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'country' => 'required',
+            'credit' => 'required',
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -421,26 +423,41 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             return $this->sendError(__("This hotel are not existing"));
         }
 
+        $credit = $request->post('credit', 0);
+        $wallet_total_used = credit_to_money($credit);
+        if($wallet_total_used > 0){
+            $credit = money_to_credit(0, true);
+            $wallet_total_used = 0;
+        }
+
         $data_booking = [
             'vendor_id' => $request->post('hotel_id'),
             'customer_id' => $user->id,
-            'gateway' => $user->id,
+            'gateway' => $request->post('gateway'),
             'object_id' => $request->post('object_id'),
-            'object_model' => $request->post('object_model'),
+            'object_model' => $object_model,
             'start_date' => $request->post('start_date'),
             'end_date' => $request->post('end_date'),
-            'status' => $request->post('status'),
+            'status' => 'draft',
             'total' => $request->post('total'),
             'total_guests' => $request->post('total_guests'),
             'commission' => $request->post('commission'),
             'email' => $request->post('email'),
             'first_name' => $request->post('first_name'),
             'last_name' => $request->post('last_name'),
-            'phone' => $request->post('phone')
+            'phone' => $request->post('phone'),
+            'country' => $request->post('country')
         ];
 
         $created_booking = Booking::create($data_booking);
+        $created_booking->pay_now = floatval($created_booking->deposit == null ? $created_booking->total : $created_booking->deposit);
+        $created_booking->wallet_credit_used = floatval($credit);
+        $created_booking->wallet_total_used = floatval($wallet_total_used);
+        $created_booking->total_before_fees = floatval($wallet_total_used);
+        $created_booking->vendor_service_fee_amount = 0;
+        $created_booking->vendor_service_fee = "";
+
         $created_booking->save();
-        return $this->sendSuccess(['booking' => $created_booking]);
+        return $this->sendSuccess(['booking' => $created_booking], __("You booking " . $object_model . " has been processed successfully"));
     }
 }
