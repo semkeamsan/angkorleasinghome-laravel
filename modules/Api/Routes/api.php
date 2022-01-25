@@ -86,6 +86,7 @@ Route::post('hotels/availability', 'HotelController@checkAvailability')->name('a
 
 // Tour
 Route::get('tours', 'TourController@index')->name('api.tours.index');
+Route::get('tours/availability', 'TourController@checkAvailability')->name('api.tours.availability');
 Route::get('tours/{id}', 'TourController@detail')->name('api.tours.detail');
 
 // Event
