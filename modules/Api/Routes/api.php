@@ -64,7 +64,7 @@ Route::group(['prefix' => config('booking.booking_route_prefix')], function () {
     Route::get('/{code}/thankyou', 'BookingController@thankyou')->name('booking.thankyou');
     Route::get('/{code}/checkout', 'BookingController@checkout');
     Route::get('/{code}/check-status', 'BookingController@checkStatusCheckout');
-    Route::post('/create/{object_model}', 'BookingController@create');
+    Route::post('/{object_model}', 'BookingController@booking');
 });
 
 // Gateways

@@ -385,7 +385,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         return $service->addToCart($request);
     }
 
-    public function create(Request $request, $object_model)
+    public function booking(Request $request, $object_model)
     {
         if ($object_model != 'hotel' && $object_model != 'tour') {
             return $this->sendError(__('Service not found'));
