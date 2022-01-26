@@ -65,6 +65,7 @@ Route::group(['prefix' => config('booking.booking_route_prefix')], function () {
     Route::get('/{code}/thankyou', 'BookingController@thankyou')->name('booking.thankyou');
     Route::get('/{code}/checkout', 'BookingController@checkout');
     Route::get('/{code}/check-status', 'BookingController@checkStatusCheckout');
+    Route::post('/create/{object_model}', 'BookingController@create');
 });
 
 // Gateways
@@ -86,6 +87,7 @@ Route::post('hotels/availability', 'HotelController@checkAvailability')->name('a
 
 // Tour
 Route::get('tours', 'TourController@index')->name('api.tours.index');
+Route::get('tours/availability', 'TourController@checkAvailability')->name('api.tours.availability');
 Route::get('tours/{id}', 'TourController@detail')->name('api.tours.detail');
 
 // Event

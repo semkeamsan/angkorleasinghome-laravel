@@ -80,4 +80,25 @@ class TourController extends Controller
         ];
         return $this->sendSuccess($data);
     }
+
+    public function checkAvailability(Request $request)
+    {
+        $location_id = \request('location_id');
+        $rules = [
+            'location_id' => 'required',
+            'date' => 'required'
+        ];
+        $validator = \Validator::make(request()->all(), $rules);
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors()->all());
+        }
+
+        $location = $this->locationClass::find($location_id);
+        if (empty($location_id) or empty($location)) {
+            return $this->sendError(__("Location not found"));
+        }
+
+        $tours = call_user_func([$this->tourClass, 'search'], $request);
+        return $this->sendSuccess($tours);
+    }
 }
