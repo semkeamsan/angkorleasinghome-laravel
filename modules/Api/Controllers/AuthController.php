@@ -108,6 +108,9 @@ class AuthController extends Controller
      */
     public function me()
     {
+        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/email/resend/verify')]);
+        }
         $user = auth()->user();
 
         if(!empty($user['avatar_id'])){
@@ -121,6 +124,9 @@ class AuthController extends Controller
     }
 
     public function updateUser(Request $request){
+        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/email/resend/verify')]);
+        }
         $user = Auth::user();
         $rules = [
             'first_name' => 'required|max:255',
@@ -207,6 +213,16 @@ class AuthController extends Controller
     public function forgetPassword(Request $request)
     {
 
+    }
+
+    public function verify(Request $request)
+    {
+        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+            $request->user()->sendEmailVerificationNotification();
+            return $this->sendSuccess(__("A fresh verification link has been sent to your email address."));
+        }
+
+        return $this->me();
     }
 
 }
