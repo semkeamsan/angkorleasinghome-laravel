@@ -39,6 +39,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('me', 'AuthController@updateUser');
     Route::post('change-password', 'AuthController@changePassword');
     Route::post('forget-password', 'AuthController@forgetPassword');
+    Route::post('email/resend/verify', 'AuthController@verify');
 });
 
 /* User */
