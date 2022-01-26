@@ -37,11 +37,14 @@ class NewsController extends Controller
 //        $total = $rows->total();
         return $this->sendSuccess(
             [
-//                'total'=>$total,
-//                'total_pages'=>$rows->lastPage(),
                 'data' => $rows->map(function ($row) {
                     return $row->dataForApi();
                 }),
+                'total' => $rows->total(),
+                'currentPage' => $rows->currentPage(),
+                'lastPage' => $rows->lastPage(),
+                'perPage' => $rows->perPage(),
+                'lastPage' => $rows->lastPage(),
             ]
         );
     }

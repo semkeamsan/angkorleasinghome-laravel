@@ -43,6 +43,11 @@ class TourController extends Controller
             'data' => $list->map(function ($row){
                 return $row->dataForApi();
             }),
+            'total' => $list->total(),
+            'currentPage' => $list->currentPage(),
+            'lastPage' => $list->lastPage(),
+            'perPage' => $list->perPage(),
+            'lastPage' => $list->lastPage(),
             'tour_category' => $this->tourCategoryClass::where('status', 'publish')->with(['translations'])->get()->toTree(),
             'tour_location' => $this->locationClass::where('status', 'publish')->with(['translations'])->limit($limit_location)->get()->toTree(),
             'tour_min_max_price' => $this->tourClass::getMinMaxPrice(),

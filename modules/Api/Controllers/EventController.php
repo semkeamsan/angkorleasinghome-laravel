@@ -44,6 +44,11 @@ class EventController extends Controller
             'data' => $list->map(function ($row) {
                 return $row->dataForApi();
             }),
+            'total' => $list->total(),
+            'currentPage' => $list->currentPage(),
+            'lastPage' => $list->lastPage(),
+            'perPage' => $list->perPage(),
+            'lastPage' => $list->lastPage(),
             'list_location' => $this->locationClass::where('status', 'publish')->limit($limit_location)->with(['translations'])->get()->toTree(),
             'event_min_max_price' => $this->eventClass::getMinMaxPrice(),
             "blank" => 1,

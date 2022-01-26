@@ -42,10 +42,16 @@ class HotelController extends Controller
         if (empty(setting_item("hotel_location_search_style")) or setting_item("hotel_location_search_style") == "normal") {
             $limit_location = 1000;
         }
+
         $data = [
             'data' => $list->map(function ($row) {
                 return $row->dataForApi();
             }),
+            'total' => $list->total(),
+            'currentPage' => $list->currentPage(),
+            'lastPage' => $list->lastPage(),
+            'perPage' => $list->perPage(),
+            'lastPage' => $list->lastPage(),
             'list_location' => $this->locationClass::where('status', 'publish')->limit($limit_location)->with(['translations'])->get()->toTree(),
             'hotel_min_max_price' => $this->hotelClass::getMinMaxPrice(),
             "blank" => 1,
