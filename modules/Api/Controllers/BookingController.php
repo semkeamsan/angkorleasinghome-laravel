@@ -111,18 +111,23 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
                 ];
             } elseif ($search->field == 'price') {
                 $hotel_page_search_price = json_decode(setting_item('hotel_page_search_price', '[]'));
-                $hotel_price_range = [];
+                $hotel_price_range =  [
+                   [
+                    'id' => 'All',
+                    'name' => __('All'),
+                   ]
+                ];
                 foreach ($hotel_page_search_price as $price) {
                     for ($i = $price->from; $i < $price->to; $i += $price->increment) {
                         $hotel_price_range[] = [
                             'id' => $i . ';' . ($i + $price->increment),
-                            'title' => $i . ' → ' . ($i + $price->increment),
+                            'name' => $i . ' → ' . ($i + $price->increment),
                         ];
                     }
                 }
                 $hotel_price_range[] = [
                     'id' => collect($hotel_page_search_price)->last()->to . ';1000000',
-                    'title' => collect($hotel_page_search_price)->last()->to . ' → ' . __('Up'),
+                    'name' => collect($hotel_page_search_price)->last()->to . ' → ' . __('Up'),
                 ];
 
                 $hotel_search_fields[$search->position] = [
