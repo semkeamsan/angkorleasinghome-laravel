@@ -203,10 +203,16 @@ class AuthController extends Controller
         if (strcmp($request->get('current-password'), $request->get('new-password')) == 0) {
             return $this->sendError(__("New Password cannot be same as your current password. Please choose a different password."));
         }
-        $request->validate([
+
+        $validator = Validator::make($request->all(), [
             'current-password' => 'required',
             'new-password'     => 'required|string|min:6',
         ]);
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors());
+        }
+
+
         $user = Auth::user();
         $user->password = bcrypt($request->get('new-password'));
         $user->save();
