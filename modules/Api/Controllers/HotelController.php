@@ -36,6 +36,7 @@ class HotelController extends Controller
 
     public function index(Request $request)
     {
+        dd($request->terms);
         $list = call_user_func([$this->hotelClass, 'search'], $request);
 
         $limit_location = 15;

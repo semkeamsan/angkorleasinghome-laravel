@@ -67,15 +67,10 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         // currency
         $currency = \App\Currency::getActiveCurrency();
         $current_currency = \App\Currency::getCurrent('currency_main');
-
-
         $menu = $this->generate_menu();
-
-
-
         $hotel_search_fields = [];
         foreach (json_decode(setting_item('hotel_search_fields', '[]')) as $search) {
-            if ($search->attr) {
+            if (@$search->attr) {
                 $attr = \Modules\Core\Models\Attributes::find($search->attr);
                 $translate =  $attr->translateOrOrigin(app()->getLocale());
                 $hotel_search_fields[$search->position] = [
@@ -196,7 +191,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             'is_enable_guest_checkout' => (int)is_enable_guest_checkout(),
             'currency_main' => $current_currency,
             'currency' => $currency,
-            //'country' => get_country_lists(),
+            'country' => get_country_lists(),
 
         ];
         return $this->sendSuccess($res);
@@ -357,7 +352,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
         if(!is_enable_guest_checkout() and !Auth::check()){
             return $this->sendError(__("You have to login in to do this"))->setStatusCode(401);
         }
-        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+        if(request()->user() && !request()->user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
             return $this->sendError(__("You have to verify email first"), ['url' => url('/email/verify')]);
         }
 

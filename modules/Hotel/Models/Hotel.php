@@ -1000,7 +1000,7 @@ class Hotel extends Bookable
         }
         if (!empty($price_range = $request->query('price_range'))) {
             if (strtolower($price_range) == 'all') {
-              
+
             }else{
                 $pri_from = explode(";", $price_range)[0];
             $pri_to = explode(";", $price_range)[1];
@@ -1067,11 +1067,15 @@ class Hotel extends Bookable
                 $raw_sql = "CASE WHEN IFNULL( bc_hotels.sale_price, 0 ) > 0 THEN bc_hotels.sale_price ELSE bc_hotels.price END AS tmp_min_price";
                 $model_hotel->selectRaw($raw_sql);
                 $model_hotel->orderBy("tmp_min_price", "asc");
+                $model_hotel->orderBy("price_month", "asc");
+                $model_hotel->orderBy("price_year", "asc");
                 break;
             case "price_high_low":
                 $raw_sql = "CASE WHEN IFNULL( bc_hotels.sale_price, 0 ) > 0 THEN bc_hotels.sale_price ELSE bc_hotels.price END AS tmp_min_price";
                 $model_hotel->selectRaw($raw_sql);
                 $model_hotel->orderBy("tmp_min_price", "desc");
+                $model_hotel->orderBy("price_month", "desc");
+                $model_hotel->orderBy("price_year", "desc");
                 break;
             case "rate_high_low":
                 $model_hotel->orderBy("review_score", "desc");
