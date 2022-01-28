@@ -52,12 +52,12 @@ class UserWishListController extends FrontendController
             ->first();
         if(!empty($meta)){
             $meta->delete();
-            return $this->sendSuccess(['class'=>""]);
+            return $this->sendSuccess(['class'=>"",'message'=> __('Delete success!')]);
         }
         $meta = new $this->userWishListClass($request->input());
         $meta->user_id = Auth::id();
         $meta->save();
-        return $this->sendSuccess(['class'=>"active"]);
+        return $this->sendSuccess(['class'=>"active",'message'=> __('Add success!')]);
     }
     public function remove(Request $request){
         $meta = $this->userWishListClass::where("object_id",$request->input('id'))
