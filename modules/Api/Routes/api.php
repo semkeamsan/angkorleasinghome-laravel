@@ -31,8 +31,8 @@ Route::get('home-page', 'BookingController@getHomeLayout')->name('api.get_home_l
 
 /* Register - Login */
 Route::group(['middleware' => 'api'], function ($router) {
-    Route::get('social-login/{provider}', 'AuthSocailController@socialLogin');
-    Route::get('social-callback/{provider}', 'AuthSocailController@socialCallBack');
+    Route::get('social-login/{provider}', 'AuthSocialController@socialLogin');
+    Route::get('social-callback/{provider}', 'AuthSocialController@socialCallBack');
 });
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', 'AuthController@login');
