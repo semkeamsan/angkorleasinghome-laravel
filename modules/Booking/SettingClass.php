@@ -97,6 +97,7 @@ class SettingClass extends BaseSettingsClass
                     'booking_enquiry_enable_mail_to_admin',
                     'booking_enquiry_mail_to_admin_content',
                     'booking_enquiry_enable_recaptcha',
+                    'enquiry_for_telegram',
                 ],
                 'html_keys'=>[
 

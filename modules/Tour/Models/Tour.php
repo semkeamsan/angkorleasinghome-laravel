@@ -1113,6 +1113,7 @@ class Tour extends Bookable
     public function dataForApi($forSingle = false)
     {
         $data = parent::dataForApi($forSingle);
+        $data['url'] = $this->getDetailUrl();
         $data['slug'] = $this->slug;
         $data['duration'] = duration_format($this->duration);
         if ($forSingle) {

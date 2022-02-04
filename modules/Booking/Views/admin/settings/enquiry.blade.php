@@ -19,7 +19,7 @@
                             <label><input type="checkbox" name="booking_enquiry_for_tour" value="1" @if(!empty($settings['booking_enquiry_for_tour'])) checked @endif /> {{__("Enable enquiry form")}} </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label>{{__("Enable enquiry for Space")}}</label>
                         <div class="form-controls">
                             <label><input type="checkbox" name="booking_enquiry_for_space" value="1" @if(!empty($settings['booking_enquiry_for_space'])) checked @endif /> {{__("Enable enquiry form")}} </label>
@@ -35,6 +35,24 @@
                         <label>{{__("Enable enquiry for Event")}}</label>
                         <div class="form-controls">
                             <label><input type="checkbox" name="booking_enquiry_for_event" value="1" @if(!empty($settings['booking_enquiry_for_event'])) checked @endif /> {{__("Enable enquiry form")}} </label>
+                        </div>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4">
+            <h3 class="form-group-title">{{__('Settings Enquiry for Telegram')}}</h3>
+        </div>
+        <div class="col-sm-8">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>{{__("Telegram link")}}</label>
+                        <div class="form-controls">
+                           <input class="form-control" type="text" name="enquiry_for_telegram" value="{{ @$settings['enquiry_for_telegram']}}" />
                         </div>
                     </div>
                 </div>

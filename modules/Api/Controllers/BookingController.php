@@ -143,6 +143,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
                 'phone' => setting_item("phone_contact"),
                 'email' => setting_item("admin_email"),
                 'main_menu' => json_decode($menu->items),
+                'enquiry_for_telegram' => setting_item("enquiry_for_telegram"),
             ],
             'languages' => $languages->map(function ($lang) {
                 return $lang->only(['locale', 'name']);

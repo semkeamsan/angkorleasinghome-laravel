@@ -33,13 +33,19 @@ class NewsController extends Controller
         if ($cat_id = $request->query('cat_id')) {
             $model_News->where('cat_id', $cat_id);
         }
-        $rows = $model_News->with("getAuthor")->with('translations')->with("getCategory")->get();
+        $list = $model_News->with("getAuthor")->with('translations')->with("getCategory")->paginate(10);
+
 
         return $this->sendSuccess(
             [
-                'data' => $rows->map(function ($row) {
+                'data' => $list->map(function ($row) {
                     return $row->dataForApi();
-                })
+                }),
+                'total' => $list->total(),
+                'currentPage' => $list->currentPage(),
+                'lastPage' => $list->lastPage(),
+                'perPage' => $list->perPage(),
+                'lastPage' => $list->lastPage(),
             ]
         );
     }
