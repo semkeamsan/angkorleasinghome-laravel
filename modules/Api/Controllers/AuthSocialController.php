@@ -1,10 +1,14 @@
 <?php
 namespace Modules\Api\Controllers;
 
+use App\User;
+use Socialite;
 use Validator;
+use App\UserMeta;
 use Matrix\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +18,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Modules\User\Events\SendMailUserRegistered;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use Socialite;
-use App\User;
-use App\UserMeta;
+
 class AuthSocialController extends Controller
 {
 
@@ -40,7 +42,7 @@ class AuthSocialController extends Controller
     public function socialLogin($provider)
     {
         $this->initConfigs($provider);
-        return Socialite::driver($provider)->redirect();
+        return Socialite::with($provider)->redirect();
     }
 
     protected function initConfigs($provider)
@@ -52,7 +54,7 @@ class AuthSocialController extends Controller
                 config()->set([
                     'services.'.$provider.'.client_id'=>setting_item($provider.'_client_id'),
                     'services.'.$provider.'.client_secret'=>setting_item($provider.'_client_secret'),
-                    'services.'.$provider.'.redirect'=>'/social-callback/'.$provider,
+                    'services.'.$provider.'.redirect'=>'/api/social-callback/'.$provider,
                 ]);
             break;
         }
@@ -83,8 +85,9 @@ class AuthSocialController extends Controller
                 }
 
                 $userByEmail = User::query()->where('email', $user->getEmail())->first();
+
                 if (!empty($userByEmail)) {
-                    $token = auth('api')->attempt(['email' => $user->getEmail()]);
+                    $token = auth('api')->login($userByEmail);
                     return $this->respondWithToken($token);
                 }
 
@@ -113,7 +116,8 @@ class AuthSocialController extends Controller
                 }
 
                 // Login with user
-                $token = auth('api')->attempt(['email' => $user->getEmail()]);
+
+                $token = auth('api')->login($realUser);
                 return $this->respondWithToken($token);
 
             } else {
@@ -124,13 +128,12 @@ class AuthSocialController extends Controller
                 if (in_array($existUser->status, ['blocked'])) {
                     return $this->sendError(__('Your account has been blocked'));
                 }
-
-                $token = auth('api')->attempt(['email' => $existUser->email]);
+                $token = auth('api')->login($existUser);
                 return $this->respondWithToken($token);
             }
         }catch (\Exception $exception)
         {
-            $message = $exception->getMessage();
+         return  $message = $exception->getMessage();
             if(empty($message) and request()->get('error_message')) $message = request()->get('error_message');
             if(empty($message)) $message = $exception->getCode();
             return $this->sendError(__('Can not authorize'));
