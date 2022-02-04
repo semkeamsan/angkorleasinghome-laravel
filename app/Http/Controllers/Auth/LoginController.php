@@ -106,6 +106,7 @@ class LoginController extends Controller
 
                 $userByEmail = User::query()->where('email', $user->getEmail())->first();
                 if (!empty($userByEmail)) {
+                    Auth::login($userByEmail);
                     return redirect()->route('login')->with('error', __('Email :email exists. Can not register new account with your social email', ['email' => $user->getEmail()]));
                 }
 

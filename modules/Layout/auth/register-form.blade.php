@@ -55,7 +55,7 @@
     @if(setting_item('facebook_enable') or setting_item('google_enable') or setting_item('twitter_enable'))
         <div class="advanced">
             <p class="text-center f14 c-grey">{{__("or continue with")}}</p>
-            <div class="row">
+            <div class="row justify-content-center">
                 @if(setting_item('facebook_enable'))
                     <div class="col-xs-12 col-sm-4">
                         <a href="{{url('/social-login/facebook')}}" class="btn btn_login_fb_link"
