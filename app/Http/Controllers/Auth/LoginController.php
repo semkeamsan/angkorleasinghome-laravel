@@ -158,7 +158,8 @@ class LoginController extends Controller
             if(empty($message) and request()->get('error_message')) $message = request()->get('error_message');
             if(empty($message)) $message = $exception->getCode();
 
-            return redirect()->route('login')->with('error',$message);
+            // return redirect()->route('login')->with('error',$message);
+            return redirect()->to('login')->with('error', __('Can not authorize'));
         }
     }
 
