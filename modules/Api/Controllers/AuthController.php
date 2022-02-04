@@ -335,16 +335,4 @@ class AuthController extends Controller
             return $this->sendError(__('Can not authorize'));
         }
     }
-
-    public function login()
-    {
-        $credentials = request(['email', 'password']);
-
-        if (! $token = auth('api')->attempt($credentials)) {
-            return response()->json(['status'=>0,'message' => __('Password is not correct'),'status'=>0], 401);
-        }
-
-        return $this->respondWithToken($token);
-    }
-
 }
