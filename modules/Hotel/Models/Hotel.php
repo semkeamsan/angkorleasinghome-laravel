@@ -1118,10 +1118,11 @@ class Hotel extends Bookable
             $data['allow_full_day'] = $this->allow_full_day;
             $data['booking_fee'] = setting_item_array('hotel_booking_buyer_fees');
             if (!empty($location_id = $this->location_id)) {
-                $related =  parent::query()->where('location_id', $location_id)->where("status", "publish")->take(4)->whereNotIn('id', [$this->id])->with(['location','translations','hasWishList'])->get();
-                $data['related'] = $related->map(function ($related) {
-                        return $related->dataForApi();
-                    }) ?? null;
+                // $related =  parent::query()->where('location_id', $location_id)->where("status", "publish")->take(4)->whereNotIn('id', [$this->id])->with(['location','translations','hasWishList'])->get();
+                // $data['related'] = $related->map(function ($related) {
+                //         return $related->dataForApi();
+                //     }) ?? null;
+                $data['related'] = [];
             }
             $data['terms'] = Terms::getTermsByIdForAPI($this->terms->pluck('term_id'));
         }else{

@@ -80,12 +80,25 @@ class UserController extends Controller
                 'review_score' =>  $service->getScoreReview() ?? null,
                 'service_type' =>  $service->getModelName() ?? null,
             ];
+            if(@$item['object_model'] == 'hotel'){
+                $item['service']['price_enable'] = $service->price_enable??0;
+                $item['service']['price_month_enable'] = $service->price_month_enable??0;
+                $item['service']['price_year_enable'] = $service->price_year_enable??0;
+                $item['service']['price_month'] = $service->price_month;
+                $item['service']['price_year'] = $service->price_year;
+                $item['service']['bed'] = $service->bed;
+                $item['service']['bath'] = $service->bath;
+            }
             $rows[] = $item;
         }
         return $this->sendSuccess(
             [
                 'data'=>$rows,
-                'total'=>$query->total(),
+                'total' => $query->total(),
+                'currentPage' => $query->currentPage(),
+                'lastPage' => $query->lastPage(),
+                'perPage' => $query->perPage(),
+                'lastPage' => $query->lastPage(),
                 'total_pages'=>$query->lastPage(),
             ]
         );
