@@ -354,7 +354,7 @@ class BookingController extends \Modules\Booking\Controllers\BookingController
             return $this->sendError(__("You have to login in to do this"))->setStatusCode(401);
         }
         if(request()->user() && !request()->user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
-            return $this->sendError(__("You have to verify email first"), ['url' => url('/email/verify')]);
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/auth/email/resend/verify')]);
         }
 
         $validator = Validator::make($request->all(), [

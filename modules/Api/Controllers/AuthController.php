@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Password;
+use Modules\Vendor\Models\VendorRequest;
+use Modules\User\Events\NewVendorRegistered;
 use Illuminate\Validation\ValidationException;
 use Modules\User\Events\SendMailUserRegistered;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -108,9 +110,6 @@ class AuthController extends Controller
      */
     public function me()
     {
-        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
-            return $this->sendError(__("You have to verify email first"), ['url' => url('api/email/resend/verify')]);
-        }
         $user = request()->user();
 
         if(!empty($user['avatar_id'])){
@@ -121,6 +120,10 @@ class AuthController extends Controller
             $user['avatar_thumb_url'] = request()->user()->getAvatarUrl();
         }
 
+        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/auth/email/resend/verify')]);
+        }
+
         return $this->sendSuccess([
             'data'=>$user
         ]);
@@ -128,7 +131,7 @@ class AuthController extends Controller
 
     public function updateUser(Request $request){
         if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
-            return $this->sendError(__("You have to verify email first"), ['url' => url('api/email/resend/verify')]);
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/auth/email/resend/verify')]);
         }
         $user = Auth::user();
         $rules = [
@@ -226,12 +229,39 @@ class AuthController extends Controller
 
     public function verify(Request $request)
     {
-        if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
+        if(Auth::user() && !$request->user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
             $request->user()->sendEmailVerificationNotification();
             return $this->sendSuccess(__("A fresh verification link has been sent to your email address."));
         }
 
         return $this->me();
+    }
+
+    public function upgradeVendor(Request $request){
+        $user = $request->user();
+        $vendorRequest = VendorRequest::query()->where("user_id",$user->id)->where("status","pending")->first();
+        if(!empty($vendorRequest)){
+            return $this->sendError(__("You have just done the become vendor request, please wait for the Admin's approved"));
+        }
+        // check vendor auto approved
+        $vendorAutoApproved = setting_item('vendor_auto_approved');
+         $dataVendor['role_request'] = setting_item('vendor_role');
+        if ($vendorAutoApproved) {
+            if ($dataVendor['role_request']) {
+                $user->assignRole($dataVendor['role_request']);
+            }
+            $dataVendor['status'] = 'approved';
+            $dataVendor['approved_time'] = now();
+        } else {
+            $dataVendor['status'] = 'pending';
+        }
+        $vendorRequestData = $user->vendorRequest()->save(new VendorRequest($dataVendor));
+        try {
+            event(new NewVendorRegistered($user, $vendorRequestData));
+        } catch (Exception $exception) {
+            Log::warning("NewVendorRegistered: " . $exception->getMessage());
+        }
+        return $this->sendSuccess(__("Request vendor success!"));
     }
 
 }

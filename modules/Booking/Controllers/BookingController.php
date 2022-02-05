@@ -112,7 +112,7 @@ class BookingController extends \App\Http\Controllers\Controller
         }
 
         if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user') == 1){
-            return $this->sendError(__("You have to verify email first"), ['url' => url('/email/verify')]);
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/auth/email/resend/verify')]);
         }
         /**
          * @param Booking $booking
@@ -139,7 +139,7 @@ class BookingController extends \App\Http\Controllers\Controller
 
     public function doCheckout(Request $request)
     {
-       
+
         /**
          * @var $booking Booking
          * @var $user User
@@ -373,7 +373,7 @@ class BookingController extends \App\Http\Controllers\Controller
             return $this->sendError(__("You have to login in to do this"))->setStatusCode(401);
         }
         if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
-            return $this->sendError(__("You have to verify email first"), ['url' => url('/email/verify')]);
+            return $this->sendError(__("You have to verify email first"), ['url' => url('api/auth/email/resend/verify')]);
         }
 
         $validator = Validator::make($request->all(), [

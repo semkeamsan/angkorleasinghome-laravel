@@ -9,7 +9,7 @@
 		],
 		'twilio'=>[
 			'url'=>'https://api.twilio.com',
-			'from'=>env('SMS_TWILIO_FROM','+12019480710'),
+			'from'=>env('SMS_TWILIO_FROM'),
 			'sid'=>env('SMS_TWILIO_ACCOUNTSID',''),
 			'token'=>env('SMS_TWILIO_TOKEN',''),
 		],
