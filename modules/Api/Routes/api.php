@@ -33,6 +33,7 @@ Route::get('home-page', 'BookingController@getHomeLayout')->name('api.get_home_l
 Route::group(['middleware' => 'api'], function ($router) {
     Route::get('social-login/{provider}', 'AuthSocialController@socialLogin');
     Route::get('social-callback/{provider}', 'AuthSocialController@socialCallBack');
+    Route::post('social-login/{provider}', 'AuthSocialController@social');
 });
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', 'AuthController@login');

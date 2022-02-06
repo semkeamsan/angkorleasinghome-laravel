@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Modules\User\Events\SendMailUserRegistered;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use PDO;
 
 class AuthSocialController extends Controller
 {
@@ -138,5 +139,82 @@ class AuthSocialController extends Controller
             if(empty($message)) $message = $exception->getCode();
             return $this->sendError(__('Can not authorize'));
         }
+    }
+
+    public function social(Request $request,$provider)
+    {
+
+        try{
+            if($request->id && $provider){
+                $existUser = User::getUserBySocialId($provider, $request->id);
+                if (empty($existUser)) {
+                    $meta = UserMeta::query()->where('name', 'social_' . $provider . '_id')->where('val', $request->id)->first();
+                    if (!empty($meta)) {
+                        $meta->delete();
+                    }
+
+                    if (!empty($request->email)) {
+                        $userByEmail = User::query()->where('email', $request->email)->first();
+
+                        if (!empty($userByEmail)) {
+                            if (!$userByEmail->hasVerifiedEmail()) {
+                                $userByEmail->markEmailAsVerified();
+                            }
+                            $token = auth('api')->login($userByEmail);
+                            return $this->respondWithToken($token);
+                        }
+
+                    }
+
+                    // Create New User
+                    $realUser = new User();
+                    $realUser->email = $request->email;
+                    $realUser->password = Hash::make(uniqid() . time());
+                    $realUser->name = $request->name;
+                    $realUser->first_name = $request->name;
+                    $realUser->status = 'publish';
+
+                    $realUser->save();
+
+                    $realUser->addMeta('social_' . $provider . '_id', $request->id);
+                    $realUser->addMeta('social_' . $provider . '_email', $request->email);
+                    $realUser->addMeta('social_' . $provider . '_name', $request->name);
+                    $realUser->addMeta('social_' . $provider . '_avatar', $request->avatar);
+                    $realUser->addMeta('social_meta_avatar', $request->avatar);
+
+                    $realUser->assignRole('customer');
+
+                    try {
+                        event(new SendMailUserRegistered($realUser));
+                    } catch (Exception $exception) {
+                        Log::warning("SendMailUserRegistered: " . $exception->getMessage());
+                    }
+
+                    // Login with user
+                    $realUser->markEmailAsVerified();
+                    $token = auth('api')->login($realUser);
+                    return $this->respondWithToken($token);
+
+                } else {
+
+                    if ($existUser->deleted == 1) {
+                        return $this->sendError(__('User blocked'));
+                    }
+                    if (in_array($existUser->status, ['blocked'])) {
+                        return $this->sendError(__('Your account has been blocked'));
+                    }
+                    $token = auth('api')->login($existUser);
+                    return $this->respondWithToken($token);
+                }
+            }
+        }catch (\Exception $exception)
+        {
+         return  $message = $exception->getMessage();
+            if(empty($message) and request()->get('error_message')) $message = request()->get('error_message');
+            if(empty($message)) $message = $exception->getCode();
+            return $this->sendError(__('Can not authorize'));
+        }
+
+        return $this->sendError(__('Can not authorize'));
     }
 }

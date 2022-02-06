@@ -119,6 +119,7 @@ class AuthController extends Controller
             $user['avatar_url'] = request()->user()->getAvatarUrl();
             $user['avatar_thumb_url'] = request()->user()->getAvatarUrl();
         }
+        $user['role_name'] = request()->user()->role_name;
 
         if(Auth::user() && !Auth::user()->hasVerifiedEmail() && setting_item('enable_verify_email_register_user')==1){
             return $this->sendError(__("You have to verify email first"), ['url' => url('api/auth/email/resend/verify')]);
