@@ -93,7 +93,18 @@
     </script>
     <script src="{{ asset('libs/tinymce/js/tinymce/tinymce.min.js') }}" ></script>
     @yield('script.head')
+    <style>
+        .image-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
 
+        .image-item .inner {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body class="{{($enable_multi_lang ?? '') ? 'enable_multi_lang' : '' }} @if(setting_item('site_enable_multi_lang')) site_enable_multi_lang @endif">
 <div id="app">

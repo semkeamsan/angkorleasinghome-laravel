@@ -1,5 +1,6 @@
 
 {{-- Room Lease Expert --}}
+
 @isset($terms)
 <div id="front-terms" class="d-none">
     <div class="container space-bottom-1">
@@ -268,22 +269,61 @@
         <div class="container">
             <div class="row justify-content-xl-between mb-3">
                 @if(!empty($info_contact = setting_item_with_lang('footer_info_text')))
-                <div class="col-12 col-lg-4 col-xl-3dot1 mb-6 mb-md-10 mb-xl-0">
+                <div class="col-12 col-lg-3 mb-6 mb-md-10 mb-xl-0">
                     {!! $info_contact !!}
                 </div>
-                @endif
-                @if($list_widget_footers = setting_item_with_lang("list_widget_footer"))
-                <?php $list_widget_footers = json_decode($list_widget_footers);?>
-                @foreach($list_widget_footers as $key=>$item)
-                <div class="col-12 col-md-6 col-lg-{{$item->size ?? '3'}} col-xl-1dot8 mb-6 mb-md-10 mb-xl-0">
-                    <div class="nav-footer">
-                        <h4 class="h6 font-weight-bold mb-2 mb-xl-4">{{$item->title}}</h4>
-                        {!! clean($item->content) !!}
-                    </div>
+                <div class="col-12 col-lg-9">
+                   <div class="row">
+                    <div class="col-4">
+                        <div class="row justify-content-xl-between mb-3">
+                            @if($list_widget_footers = setting_item_with_lang("list_widget_footer"))
+                              <?php $list_widget_footers = json_decode($list_widget_footers);?>
+                              @foreach($list_widget_footers as $key=>$item)
+                              <div class="col-12 col-md-6 col-lg-{{$item->size ?? '3'}} mb-6 mb-md-10 mb-xl-0">
+                                  <div class="nav-footer">
+                                      <h4 class="h6 font-weight-bold mb-2 mb-xl-4">{{$item->title}}</h4>
+                                      {!! clean($item->content) !!}
+                                  </div>
+                              </div>
+                              @endforeach
+                              @endif
+                            
+                      </div>
+                       </div>
+                       <div class="col-8">
+                        <div class="row">
+                            <div class="col-12 mb-6 mb-md-10 mb-xl-0">
+                                @if (setting_item('partner_gallery') && !request()->is('user*'))
+                                    <div class="front-partner-gallery">
+                                        <div class="list-partners">
+                                            <div class="form-row  pb-lg-1 text-center text-md-left">
+                                                @if (!empty(setting_item('partner_gallery')))
+                                                    @php
+                                                        $gallery = explode(',', setting_item('partner_gallery'));
+                                                    @endphp
+                                                    @foreach ($gallery as $item)
+                                                        @if ($item)
+                                                            <div class="col-3 mb-2 text-center">
+                                                                <img src="{{ get_file_url($item, 'full') }}" style="object-fit: contain;width: 140px;height: 140px;">
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                            </div>
+                        </div>
+                       </div>
+                   </div>
+                 
                 </div>
-                @endforeach
                 @endif
+              
             </div>
+
+
             <div class="row">
                 <div class="col-xl-6 offset-xl-3">
                     <div class="mb-4 mb-xl-2">
@@ -448,6 +488,8 @@
 <script src="{{asset('libs/custombox/custombox.min.js')}}"></script>
 <script src="{{asset('libs/custombox/custombox.legacy.min.js')}}"></script>
 <script src="{{ asset('libs/custombox/window.modal.js') }}"></script>
+<script type="text/javascript" src="{{ asset("libs/ion_rangeslider/js/ion.rangeSlider.min.js") }}"></script>
+
 
 @if(
 setting_item('tour_location_search_style')=='autocompletePlace' || setting_item('hotel_location_search_style')=='autocompletePlace' || setting_item('car_location_search_style')=='autocompletePlace' || setting_item('space_location_search_style')=='autocompletePlace' || setting_item('hotel_location_search_style')=='autocompletePlace' || setting_item('event_location_search_style')=='autocompletePlace'
@@ -481,3 +523,226 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
 @yield('footer')
 
 @php \App\Helpers\ReCaptchaEngine::scripts() @endphp
+<script>
+    var isEmpty = function isEmpty(f) {
+		return (/^function[^{]+\{\s*\}/m.test(f.toString())
+		);
+	}
+    var oldvalPrice = {};
+    	$(".bravo-filter-price").each(function () {
+		var input_price = $(this).find(".filter-price");
+		var $this = input_price,
+			type = $this.data('type'),
+			minResult = $this.data('result-min'),
+			maxResult = $this.data('result-max'),
+			step = $this.data('step'),
+			secondaryResult = $this.data('result-secondary'),
+			secondaryValue = $this.data('secondary-value'),
+			hasGrid = Boolean($this.data('grid')),
+			graphForegroundTarget = $this.data('foreground-target');
+
+            oldvalPrice = {
+                from : input_price.data('from'),
+                to : input_price.data('to'),
+            };
+		var config = {
+			hide_min_max: true,
+			hide_from_to: true,
+			onStart: function () {
+			},
+			onChange: function () {
+			},
+			onFinish: function () {
+				
+			},
+			onUpdate: function (price) {
+              
+			}
+		};
+		$this.ionRangeSlider({
+            step:step,
+			hide_min_max: true,
+			hide_from_to: true,
+			onStart: isEmpty(config.onStart) === true ? function (data) {
+				if (graphForegroundTarget) {
+					var w = (100 - (data.from_percent + (100 - data.to_percent)));
+
+					$(graphForegroundTarget).css({
+						left: data.from_percent + '%',
+						width: w + '%'
+					});
+
+					$(graphForegroundTarget + '> *').css({
+						width: $(graphForegroundTarget).parent().width(),
+						'transform': 'translateX(-' + data.from_percent + '%)'
+					});
+				}
+				if (minResult && type === 'single') {
+					if ($(minResult).is('input')) {
+						$(minResult).val(data.from);
+					} else {
+						$(minResult).text(data.from);
+					}
+				} else if (minResult || maxResult && type === 'double') {
+					if ($(minResult).is('input')) {
+						$(minResult).val(data.from);
+					} else {
+						$(minResult).text(data.from);
+					}
+
+					if ($(minResult).is('input')) {
+						$(maxResult).val(data.to);
+					} else {
+						$(maxResult).text(data.to);
+					}
+				}
+				if (hasGrid && type === 'single') {
+					$(data.slider).find('.irs-grid-text').each(function (i) {
+						var current = $(this);
+
+						if ($(current).text() === data.from) {
+							$(data.slider).find('.irs-grid-text').removeClass('current');
+							$(current).addClass('current');
+						}
+					});
+				}
+				if (secondaryResult) {
+					secondaryValue.steps.push(data.max + 1);
+					secondaryValue.values.push(secondaryValue.values[secondaryValue.values.length - 1] + 1);
+
+					for (var i = 0; i < secondaryValue.steps.length; i++) {
+						if (data.from >= secondaryValue.steps[i] && data.from < secondaryValue.steps[i + 1]) {
+							if ($(secondaryResult).is('input')) {
+								$(secondaryResult).val(secondaryValue.values[i]);
+							} else {
+								$(secondaryResult).text(secondaryValue.values[i]);
+							}
+						}
+					}
+				}
+			} : config.onStart,
+			onChange: isEmpty(config.onChange) === true ? function (data) {
+				if (graphForegroundTarget) {
+					var w = (100 - (data.from_percent + (100 - data.to_percent)));
+
+					$(graphForegroundTarget).css({
+						left: data.from_percent + '%',
+						width: w + '%'
+					});
+
+					$(graphForegroundTarget + '> *').css({
+						width: $(graphForegroundTarget).parent().width(),
+						'transform': 'translateX(-' + data.from_percent + '%)'
+					});
+				}
+
+				if (minResult && type === 'single') {
+					if ($(minResult).is('input')) {
+						$(minResult).val(data.from);
+					} else {
+						$(minResult).text(data.from);
+					}
+				} else if (minResult || maxResult && type === 'double') {
+					if ($(minResult).is('input')) {
+						$(minResult).val(data.from);
+					} else {
+						$(minResult).text(data.from);
+					}
+
+					if ($(minResult).is('input')) {
+						$(maxResult).val(data.to);
+					} else {
+						$(maxResult).text(data.to);
+					}
+				}
+
+				if (hasGrid && type === 'single') {
+					$(data.slider).find('.irs-grid-text').each(function (i) {
+						var current = $(this);
+
+						if ($(current).text() === data.from) {
+							$(data.slider).find('.irs-grid-text').removeClass('current');
+							$(current).addClass('current');
+						}
+					});
+				}
+
+				if (secondaryResult) {
+					for (var i = 0; i < secondaryValue.steps.length; i++) {
+						if (data.from >= secondaryValue.steps[i] && data.from < secondaryValue.steps[i + 1]) {
+							if ($(secondaryResult).is('input')) {
+								$(secondaryResult).val(secondaryValue.values[i]);
+							} else {
+								$(secondaryResult).text(secondaryValue.values[i]);
+							}
+						}
+					}
+				}
+			} : config.onChange,
+			onFinish: isEmpty(config.onFinish) === true ? function (data) {
+			} : config.onFinish,
+			onUpdate: isEmpty(config.onUpdate) === true ? function (data) {
+			} : config.onUpdate
+		});
+       
+       
+        $(minResult).on('input',function () {
+        var min = $(this).val();
+        var max = $(`#rangeSliderMaxResult`).val();
+
+        var instance = input_price.data("ionRangeSlider");
+
+            instance.update({
+                from: min,
+            });
+        });
+        $(maxResult).on('input',function () {
+        var min = $(`#rangeSliderMinResult`).val();
+        var max = $(this).val()
+
+        var instance = input_price.data("ionRangeSlider");
+
+        instance.update({
+                to: max,
+            });
+        
+    });
+	});
+    $(document).on('click', '.filter-item .dropdown-menu', function (e) {
+
+        if(!$(e.target).hasClass('btn-apply-advances')){
+            e.stopPropagation();
+
+        }
+    
+
+
+       
+    });
+    $(`.btn-apply-advances`).click(function(){
+        var price = $(".filter-price").data("ionRangeSlider").result;
+        oldvalPrice = price;
+        var instance = $(".filter-price").data("ionRangeSlider").update({
+                from: oldvalPrice.from,
+                to: oldvalPrice.to,
+            });
+
+        $(`#show-price-range input`).val(`${price.from} → ${price.to}`);
+    });
+    
+    $('#price-range-dropdown').on('show.bs.dropdown', function () {
+        //oldvalPrice = $(".filter-price").data("ionRangeSlider").result;
+    })
+    $('#price-range-dropdown').on('hide.bs.dropdown', function () {
+        var instance = $(".filter-price").data("ionRangeSlider").update({
+                from: oldvalPrice.from,
+                to: oldvalPrice.to,
+        });
+        $(`#rangeSliderMinResult`).val(oldvalPrice.from);
+        $(`#rangeSliderMaxResult`).val(oldvalPrice.to);
+        $(".filter-price").val(`${oldvalPrice.from};${oldvalPrice.to}`);
+    })
+
+      
+  
+</script>

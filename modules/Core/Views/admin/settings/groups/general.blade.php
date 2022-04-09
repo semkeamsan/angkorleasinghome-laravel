@@ -863,6 +863,24 @@
         </div>
     </div>
 </div>
+<hr>
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="form-group-title">{{__("Partner settings")}}</h3>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel">
+            <div class="panel-body">
+                @if(is_default_lang())
+                    <div class="form-group">
+                        <label class="control-label">{{__("Logo")}}</label>
+                        {!! \Modules\Media\Helpers\FileHelper::fieldGalleryUpload('partner_gallery',setting_item('partner_gallery')) !!}
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
 @section('script.body')
 <script src="{{asset('libs/ace/src-min-noconflict/ace.js')}}" type="text/javascript" charset="utf-8"></script>
 <script>

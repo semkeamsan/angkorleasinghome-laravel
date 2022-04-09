@@ -140,6 +140,18 @@
         </div>
     </div>
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("libs/ion_rangeslider/css/ion.rangeSlider.min.css") }}"/>
+    <style>
+        .filter-dropdown.dropdown-menu{
+            margin-top: -1px;
+            box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-width: 350px;
+            border-radius: 0;
+        }
+    </style>
 </header>
 
 

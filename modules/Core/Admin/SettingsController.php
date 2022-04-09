@@ -121,6 +121,7 @@ class SettingsController extends AdminController
                     'term_subtitle',
                     'term_properties',
                     'term_enable_travel',
+                    'partner_gallery',
                 ];
                 $filter_demo_mode = [
                     'home_page_id',
