@@ -1,4 +1,3 @@
-
 {{-- Room Lease Expert --}}
 
 @isset($terms)
@@ -272,55 +271,51 @@
                 <div class="col-12 col-lg-3 mb-6 mb-md-10 mb-xl-0">
                     {!! $info_contact !!}
                 </div>
+                @endif
                 <div class="col-12 col-lg-9">
                    <div class="row">
-                    <div class="col-4">
-                        <div class="row justify-content-xl-between mb-3">
-                            @if($list_widget_footers = setting_item_with_lang("list_widget_footer"))
-                              <?php $list_widget_footers = json_decode($list_widget_footers);?>
-                              @foreach($list_widget_footers as $key=>$item)
-                              <div class="col-12 col-md-6 col-lg-{{$item->size ?? '3'}} mb-6 mb-md-10 mb-xl-0">
-                                  <div class="nav-footer">
-                                      <h4 class="h6 font-weight-bold mb-2 mb-xl-4">{{$item->title}}</h4>
-                                      {!! clean($item->content) !!}
-                                  </div>
-                              </div>
-                              @endforeach
-                              @endif
-                            
-                      </div>
-                       </div>
-                       <div class="col-8">
-                        <div class="row">
-                            <div class="col-12 mb-6 mb-md-10 mb-xl-0">
-                                @if (setting_item('partner_gallery') && !request()->is('user*'))
-                                    <div class="front-partner-gallery">
-                                        <div class="list-partners">
-                                            <div class="form-row  pb-lg-1 text-center text-md-left">
-                                                @if (!empty(setting_item('partner_gallery')))
-                                                    @php
-                                                        $gallery = explode(',', setting_item('partner_gallery'));
-                                                    @endphp
-                                                    @foreach ($gallery as $item)
-                                                        @if ($item)
-                                                            <div class="col-3 mb-2 text-center">
-                                                                <img src="{{ get_file_url($item, 'full') }}" style="object-fit: contain;width: 140px;height: 140px;">
-                                                            </div>
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
-                            </div>
+                    @if($list_widget_footers = setting_item_with_lang("list_widget_footer"))
+                    <?php $list_widget_footers = json_decode($list_widget_footers);?>
+                    @foreach($list_widget_footers as $key=>$item)
+                    <div class="col-12 col-md-6 col-lg-{{$item->size ?? '3'}} mb-6 mb-md-10 mb-xl-0">
+                        <div class="nav-footer">
+                            <h4 class="h6 font-weight-bold mb-2 mb-xl-4">{{$item->title}}</h4>
+                            {!! clean($item->content) !!}
                         </div>
-                       </div>
-                   </div>
-                 
+                    </div>
+                    @endforeach
+                    @endif
+
+            </div>
+
+                   <div class="row">
+                    <div class="col-12 mb-6 mb-md-10 mb-xl-0">
+                        @if (setting_item('partner_gallery') && !request()->is('user*'))
+                            <div class="front-partner-gallery">
+                                <div class="list-partners">
+                                    <div class="form-row  pb-lg-1 text-center text-md-left">
+                                        @if (!empty(setting_item('partner_gallery')))
+                                            @php
+                                                $gallery = explode(',', setting_item('partner_gallery'));
+                                            @endphp
+                                            @foreach ($gallery as $item)
+                                                @if ($item)
+                                                    <div class="col-2 mb-2 text-center">
+                                                        <img src="{{ get_file_url($item, 'full') }}" style="object-fit: contain;width: 140px;height: 140px;">
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                    </div>
                 </div>
-                @endif
-              
+
+                </div>
+
+
             </div>
 
 
@@ -553,10 +548,10 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
 			onChange: function () {
 			},
 			onFinish: function () {
-				
+
 			},
 			onUpdate: function (price) {
-              
+
 			}
 		};
 		$this.ionRangeSlider({
@@ -684,8 +679,8 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
 			onUpdate: isEmpty(config.onUpdate) === true ? function (data) {
 			} : config.onUpdate
 		});
-       
-       
+
+
         $(minResult).on('input',function () {
         var min = $(this).val();
         var max = $(`#rangeSliderMaxResult`).val();
@@ -705,7 +700,7 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
         instance.update({
                 to: max,
             });
-        
+
     });
 	});
     $(document).on('click', '.filter-item .dropdown-menu', function (e) {
@@ -714,10 +709,10 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
             e.stopPropagation();
 
         }
-    
 
 
-       
+
+
     });
     $(`.btn-apply-advances`).click(function(){
         var price = $(".filter-price").data("ionRangeSlider").result;
@@ -729,7 +724,7 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
 
         $(`#show-price-range input`).val(`${price.from} → ${price.to}`);
     });
-    
+
     $('#price-range-dropdown').on('show.bs.dropdown', function () {
         //oldvalPrice = $(".filter-price").data("ionRangeSlider").result;
     })
@@ -743,6 +738,6 @@ setting_item('tour_location_search_style')=='autocompletePlace' || setting_item(
         $(".filter-price").val(`${oldvalPrice.from};${oldvalPrice.to}`);
     })
 
-      
-  
+
+
 </script>
